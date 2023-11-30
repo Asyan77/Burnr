@@ -2,13 +2,15 @@ import { combineReducers, applyMiddleware, compose, legacy_createStore } from 'r
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import sessionReducer from './session';
+import userReducer from './user';
 // import sessionsReducer from './sessionsReducer';
 // import photoReducer from './photosReducer';
 // import commentsReducer from './commentsReducer';
 
 
 const rootReducer = combineReducers({
-    session: sessionReducer
+    session: sessionReducer,
+    user: userReducer
   //   photos: photoReducer,
   //   comments: commentsReducer
 })

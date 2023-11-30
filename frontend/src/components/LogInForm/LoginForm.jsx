@@ -1,44 +1,42 @@
-import './SignInForm.css'
-import React, { useState, useEffect } from 'react';
+import './LoginForm.css'
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../../store/sessionsReducer';
-import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+
+import { Link, Navigate } from 'react-router-dom';
+import { loginUser } from '../../store/session';
 
 
 function LogInForm() {
+  const dispatch = useDispatch()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const dispatch = useDispatch()
   const currentUser = useSelector(state => state.session.currentUser)
+  const [errors, setErrors] = useState([])
   let burnrLogoBike = "assets/logos/burnrLogoBike.png"
 
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
   };
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(loginUser({email: email, password: password}))
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setErrors([])
+    dispatch(loginUser ({email: email, password: password}))
   };
 
   const demoUser = async (e) => {
     e.preventDefault()
-
     const demoEmail = 'zach@mail.com'
     const demoPassword = 'zachword'
-
     return await dispatch(loginUser({email: demoEmail, password: demoPassword}))
   }
   
-    if(currentUser) {
-      return <Redirect to='/photos'/>
-    }
-
+  if (currentUser) return <Navigate to='explore' replace={true} />
+  
   return (
     <div className='outerFormBox'>
       <div className="sign-in-box">
