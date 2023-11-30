@@ -37,25 +37,22 @@ function LogInForm() {
   if (currentUser) return <Navigate to='explore' replace={true} />
   
   return (
-    <div className='outerFormBox'>
-      <div className="sign-in-box">
-        <form onSubmit={handleSubmit}>
-          <img src={burnrLogoBike} className='form-logo' alt='burnr-logo'/>
-          <h2>Log In to Burnr</h2>
+    <div className='outer-form-box'>
+        <form className="form" onSubmit={handleSubmit}>
+          <img src="/assests/logos/burnrLogo2.png" className='form-logo' alt='burnr-logo'/>
+          <div className='header'>Log In to Burnr</div>
           <div className='form-fields'>
-            <input className='email-btn' type="text" id="email" value={email} placeholder='Email' onChange={handleEmailChange} required/>
-            <input className='password-btn' type="password" id="password" value={password} placeholder='Password' onChange={handlePasswordChange} required/>
+            <input className='email-field' type="text" id="email" value={email} placeholder='Email' onChange={handleEmailChange} required/>
+            <input className='password-field' type="password" id="password" value={password} placeholder='Password' onChange={handlePasswordChange} required/>
           </div>
           <div className='btns-bottom-of-form'>
               <button className='sign-in-btn' type="submit">Sign In</button>
                 <br></br>
               <button className='demo-sign-up-btn' onClick={event => demoUser(event)}>Demo User</button>
-            <div className='gray-line' />
-              <div className='already-a-member-sign-up'> Not a Burnr member? <Link to='/signup' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}>Sign up here.</Link></div>       
-           </div>
+          </div>
+          <div className='already-a-member-sign-up'> Not a Burnr member? <Link to='/signup' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}>Sign up here.</Link></div>       
         </form>
-      </div>
-   </div>
+    </div>
   );
 }
 

@@ -27,8 +27,7 @@ function NavBar() {
 
   return (
     <nav className="nav-bar">
-        <Outlet/>
-        <NavLink className='links-on-nav-bar' to='/' replace={true} >
+        <NavLink className='links-on-nav-bar' to='/' >
             <img src="/assests/logos/burnrLogo2.png" className='logo-navbar' alt='' />
        </NavLink>  
        <input className="search-bar" type="text" placeholder="Photos, people, or groups" disabled/>
@@ -43,7 +42,7 @@ function NavBar() {
               <NavLink to={`/user/${currentUser.id}`} className='left-side-links-navbar'>You</NavLink>
             </div> 
 
-            <NavLink className='links-on-nav-bar' to='/upload' exact={true}>
+            <NavLink className='links-on-nav-bar' to='/upload'>
               <div className='upload-icon-navbar'>
                 <img src={uploadIcon} className='upload-icon' alt='' />
               </div>

@@ -10,42 +10,28 @@ const router = createBrowserRouter([
     path: '/',
     element: 
       <>
-       <NavBar/>
+        <NavBar/>
+        <Outlet/>
       </>,
+    
     children: [
-      {
-        // index: true,
-        element:  <SplashPage />
-      },
-      {
-        path: 'signup',
-        element: <NewUserForm/>
-      },
-      {
-        path: 'login',
-        element: <LogInForm />
-      },
-      {
-        path: 'explore',
-        element: <ExplorePage />
-      },
+      { index: true, element:  <SplashPage /> },
+      { path: 'signup', element: <NewUserForm/>  },
+      { path: 'login', element: <LogInForm /> },
+      { path: 'explore', element: <ExplorePage /> },
     ]
   },
-  // {
-  //   path: 'login',
-  //   element: <LogInForm />
-  // },
   {
     path: '*',
-    element: <Navigate to={'/'} />
+    element: <Navigate to={'/'} replace={true}/>
   }
 ])
 
-
-
 function App() {
   return (
-     <RouterProvider router={router} />
+    <>
+      <RouterProvider router={router} />
+    </>
     ) 
 }
 

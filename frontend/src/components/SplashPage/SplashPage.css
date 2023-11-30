@@ -1,3 +1,13 @@
 h1 {
     background-color: aquamarine;
 }
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://scontent-sjc3-1.xx.fbcdn.net/v/t1.18169-9/10660289_10202898267551590_5317642998162055255_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=4dc865&_nc_ohc=HiwGjHH0VhwAX9NrC2Z&_nc_ht=scontent-sjc3-1.xx&oh=00_AfCPAm2NmBCzqKrpZW64LJ0nSiaNRrReaarqECBzT-vmlQ&oe=65908BB7');
+    background-size: cover; /* Adjust background image sizing */
+	background-size: 100vh;
+    background-size: 100vw;
+    background-repeat: no-repeat; /* Prevent image from repeating */
+  }

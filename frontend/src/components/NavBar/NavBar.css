@@ -49,17 +49,7 @@
     height: 6vh;
   }
 
-  /* .log-out-btn {
-    background-color: aliceblueffc107;
-    color: #ece4e4;
-    border: 1px solid black;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-right: 10px;
-    border-radius: 5px;
-    width: 10%;
-  } */
-
+  
   .logged-out-nav-btns {
     display: flex;
     justify-content: space-between;
@@ -68,7 +58,7 @@
     height: 5vh;
     /* background-color: #c42d2d; */
   }
-
+  
   .signin-btn {
     text-decoration:none;
     color: white;
@@ -94,6 +84,17 @@
     margin-right: 4%;
   }
   
+  /* .log-out-btn {
+    background-color: aliceblueffc107;
+    color: #ece4e4;
+    border: 1px solid black;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 5px;
+    width: 10%;
+  } */
+
   /* Responsive styles for smaller screens */
   @media (max-width: 768px) {
     .nav-bar {
