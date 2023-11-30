@@ -1,17 +1,21 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import SplashPage from "./components/SplashPage/SplashPage";
 import LogInForm from "./components/LogInForm/LoginForm";
 import ExplorePage from "./components/ExplorePage/ExplorePage";
 import NewUserForm from "./components/NewUserForm/NewUserForm";
-
+import NavBar from "./components/NavBar/NavBar";
+import { Outlet } from "react-router-dom";
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <SplashPage />,
+    element: 
+      <>
+       <NavBar/>
+      </>,
     children: [
       {
-        index: true,
-        element: <ExplorePage />
+        // index: true,
+        element:  <SplashPage />
       },
       {
         path: 'signup',
@@ -20,9 +24,17 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <LogInForm />
-      }
+      },
+      {
+        path: 'explore',
+        element: <ExplorePage />
+      },
     ]
   },
+  // {
+  //   path: 'login',
+  //   element: <LogInForm />
+  // },
   {
     path: '*',
     element: <Navigate to={'/'} />
@@ -31,9 +43,10 @@ const router = createBrowserRouter([
 
 
 
-
 function App() {
-  return <h1> Burnr part deux </h1>;
+  return (
+     <RouterProvider router={router} />
+    ) 
 }
 
 export default App;

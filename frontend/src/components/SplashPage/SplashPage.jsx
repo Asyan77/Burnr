@@ -6,8 +6,8 @@ function SplashPage () {
     return (
         <>
             <h1>Splash page</h1>
-            <NavBar />
-            <Outlet />
+            {/* <NavBar/> */}
+            {/* <Outlet /> */}
         </>
     )
 }

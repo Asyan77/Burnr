@@ -1,8 +1,9 @@
-import './SignUpForm.css'
-import React, { useState } from 'react';
+import './NewUserForm.css'
+import { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
-import { loginUser, createUser } from '../../store/sessionsReducer';
+import { loginUser } from '../../store/session';
+import { createUser } from '../../store/user';
 
 
 function NewUserForm() {

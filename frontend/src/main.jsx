@@ -7,8 +7,6 @@ import configureStore from './store/store';
 import { csrfFetch, restoreSession } from './utils/csrf';
 import{loginUser, logoutUser} from './store/session'
 
-const csrfToken = sessionStorage.getItem('X-CSRF-Token')
-
 const initializeApp = () => {
   const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
   let initialState;
