@@ -37,20 +37,20 @@ function LogInForm() {
   if (currentUser) return <Navigate to='explore' replace={true} />
   
   return (
-    <div className='outer-form-box'>
-        <form className="form" onSubmit={handleSubmit}>
-          <img src="/assests/logos/burnrLogo2.png" className='form-logo' alt='burnr-logo'/>
-          <div className='header'>Log In to Burnr</div>
-          <div className='form-fields'>
-            <input className='email-field' type="text" id="email" value={email} placeholder='Email' onChange={handleEmailChange} required/>
-            <input className='password-field' type="password" id="password" value={password} placeholder='Password' onChange={handlePasswordChange} required/>
+    <div className='outer-form-box-LI'>
+        <form className="form-LI" onSubmit={handleSubmit}>
+          <img src="/assests/logos/burnrLogo2.png" className='form-logo-LI' alt='burnr-logo'/>
+          <div className='header-LI'>Log In to Burnr</div>
+          <div className='form-fields-LI'>
+            <input className='email-field-LI' type="text" id="email" value={email} placeholder='Email' onChange={handleEmailChange} required/>
+            <input className='password-field-LI' type="password" id="password" value={password} placeholder='Password' onChange={handlePasswordChange} required/>
           </div>
-          <div className='btns-bottom-of-form'>
-              <button className='sign-in-btn' type="submit">Sign In</button>
+          <div className='btns-bottom-of-form-LI'>
+              <button className='sign-in-btn-LI' type="submit">Sign In</button>
                 <br></br>
-              <button className='demo-sign-up-btn' onClick={event => demoUser(event)}>Demo User</button>
+              <button className='demo-sign-up-btn-LI' onClick={event => demoUser(event)}>Demo User</button>
           </div>
-          <div className='already-a-member-sign-up'> Not a Burnr member? <Link to='/signup' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}>Sign up here.</Link></div>       
+          <div className='already-a-member-sign-up-LI'> Not a Burnr member? <Link to='/signup' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}>Sign up here.</Link></div>       
         </form>
     </div>
   );
