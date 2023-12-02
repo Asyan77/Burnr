@@ -1,4 +1,5 @@
 import { deleteSession, loginSession } from "../utils/session_api_utils";
+import { RECEIVE_CURRENT_USER } from "./user";
 
 const SET_CURRENT_USER = 'session/setCurrentUser';
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
@@ -23,7 +24,8 @@ export const loginUser = user => async dispatch => {
     sessionStorage.setItem('currentUser', JSON.stringify(data.user.username));
     dispatch(setCurrentUser(data.user))
   } else {
-    console.log("could not log user in")
+    const data = await res.json()
+    throw data
   }
 }
 
@@ -45,6 +47,10 @@ function sessionReducer(state = {currentUserId : null}, action) {
   const nextState = {...state}
     switch (action.type) {
       case SET_CURRENT_USER:
+        nextState.currentUser = action.user.username
+        nextState.currentUserId = action.user.id
+        return nextState
+      case RECEIVE_CURRENT_USER:
         nextState.currentUser = action.user.username
         nextState.currentUserId = action.user.id
         return nextState

@@ -10,7 +10,7 @@ import userReducer from './user';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
-    user: userReducer
+    users: userReducer
   //   photos: photoReducer,
   //   comments: commentsReducer
 })

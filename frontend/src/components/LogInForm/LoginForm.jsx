@@ -11,8 +11,7 @@ function LogInForm() {
   const [password, setPassword] = useState('');
   const currentUser = useSelector(state => state.session.currentUser)
   const [errors, setErrors] = useState([])
-  let burnrLogoBike = "assets/logos/burnrLogoBike.png"
-
+ 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -21,10 +20,10 @@ function LogInForm() {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([])
-    dispatch(loginUser ({email: email, password: password}))
+   return await dispatch(loginUser ({email: email, password: password}))
   };
 
   const demoUser = async (e) => {

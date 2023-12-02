@@ -20,13 +20,16 @@ export const removeCurrentUser = userId => ({
 export const createUser = userData => async dispatch => {
   const res = await createNewUser(userData)
   if (res.ok) {
-    const data = await res.json();
+    console.log('step 6, res was ok')
+    const data =  await res.json();
+    console.log(data)
     sessionStorage.setItem('currentUser', JSON.stringify(data.user.username));
     sessionStorage.setItem('currentUserId', JSON.stringify(data.user.id))
     return dispatch(receiveCurrentUser(data.user));
   } else {
-    data = await res.json();
-    throw data;
+    const data = await res.json();
+    console.log("step 7, res was not ok. here is res:")
+    console.log(res)
   }
 };
 

@@ -24,7 +24,7 @@ ActiveRecord::Base.transaction do
 
   puts "Creating users..."
   zach = User.create!(username: 'Demo', email: 'zach@mail.com', password: 'zachword')
-  ben = User.create!(username: 'Squeeze', email: 'ben@mail.com', password: 'benword')
+  ben = User.create!(username: 'Squeeze', email: 'ben@mail.com', password: 'benwordd')
   riley  = User.create!(username: 'Riley Monster', email: 'riley@mail.com', password: 'rileyword')
   charles = User.create!(username: 'Salvage', email: 'charles@mail.com', password: 'charlesword')
 

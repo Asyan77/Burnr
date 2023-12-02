@@ -4,15 +4,14 @@ export const csrfFetch = async (url, options = {}) => {
 
     if (options.method.toUpperCase() !== 'GET') {
       options.headers['X-CSRF-Token'] ||= sessionStorage.getItem('X-CSRF-Token');
-      // if(!(options.body instanceof formData)) {
+      if(!(options.body instanceof FormData)) {
       options.headers['Content-Type'] ||= 'application/json'
       options.headers['Accept'] ||= 'application/json'
-      // }
+      }
      }
     const res = await fetch(url, options);
     return res;
  };
-
 
 export const restoreSession = async () => {
   try {

@@ -3,6 +3,11 @@ class Api::UsersController < ApplicationController
   # before_action :require_logged_out, only :create
   # before_action :require_logged_in, only :destroy
 
+  def index
+    @users = User.all
+    render :index
+  end
+
   def create
       @user = User.new(user_params)
       if @user.save!
@@ -10,7 +15,7 @@ class Api::UsersController < ApplicationController
           # render :show
           render 'api/users/show'
       else
-          render json: @user.errors.full_messages, status: 422
+          render json: {errors: @user.errors.full_messages} , status: 422
       end
   end
 
