@@ -1,5 +1,5 @@
 import './NewUserForm.css'
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import { loginUser } from '../../store/session';
@@ -11,6 +11,7 @@ function NewUserForm() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState([])
   const userData = [username, email, password]
   const usernameInput = useRef();
   const emailInput = useRef();
@@ -33,11 +34,24 @@ function NewUserForm() {
     setPassword(e.target.value);
   };
 
+  // const validations = () => {
+  //   let errors = [];
+  //   if (username.length === 0) {
+  //     errors.push("Username can not be empty")
+  //   } 
+  //   if (username.length === 0) {
+  //     errors.push("Username can not be empty")
+  //   } 
+  // }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const [username, email, password] = userData
     const newUser = { username: username, email: email, password: password }
-    await dispatch(createUser(newUser))
+    const data = await dispatch(createUser(newUser))
+    if(data) {
+      setErrors(data)
+    }
   }
 
   const demoUser = async (e) => {
@@ -47,14 +61,17 @@ function NewUserForm() {
     return await dispatch(loginUser({email: demoEmail, password: demoPassword}))
   }
 
-  // const showErrors = () => {
-  //   if(!errors.length) return null
-  //   return (
-  //     <ul>
-  //       {errors.map(error => <li >{error}</li>)}
-  //     </ul>
-  //   )
-  // }
+  const showErrors = () => {
+    if(!errors.length) return null
+    return (
+      <ul className='errors'>
+        {errors.map((error,idx )=> <li key ={idx} className='error'>{error}</li>)}
+      </ul>
+    )
+  }
+
+  useEffect(() => {
+  },[handleSubmit])
 
   if (currentUser) return <Navigate to='/explore' replace={true}/>
 
@@ -63,6 +80,7 @@ function NewUserForm() {
       <form className='form-SU' onSubmit={handleSubmit}>
           <img src="/assests/logos/burnrLogo2.png" className='form-logo-SU' alt='burnr-logo'/>
           <div className='header-SU'>Sign Up for Burnr</div>
+          {showErrors()}
           <div className='form-fields-SU'>
             <input className='username-field-SU' type="text" value={username} placeholder='Username' onChange={handleUsernameChange} ref={usernameInput} required={true}/>
             <input className='email-field-SU' type="email" value={email} placeholder='Email' onChange={handleEmailChange} ref={emailInput} required={true}/>

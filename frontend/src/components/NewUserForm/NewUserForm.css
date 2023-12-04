@@ -20,7 +20,7 @@
 }
 
 .form-logo-SU {
-    width: 15vw;
+    width: 10vw;
     margin-bottom: 20px;
     /* background-color: blue; */
 }
@@ -29,12 +29,29 @@
     padding-bottom: 3%;
     font-size: 2vh;
 }
+.errors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    margin-right: 2em;
+    margin-left: 2em;
+    /* background-color: aquamarine; */
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    color: rgb(174, 54, 54);
+
+}
 
 .form-fields-SU {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 8%;
+    margin-top: 5%;
     margin-bottom: 10px;
     width: 75%;
     border-radius: 5px;
@@ -87,7 +104,7 @@
 .already-a-member-sign-up-SU {
     display: flex;
     justify-content: center;
-    color: rgb(235, 30, 132);
+    color: aliceblue;
     font-size: 2vh;
     margin-top: 13px;
 }

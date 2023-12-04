@@ -3,7 +3,7 @@ import { createNewUser } from "../utils/user_api_utils";
 
 // Type Constants
 export const RECEIVE_CURRENT_USER = 'user/RECEIVE_CURRENT_USER';
-const SET_CURRENT_USER = 'user/setCurrentUser';
+export const SET_CURRENT_USER = 'user/setCurrentUser';
 export const DESTROY_USER = 'user/DESTROY_USER';
 
 // Action Creators
@@ -33,9 +33,8 @@ export const createUser = userData => async dispatch => {
     sessionStorage.setItem('currentUserId', JSON.stringify(data.user.id))
     return dispatch(receiveCurrentUser(data.user));
   } else {
-    const errors = await res.json();
-    console.log(errors, "is this working?")
-    throw errors
+    const data = await res.json();
+    return data.errors
   }
 };
 
@@ -50,7 +49,7 @@ const userReducer = (state ={}, action) => {
       nextState[action.user.id] = action.user;
       return nextState;
     case SET_CURRENT_USER:
-      nextState = { ...nextState, [action.user.id] : action.user}
+      nextState[action.user.id] = action.user;
       return nextState;
     case DESTROY_USER:
       delete nextState[action.userId];

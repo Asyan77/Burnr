@@ -1,5 +1,5 @@
 import './LoginForm.css'
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import { loginUser } from '../../store/session';
@@ -19,19 +19,37 @@ function LogInForm() {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([])
-   return await dispatch(loginUser ({email: email, password: password}))
+    const data = await dispatch(loginUser ({email: email, password: password}))
+    if (data) {
+      console.log(data)
+      setErrors(data)
+    } else {
+      setErrors([])
+    }
   };
-
+  
   const demoUser = async (e) => {
     e.preventDefault()
     const demoEmail = 'zach@mail.com'
     const demoPassword = 'zachword'
     return await dispatch(loginUser({email: demoEmail, password: demoPassword}))
   }
+
+  const showErrors = ()=> {
+    if (!errors.length) return null
+    return (
+      <ul className='errors-list'>
+         {errors.map((error, ind) => <li key={ind} className='login-error'>{error}</li>) }
+      </ul>
+    )
+  }
+  
+  useEffect(() => {
+  },[handleSubmit])
   
   if (currentUser) return <Navigate to='explore' replace={true} />
   
@@ -40,6 +58,7 @@ function LogInForm() {
         <form className="form-LI" onSubmit={handleSubmit}>
           <img src="/assests/logos/burnrLogo2.png" className='form-logo-LI' alt='burnr-logo'/>
           <div className='header-LI'>Log In to Burnr</div>
+          {showErrors()}
           <div className='form-fields-LI'>
             <input className='email-field-LI' type="text" id="email" value={email} placeholder='Email' onChange={handleEmailChange} required/>
             <input className='password-field-LI' type="password" id="password" value={password} placeholder='Password' onChange={handlePasswordChange} required/>

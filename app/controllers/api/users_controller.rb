@@ -1,5 +1,7 @@
 class Api::UsersController < ApplicationController
   wrap_parameters include: User.attribute_names + ['password']
+  # before_action :require_logged_in, only: [:destroy]
+  # before_action :require_logged_out, only: [:create]
 
   def index
     @users = User.all
@@ -13,7 +15,7 @@ class Api::UsersController < ApplicationController
           # render :show
           render 'api/users/show'
       else
-          render @user.errors.full_messages,  status: 422
+          render json: {errors: @user.errors.full_messages},  status: 422
       end
   end
 

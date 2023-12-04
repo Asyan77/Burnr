@@ -26,7 +26,7 @@ export const loginUser = user => async dispatch => {
     dispatch(setCurrentUser(data.user))
   } else {
     const data = await res.json()
-    throw data
+    return data.errors
   }
 }
 
