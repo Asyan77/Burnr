@@ -1,7 +1,5 @@
 class Api::UsersController < ApplicationController
   wrap_parameters include: User.attribute_names + ['password']
-  # before_action :require_logged_out, only :create
-  # before_action :require_logged_in, only :destroy
 
   def index
     @users = User.all
@@ -10,12 +8,12 @@ class Api::UsersController < ApplicationController
 
   def create
       @user = User.new(user_params)
-      if @user.save!
+      if @user.save
           login(@user)
           # render :show
           render 'api/users/show'
       else
-          render json: {errors: @user.errors.full_messages} , status: 422
+          render @user.errors.full_messages,  status: 422
       end
   end
 
@@ -24,6 +22,16 @@ class Api::UsersController < ApplicationController
   #     @photos = Photo.all
   #     render :show
   #   end
+
+  def destroy
+    @user = User.find_by(id: params[:id])
+    if @user&.destroy
+      head :no_content
+      # render json: @tea
+    else
+      render json: ['Could not delete user'], status: 422
+    end
+  end
 
   private
   def user_params

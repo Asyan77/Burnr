@@ -3,7 +3,8 @@ import { createNewUser } from "../utils/user_api_utils";
 
 // Type Constants
 export const RECEIVE_CURRENT_USER = 'user/RECEIVE_CURRENT_USER';
-export const REMOVE_CURRENT_USER = 'user/REMOVE_CURRENT_USER';
+const SET_CURRENT_USER = 'user/setCurrentUser';
+export const DESTROY_USER = 'user/DESTROY_USER';
 
 // Action Creators
 export const receiveCurrentUser = user => ({
@@ -11,25 +12,30 @@ export const receiveCurrentUser = user => ({
   user
 });
 
-export const removeCurrentUser = userId => ({
-  type: REMOVE_CURRENT_USER,
-  userId
+
+export const setCurrentUser = (user) => ({
+  type: SET_CURRENT_USER,
+  user
 });
+
+// export const removeCurrentUser = userId => ({
+//   type: REMOVE_CURRENT_USER,
+//   userId
+// });
 
 // Thunk Action Creators
 export const createUser = userData => async dispatch => {
   const res = await createNewUser(userData)
+  console.log(res)
   if (res.ok) {
-    console.log('step 6, res was ok')
     const data =  await res.json();
-    console.log(data)
     sessionStorage.setItem('currentUser', JSON.stringify(data.user.username));
     sessionStorage.setItem('currentUserId', JSON.stringify(data.user.id))
     return dispatch(receiveCurrentUser(data.user));
   } else {
-    const data = await res.json();
-    console.log("step 7, res was not ok. here is res:")
-    console.log(res)
+    const errors = await res.json();
+    console.log(errors, "is this working?")
+    throw errors
   }
 };
 
@@ -43,7 +49,10 @@ const userReducer = (state ={}, action) => {
     case RECEIVE_CURRENT_USER:
       nextState[action.user.id] = action.user;
       return nextState;
-    case REMOVE_CURRENT_USER:
+    case SET_CURRENT_USER:
+      nextState = { ...nextState, [action.user.id] : action.user}
+      return nextState;
+    case DESTROY_USER:
       delete nextState[action.userId];
       return nextState;
     default:

@@ -19,6 +19,7 @@ export const removeCurrentUser = (userId) => ({
 //thunk action creators
 export const loginUser = user => async dispatch => {
   const res = await loginSession(user);
+  console.log(res)
   if (res.ok) {
     const data = await res.json();
     sessionStorage.setItem('currentUser', JSON.stringify(data.user.username));

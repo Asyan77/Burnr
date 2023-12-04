@@ -5,8 +5,8 @@
     box-sizing: border-box;
   } */
   
-  /* Navigation bar styles */
   .nav-bar {
+    /* position: fixed; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,7 +22,14 @@
     /* background-color: aqua; */
   }  
 
-  .search-bar {
+  .search-bar-logged-out {
+    width: 40vw;
+    height: 5vh;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+  }
+
+  .search-bar-logged-in {
     width: 40vw;
     height: 5vh;
     background-color: #f8f8f8;
@@ -30,8 +37,9 @@
   }
 
   
-  .nav-links a:hover {
-    color: #ffc107;
+  .nav-links:hover {
+    /* color: #ffc107; */
+    text-decoration: underline;
   }
 
   .logged-in-nav-btns {
@@ -39,9 +47,19 @@
     flex-direction: row;
     justify-content: space-around;
     align-items:  center;
-    /* border: purple solid 4px; */
-    width: 40vw;
+    width: 90vw;
     height: 5vh;
+    /* border: purple solid 4px; */
+  }
+  .explore-btn {
+    color: white;
+    font-size: 1.3vw;
+    text-decoration: none;
+  }
+  .you-btn {
+    color: white;
+    font-size: 1.3vw;
+    text-decoration: none;
   }
 
   .upload-icon {
@@ -54,29 +72,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 11vw;
+    width: 70vw;
     height: 5vh;
     /* background-color: #c42d2d; */
   }
   
-  .signin-btn {
+  .login-btn {
     text-decoration:none;
     color: white;
     font-weight: 100;
-    font-size: 2vh;
+    font-size: 1.25em;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     padding-left: 4%;
+    /* background-color: aqua; */
+    width: 4em;
+    margin-left: 7vw;
   }
   .signup-btn {
     text-decoration:none;
     color: rgb(3, 3, 3);
     font-weight: 100;
-    font-size: 2vh;
+    font-size: 1em;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background-color: #f8f8f8;
     border-radius: 3px;
-    height: 77%;
-    width: 40%;
+    height: 70%;
+    width: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,16 +105,16 @@
     margin-right: 4%;
   }
   
-  /* .log-out-btn {
-    background-color: aliceblueffc107;
-    color: #ece4e4;
+  .log-out-btn {
+    background-color: aliceblue;
+    /* color: #ece4e4; */
     border: 1px solid black;
     padding: 10px 20px;
     cursor: pointer;
     margin-right: 10px;
     border-radius: 5px;
     width: 10%;
-  } */
+  }
 
   /* Responsive styles for smaller screens */
   @media (max-width: 768px) {

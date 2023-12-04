@@ -7,9 +7,10 @@ export const csrfFetch = async (url, options = {}) => {
       if(!(options.body instanceof FormData)) {
       options.headers['Content-Type'] ||= 'application/json'
       options.headers['Accept'] ||= 'application/json'
-      }
+    }
      }
     const res = await fetch(url, options);
+    // const text = await res.text()
     return res;
  };
 

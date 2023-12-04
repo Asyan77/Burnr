@@ -7,7 +7,6 @@ import './UserIconButton.css'
 const  UserIconButton = ({ user, setLogin, setShowModal }) => {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
-    let userIconBMLogo = "assets/logos/bm-logo-circle.png"
 
 
     const openMenu = () => {
@@ -29,17 +28,14 @@ const  UserIconButton = ({ user, setLogin, setShowModal }) => {
     const handleLogOut = async () => {
         await dispatch(logoutUser(user.id))
       }
-    
-
 
     return (
         <>
             <div className="profile-button-actual-div">
-                <img onClick={openMenu} className="nav-bar-profile-picture" src={userIconBMLogo} alt='' />
+                <img onClick={openMenu} className="nav-bar-profile-picture" src='frontend/assests/logos/DefaultProfilePicture.jpg' alt='' />
             </div>
             {showMenu && (user ?
                 (<div className="adjustment-for-profile-dropdown">
-
                     < div className="profile-dropdown">
                         <div className="hello-user-navbar">
                             <span>Hello, </span>
@@ -57,7 +53,7 @@ const  UserIconButton = ({ user, setLogin, setShowModal }) => {
                             setLogin(true)
                             setShowModal(true)
                         }}>Log In</button>
-3
+    3
                     <button
                         className="logout"
                         onClick={() => {

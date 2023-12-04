@@ -1,24 +1,23 @@
 // import React from 'react';
 import './NavBar.css'
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../store/session';
 import UserIconButton from './UserIconButton/UserIconButton';
 
-let uploadIcon = "assets/logos/upload-icon-64.png"
 
 function NavBar() {
   const currentUser = useSelector(state => state.session.currentUser);
   const dispatch = useDispatch();
-  let loggedInButtons;
+  let sessionButtons;
 
   const handleLogOut = async () => {
     await dispatch(logoutUser(currentUser.id))
   }
 
   if (currentUser) {
-    loggedInButtons = (
+    sessionButtons = (
         <div className='profile-button-div'>
           <UserIconButton user={currentUser} className='ProfileButton' />
         </div>
@@ -29,33 +28,27 @@ function NavBar() {
     <nav className="nav-bar">
         <NavLink className='links-on-nav-bar' to='/' >
             <img src="/assests/logos/burnrLogo2.png" className='logo-navbar' alt='' />
-       </NavLink>  
-       <input className="search-bar" type="text" placeholder="Photos, people, or groups" disabled/>
-    
+       </NavLink>   
         { currentUser ?
           <div className='logged-in-nav-btns'>
-            <div className='explore-btn'>
-             <NavLink to='/explore' className='left-side-links-navbar'>Explore</NavLink>
-            </div> 
+            <Link to='/explore' className='explore-btn nav-links'>Explore</Link>
 
-            <div className='you-btn'> 
-              <NavLink to={`/user/${currentUser.id}`} className='left-side-links-navbar'>You</NavLink>
-            </div> 
+            <NavLink to={`/user/${currentUser.id}`} className='you-btn nav-links'>You</NavLink>
+    
+            <input className="search-bar-logged-in" type="text" placeholder="Photos, people, or groups" disabled/>
 
-            <NavLink className='links-on-nav-bar' to='/upload'>
-              <div className='upload-icon-navbar'>
-                <img src={uploadIcon} className='upload-icon' alt='' />
-              </div>
+            <NavLink className='upload-btn' to='/upload'>
+             <img src="frontend/assests/logos/DefaultProfilePicture.jpg" className='upload-icon' alt='' />
             </NavLink>
 
-            <div className='log-out-btn'>
-              <button className='log-out-btn' type='submit' onClick={handleLogOut}>Log Out</button> 
-            </div>
-            {/* {loggedInButtons} */}
-          </div>
-         :
-        <div className='logged-out-nav-btns'>
-            <Link to="login" className="signin-btn">Log In</Link>
+           <button className='log-out-btn' type='submit' onClick={handleLogOut}>Log Out</button> 
+          
+           {sessionButtons}
+         </div>
+        :
+         <div className='logged-out-nav-btns'>
+            <input className="search-bar-logged-out" type="text" placeholder="Photos, people, or groups" disabled/>
+            <Link to="login" className="login-btn">Log In</Link>
             <Link to="signup" className="signup-btn">Sign Up</Link>
         </div>
         }
