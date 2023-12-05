@@ -37,9 +37,6 @@ export const createUser = userData => async dispatch => {
   }
 };
 
-// Selectors
-
-// Reducer
 const userReducer = (state ={}, action) => {
   const nextState = Object.assign(state);
 
@@ -48,7 +45,7 @@ const userReducer = (state ={}, action) => {
       nextState[action.user.id] = action.user;
       return nextState;
     case SET_CURRENT_USER:
-      nextState[action.user.id] = action.user;
+      nextState[action.user.id]= action.user;
       return nextState;
     case DESTROY_USER:
       delete nextState[action.userId];

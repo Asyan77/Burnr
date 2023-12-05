@@ -4,30 +4,31 @@ import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../store/session';
-import UserIconButton from './UserIconButton/UserIconButton';
-
+// import UserIconButton from './UserIconButton/UserIconButton';
+import logo from "/assests/logos/burnrLogo2.png"
+import uploadIcon from '/assests/logos/upload.png'
 
 function NavBar() {
   const currentUser = useSelector(state => state.session.currentUser);
   const dispatch = useDispatch();
-  let sessionButtons;
+  // let sessionButtons;
 
   const handleLogOut = async () => {
     await dispatch(logoutUser(currentUser.id))
   }
 
-  if (currentUser) {
-    sessionButtons = (
-        <div className='profile-button-div'>
-          <UserIconButton user={currentUser} className='ProfileButton' />
-        </div>
-    )
-  }
+  // if (currentUser) {
+  //   sessionButtons = (
+  //       <div className='profile-button-div'>
+  //         <UserIconButton user={currentUser} className='ProfileButton' />
+  //       </div>
+  //   )
+  // }
 
   return (
     <nav className="nav-bar">
         <NavLink className='links-on-nav-bar' to='/' >
-            <img src="/assests/logos/burnrLogo2.png" className='logo-navbar' alt='' />
+            <img src={logo} className='logo-navbar' alt='' />
        </NavLink>   
         { currentUser ?
           <div className='logged-in-nav-btns'>
@@ -38,12 +39,12 @@ function NavBar() {
             <input className="search-bar-logged-in" type="text" placeholder="Photos, people, or groups" disabled/>
 
             <NavLink className='upload-btn' to='/upload'>
-               <img src="/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/logos/cloud-upload.jpeg" className='upload-icon' alt='' />
+               <img src={uploadIcon} className='upload-icon' alt='' />
             </NavLink>
 
            <button className='log-out-btn' type='submit' onClick={handleLogOut}>Log Out</button> 
-          
-           {sessionButtons}
+{/*           
+           {sessionButtons} */}
          </div>
         :
          <div className='logged-out-nav-btns'>

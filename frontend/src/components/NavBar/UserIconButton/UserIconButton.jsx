@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../../../store/session";
 import './UserIconButton.css'
+import userIcon from '/assests/logos/DefaultProfilePicture.jpg'
 
 const  UserIconButton = ({ user, setLogin, setShowModal }) => {
     const dispatch = useDispatch();
@@ -32,7 +33,7 @@ const  UserIconButton = ({ user, setLogin, setShowModal }) => {
     return (
         <>
             <div className="profile-button-actual-div">
-                <img onClick={openMenu} className="nav-bar-profile-picture" src='/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/logos/DefaultProfilePicture.jpg' alt='' />
+                <img onClick={openMenu} className="nav-bar-profile-picture" src={userIcon} alt='' />
             </div>
             {showMenu && (user ?
                 (<div className="adjustment-for-profile-dropdown">

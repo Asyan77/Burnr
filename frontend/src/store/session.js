@@ -39,10 +39,7 @@ export const logoutUser = () => async dispatch => {
   }
 }
 
-// selectors
 
-
-//reducers
 function sessionReducer(state = {currentUserId : null}, action) {
   const nextState = {...state}
     switch (action.type) {
