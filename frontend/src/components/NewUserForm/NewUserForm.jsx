@@ -1,5 +1,5 @@
 import './NewUserForm.css'
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import { loginUser } from '../../store/session';
@@ -59,9 +59,6 @@ function NewUserForm() {
       </ul>
     )
   }
-
-  useEffect(() => {
-  },[handleSubmit])
 
   if (currentUser) return <Navigate to='/explore' replace={true}/>
 

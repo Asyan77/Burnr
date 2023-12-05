@@ -1,5 +1,5 @@
 import './LoginForm.css'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import { loginUser } from '../../store/session';
@@ -46,9 +46,6 @@ function LogInForm() {
       </ul>
     )
   }
-  
-  useEffect(() => {
-  },[handleSubmit])
   
   if (currentUser) return <Navigate to='explore' replace={true} />
   

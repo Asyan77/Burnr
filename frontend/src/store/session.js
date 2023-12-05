@@ -10,9 +10,9 @@ export const setCurrentUser = (user) => ({
   user
 });
 
-export const removeCurrentUser = (userId) => ({
+export const removeCurrentUser = () => ({
   type: REMOVE_CURRENT_USER,
-  userId
+  
 });
 
 
@@ -29,7 +29,7 @@ export const loginUser = user => async dispatch => {
   }
 }
 
-export const logoutUser = userId => async dispatch => {
+export const logoutUser = () => async dispatch => {
   const res = await deleteSession();
   if (res.ok) {
     sessionStorage.setItem('currentUser', null)

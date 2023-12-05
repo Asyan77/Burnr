@@ -1,4 +1,4 @@
-import { combineReducers, applyMiddleware, compose, legacy_createStore } from 'redux';
+import { combineReducers, applyMiddleware, legacy_createStore } from 'redux';
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 import sessionReducer from './session';

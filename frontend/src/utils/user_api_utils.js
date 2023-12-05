@@ -10,7 +10,7 @@ export const createNewUser = async userData => {
 }
 
 
-export const destroyUser = async userData => {
+export const destroyUser = async() => {
 
   const res = await csrfFetch('/api/users', {
     method: 'DELETE',
