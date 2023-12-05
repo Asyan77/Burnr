@@ -82,3 +82,4 @@ production:
   database: burnr2_production
   username: burnr2
   password: <%= ENV["BURNR2_DATABASE_PASSWORD"] %>
+  # url: <%= ENV['DATABSE_URL'] %>

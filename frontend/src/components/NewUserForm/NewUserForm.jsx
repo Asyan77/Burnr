@@ -34,16 +34,6 @@ function NewUserForm() {
     setPassword(e.target.value);
   };
 
-  // const validations = () => {
-  //   let errors = [];
-  //   if (username.length === 0) {
-  //     errors.push("Username can not be empty")
-  //   } 
-  //   if (username.length === 0) {
-  //     errors.push("Username can not be empty")
-  //   } 
-  // }
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const [username, email, password] = userData

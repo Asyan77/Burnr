@@ -1,13 +1,75 @@
-h1 {
-    background-color: aquamarine;
+
+
+  /* src/components/SplashPage.css */
+.splash-page {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+.splash-text-box {
+    position: absolute;
+    color: white;
+    top: 40%;
+    left: 20%;
+    z-index: 1;
+    text-align: center;
+    /* background-color: aqua; */
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    background-image: url('https://scontent-sjc3-1.xx.fbcdn.net/v/t1.18169-9/10660289_10202898267551590_5317642998162055255_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=4dc865&_nc_ohc=HiwGjHH0VhwAX9NrC2Z&_nc_ht=scontent-sjc3-1.xx&oh=00_AfCPAm2NmBCzqKrpZW64LJ0nSiaNRrReaarqECBzT-vmlQ&oe=65908BB7');
-    background-size: cover; /* Adjust background image sizing */
-	background-size: 100vh;
-    background-size: 100vw;
-    background-repeat: no-repeat; /* Prevent image from repeating */
+.main-text1 {
+    font-size: 3em;
+    /* max-width: 60vw; */
+    margin: 0 auto;
+}
+
+.main-text2 {
+    font-size: 1.5em;
+    max-width: 60vw;
+    margin: 0 auto;
+}
+
+.start-btn{
+    position: absolute;
+    /* color: white; */
+    top: 53%;
+    left: 45%;
+    height: 8vh;
+    width: 9em;
+    z-index: 1;
+    text-align: center;
+    background-color: white;
+    border-radius: 7px;
+    font-size: 25px;
+    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+  .background-image {
+    position: absolute;
+    top: 6.7vh;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+
   }
+  
+  .image0 { background-image: url('/background0.png'); }
+  .image1 { background-image: url('/background1.png'); }
+  .image2 { background-image: url('/background2.png'); }
+  .image3 { background-image: url('/background3.png'); }
+  .image4 { background-image: url('/background4.png'); }
+  .image5 { background-image: url('/background5.png'); }
+  .image6 { background-image: url('/background6.png'); }
+  .image7 { background-image: url('/background7.png'); }
+  .image8 { background-image: url('/background8.png'); }
+  .image9 { background-image: url('/background9.png'); }
+  .image10 { background-image: url('/background10.png'); }
+  .image11 { background-image: url('/background11.png'); }
+  .image12 { background-image: url('/background12.png'); }
+  .image13 { background-image: url('/background13.png'); }
+  .image14 { background-image: url('/background14.png'); }
+  .image15 { background-image: url('/background15.png'); }
