@@ -26,7 +26,6 @@ export const setCurrentUser = (user) => ({
 // Thunk Action Creators
 export const createUser = userData => async dispatch => {
   const res = await createNewUser(userData)
-  console.log(res)
   if (res.ok) {
     const data =  await res.json();
     sessionStorage.setItem('currentUser', JSON.stringify(data.user.username));

@@ -25,7 +25,6 @@ function LogInForm() {
     setErrors([])
     const data = await dispatch(loginUser ({email: email, password: password}))
     if (data) {
-      console.log(data)
       setErrors(data)
     } else {
       setErrors([])

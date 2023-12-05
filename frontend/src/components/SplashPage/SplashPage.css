@@ -1,6 +1,4 @@
 
-
-  /* src/components/SplashPage.css */
 .splash-page {
     position: relative;
     height: 100vh;
@@ -8,30 +6,32 @@
   }
   
 .splash-text-box {
-    position: absolute;
-    color: white;
-    top: 40%;
-    left: 20%;
-    z-index: 1;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30vh;
+  color: white;
+  z-index: 1;
+  height: 6em;
     /* background-color: aqua; */
 }
 
 .main-text1 {
-    font-size: 3em;
-    /* max-width: 60vw; */
+    font-size: 2.5em;
     margin: 0 auto;
 }
 
 .main-text2 {
     font-size: 1.5em;
     max-width: 60vw;
+    margin-top: 500px;
     margin: 0 auto;
+    /* background-color: aqua; */
 }
 
 .start-btn{
     position: absolute;
-    /* color: white; */
     top: 53%;
     left: 45%;
     height: 8vh;

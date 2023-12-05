@@ -19,7 +19,6 @@ export const removeCurrentUser = (userId) => ({
 //thunk action creators
 export const loginUser = user => async dispatch => {
   const res = await loginSession(user);
-  console.log(res)
   if (res.ok) {
     const data = await res.json();
     sessionStorage.setItem('currentUser', JSON.stringify(data.user.username));
@@ -36,7 +35,7 @@ export const logoutUser = userId => async dispatch => {
     sessionStorage.setItem('currentUser', null)
     dispatch(removeCurrentUser())
   } else {
-    console.log("could not log out current user")
+    return ["could not log out current user"]
   }
 }
 
