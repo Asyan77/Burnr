@@ -19,7 +19,6 @@ function NewUserForm() {
   const passwordInput = useRef();
 
   const currentUser = useSelector(state => state.session.currentUser);
-  // const user = useSelector(state => state.user.find())
   
 
   const handleUsernameChange = (e) => {

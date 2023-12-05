@@ -48,7 +48,7 @@ function LogInForm() {
     )
   }
   
-  if (currentUser) return <Navigate to='explore' replace={true} />
+  if (currentUser) return <Navigate to='/explore' replace={true} />
   
   return (
     <div className='login-page'>
