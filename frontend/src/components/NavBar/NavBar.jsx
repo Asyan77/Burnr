@@ -38,7 +38,7 @@ function NavBar() {
             <input className="search-bar-logged-in" type="text" placeholder="Photos, people, or groups" disabled/>
 
             <NavLink className='upload-btn' to='/upload'>
-             <img src="frontend/assests/logos/DefaultProfilePicture.jpg" className='upload-icon' alt='' />
+               <img src="/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/logos/cloud-upload.jpeg" className='upload-icon' alt='' />
             </NavLink>
 
            <button className='log-out-btn' type='submit' onClick={handleLogOut}>Log Out</button> 

@@ -32,7 +32,7 @@ const  UserIconButton = ({ user, setLogin, setShowModal }) => {
     return (
         <>
             <div className="profile-button-actual-div">
-                <img onClick={openMenu} className="nav-bar-profile-picture" src='frontend/assests/logos/DefaultProfilePicture.jpg' alt='' />
+                <img onClick={openMenu} className="nav-bar-profile-picture" src='/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/logos/DefaultProfilePicture.jpg' alt='' />
             </div>
             {showMenu && (user ?
                 (<div className="adjustment-for-profile-dropdown">

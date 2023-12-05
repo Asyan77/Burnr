@@ -56,8 +56,8 @@
     z-index: -1;
 
   }
-  
-  .image0 { background-image: url('/background0.png'); }
+
+  /* .image0 { background-image: url('/background0.png'); }
   .image1 { background-image: url('/background1.png'); }
   .image2 { background-image: url('/background2.png'); }
   .image3 { background-image: url('/background3.png'); }
@@ -72,4 +72,23 @@
   .image12 { background-image: url('/background12.png'); }
   .image13 { background-image: url('/background13.png'); }
   .image14 { background-image: url('/background14.png'); }
-  .image15 { background-image: url('/background15.png'); }
+  .image15 { background-image: url('/background15.png'); } */
+
+  .image0 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background0.png'); }
+  .image1 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background1.png'); }
+  .image2 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background2.png'); }
+  .image3 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background3.png'); }
+  .image4 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background4.png'); }
+  .image5 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background5.png'); }
+  .image6 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background6.png'); }
+  .image7 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background7.png'); }
+  .image8 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background8.png'); }
+  .image9 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background9.png'); }
+  .image10 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background10.png'); }
+  .image11 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background11.png'); }
+  .image12 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background12.png'); }
+  .image13 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background13.png'); }
+  .image14 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background14.png'); }
+  .image15 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background15.png'); }
+
+  
