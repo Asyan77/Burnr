@@ -1,9 +1,9 @@
 import { createNewUser } from "../utils/user_api_utils";
+import { SET_CURRENT_USER} from "./session";
 
 
 // Type Constants
 export const RECEIVE_CURRENT_USER = 'user/RECEIVE_CURRENT_USER';
-export const SET_CURRENT_USER = 'user/setCurrentUser';
 export const DESTROY_USER = 'user/DESTROY_USER';
 
 // Action Creators
@@ -13,10 +13,7 @@ export const receiveCurrentUser = user => ({
 });
 
 
-export const setCurrentUser = (user) => ({
-  type: SET_CURRENT_USER,
-  user
-});
+
 
 // export const removeCurrentUser = userId => ({
 //   type: REMOVE_CURRENT_USER,

@@ -1,8 +1,8 @@
 import { deleteSession, loginSession } from "../utils/session_api_utils";
 import { RECEIVE_CURRENT_USER } from "./user";
 
-const SET_CURRENT_USER = 'session/setCurrentUser';
-const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
+export const SET_CURRENT_USER = 'session/setCurrentUser';
+export const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
 
 // action creators
 export const setCurrentUser = (user) => ({
