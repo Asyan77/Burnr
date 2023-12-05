@@ -1,5 +1,5 @@
 import './LoginForm.css'
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import { loginUser } from '../../store/session';

@@ -1,11 +1,11 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./SplashPage.css"
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function SplashPage () {
     const [currentImage, setCurrentImage] = useState(0);
     const imageFiles = new Array(10)
-    const randomImage = Math.floor(Math.random() * 15);
+    let randomImage = Math.floor(Math.random() * 15);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -13,7 +13,7 @@ function SplashPage () {
           }, 5000); 
       
           return () => clearInterval(interval);
-    },[])
+    },)
 
 
     return (
