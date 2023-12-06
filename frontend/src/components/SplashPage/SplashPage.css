@@ -1,10 +1,21 @@
 
-.splash-page {
-    position: static;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
+.whole-splash-page {
+  position: static;
+  display: flex;
+  justify-content: center;
+}
+
+.background-image {
+  position: absolute;
+  top: 5vh;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  z-index: -1;
+}
+
 .splash-text-box {
   display: flex;
   flex-direction: column;
@@ -12,7 +23,6 @@
   align-items: center;
   position: fixed;
   margin-top: 35vh;
-  margin-left: 19vw;
   color: white;
   z-index: 1;
   height: 8em;
@@ -20,24 +30,24 @@
 }
 
 .main-text1 {
-  /* position: fixed; */
     font-size: 3.5em;
-    margin: 0 auto;
+    margin-bottom: .5em;
 }
 
 .main-text2 {
   position: relative;
-    font-size: 2em;
-    max-width: 60vw;
-    margin-top: vh;
-    margin: 0 auto;
-    /* background-color: aqua; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  max-width: 45vw;
+  /* background-color: aqua; */
 }
 
 .start-btn{
     position: fixed;
-    top: 53%;
-    left: 45%;
+    margin-top: 2em;
+    left: 43%;
     height: 8vh;
     width: 9em;
     z-index: 1;
@@ -53,51 +63,22 @@
   color: gray;
   cursor: pointer;
 }
-  .background-image {
-    position: absolute;
-    top: 5vh;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    
-    z-index: -1;
 
-  }
-
-  /* .image0 { background-image: url('/background0.png'); }
-  .image1 { background-image: url('/background1.png'); }
-  .image2 { background-image: url('/background2.png'); }
-  .image3 { background-image: url('/background3.png'); }
-  .image4 { background-image: url('/background4.png'); }
-  .image5 { background-image: url('/background5.png'); }
-  .image6 { background-image: url('/background6.png'); }
-  .image7 { background-image: url('/background7.png'); }
-  .image8 { background-image: url('/background8.png'); }
-  .image9 { background-image: url('/background9.png'); }
-  .image10 { background-image: url('/background10.png'); }
-  .image11 { background-image: url('/background11.png'); }
-  .image12 { background-image: url('/background12.png'); }
-  .image13 { background-image: url('/background13.png'); }
-  .image14 { background-image: url('/background14.png'); }
-  .image15 { background-image: url('/background15.png'); } */
-
-  .image0 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background0.png'); }
-  .image1 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background1.png'); }
-  .image2 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background2.png'); }
-  .image3 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background3.png'); }
-  .image4 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background4.png'); }
-  .image5 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background5.png'); }
-  .image6 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background6.png'); }
-  .image7 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background7.png'); }
-  .image8 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background8.png'); }
-  .image9 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background9.png'); }
-  .image10 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background10.png'); }
-  .image11 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background11.png'); }
-  .image12 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background12.png'); }
-  .image13 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background13.png'); }
-  .image14 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background14.png'); }
-  .image15 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background15.png'); }
+  .image0 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background0.png'); }
+  .image1 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background1.png'); }
+  .image2 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background2.png'); }
+  .image3 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background3.png'); }
+  .image4 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background4.png'); }
+  .image5 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background5.png'); }
+  .image6 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background6.png'); }
+  .image7 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background7.png'); }
+  .image8 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background8.png'); }
+  .image9 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background9.png'); }
+  .image10 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background10.png'); }
+  .image11 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background11.png'); }
+  .image12 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background12.png'); }
+  .image13 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background13.png'); }
+  .image14 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background14.png'); }
+  .image15 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background15.png'); }
 
   

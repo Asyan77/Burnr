@@ -1,3 +1,11 @@
+.signup-background {
+    background-color: rgba(0, 0, 0, 0.25);
+   background-size: cover;
+    z-index: 2000;
+    background-image: url('frontend/assets/logos/newUserFormBackground.png');
+    
+}
+
 .outer-form-box-SU {
     position: absolute;
     height: 50vh;
@@ -5,7 +13,6 @@
     margin-top: 11%;
     margin-left: 42%;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 1);
-    /* background-color: rgba(0, 0, 0, 0.25); */
     background-color: lightgray;
 }
 

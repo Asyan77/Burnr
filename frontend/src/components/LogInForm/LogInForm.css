@@ -1,13 +1,10 @@
 .login-page {
     /* position: absolute; */
     background-size: cover; 
-    background-size: 100vh; 
-    background-size: 100vw;
     background-repeat: no-repeat; 
-    background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/logos/loginBackgound.png');
-    /* z-index: -1; */
-    background-color: purple;
-    /* background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assests/SpashImages/background0.png') */
+    background-image: url('/assets/logos/loginBackgound.png');
+    z-index: 2000;
+    /* background-color: purple; */
 }
 
 

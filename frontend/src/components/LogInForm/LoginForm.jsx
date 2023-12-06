@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import { loginUser } from '../../store/session';
-import bikeLogo from "/assests/logos/burnr-logo-bike.png"
+import bikeLogo from "/assets/logos/burnr-logo-bike.png"
 
 
 function LogInForm() {

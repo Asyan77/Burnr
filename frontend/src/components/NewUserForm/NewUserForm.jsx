@@ -4,7 +4,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import { loginUser } from '../../store/session';
 import { createUser } from '../../store/user';
-import bikeLogo from "/assests/logos/burnr-logo-bike.png"
+import bikeLogo from "/assets/logos/burnr-logo-bike.png"
 
 
 function NewUserForm() {
@@ -63,26 +63,28 @@ function NewUserForm() {
   if (currentUser) return <Navigate to='/explore' replace={true}/>
 
   return (
-    <div className='outer-form-box-SU'>
-      <form className='form-SU' onSubmit={handleSubmit}>
-          <img src={bikeLogo} className='form-logo-SU' alt='burnr-logo'/>
-          <div className='header-SU'>Sign Up for Burnr</div>
-          {showErrors()}
-          <div className='form-fields-SU'>
-            <input className='username-field-SU' type="text" value={username} placeholder='Username' onChange={handleUsernameChange} ref={usernameInput} required={true}/>
-            <input className='email-field-SU' type="email" value={email} placeholder='Email' onChange={handleEmailChange} ref={emailInput} required={true}/>
-            <input className='password-field-SU' type="password" value={password} placeholder='Password' onChange={handlePasswordChange} ref={passwordInput} required ={true} />
-          </div>
-          <div className='btns-bottom-of-form-SU'>
-            <button className='sign-up-btn-SU' type='submit' onClick={()=> handleSubmit}>Sign Up</button>
-            <br/>
-            <button className='demo-sign-up-btn-SU' onClick={event => demoUser(event)}>Demo User</button>                     
-          </div>
-          <div className='already-a-member-sign-up-SU'> Already a Burnr member?  
-            <Link to='/login' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}> Log in here.</Link>
-          </div>
-      </form>
-     </div> 
+    <div className='signup-background'> Hello
+      <div className='outer-form-box-SU'>
+        <form className='form-SU' onSubmit={handleSubmit}>
+            <img src={bikeLogo} className='form-logo-SU' alt='burnr-logo'/>
+            <div className='header-SU'>Sign Up for Burnr</div>
+            {showErrors()}
+            <div className='form-fields-SU'>
+              <input className='username-field-SU' type="text" value={username} placeholder='Username' onChange={handleUsernameChange} ref={usernameInput} required={true}/>
+              <input className='email-field-SU' type="email" value={email} placeholder='Email' onChange={handleEmailChange} ref={emailInput} required={true}/>
+              <input className='password-field-SU' type="password" value={password} placeholder='Password' onChange={handlePasswordChange} ref={passwordInput} required ={true} />
+            </div>
+            <div className='btns-bottom-of-form-SU'>
+              <button className='sign-up-btn-SU' type='submit' onClick={()=> handleSubmit}>Sign Up</button>
+              <br/>
+              <button className='demo-sign-up-btn-SU' onClick={event => demoUser(event)}>Demo User</button>                     
+            </div>
+            <div className='already-a-member-sign-up-SU'> Already a Burnr member?  
+              <Link to='/login' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}> Log in here.</Link>
+            </div>
+        </form>
+      </div> 
+    </div>
   );
 }
 

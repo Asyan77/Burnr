@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../../store/session";
 import './UserIconButton.css'
-import userIcon from '/assests/logos/DefaultProfilePicture.jpg'
+import userIcon from '/assets/logos/DefaultProfilePicture.jpg'
 
 const  UserIconButton = () => {
     const currentUser = useSelector(state => state.session.currentUser);
