@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 5vh;
+    height: 8vh;
     width: 100%;
     background-color: #333;
     color: white;
@@ -23,7 +23,7 @@
   .search-bar-logged-out {
     width: 40vw;
     height: 3vh;
-    background-color: #f8f8f8;
+    background-color: lightgrey;
     border-radius: 5px;
   }
 
@@ -63,7 +63,8 @@
 
   .upload-icon {
     width: 3vw;
-    height: 6vh;
+    height: 5vh;
+    /* background-color: white; */
   }
 
   

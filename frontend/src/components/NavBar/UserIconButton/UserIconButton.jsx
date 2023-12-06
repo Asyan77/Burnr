@@ -17,14 +17,13 @@ const  UserIconButton = () => {
         e.stopPropagation();
         if (showMenu) return;
         setShowMenu(true);
-        console.log('is this working?')
+    
     };
 
     useEffect(() => {
         if (!showMenu) return;
         console.log("inside useEffect")
         const closeMenu = () => {
-            setShowMenu(false);
         };
  
         document.addEventListener('click', closeMenu);
@@ -42,7 +41,7 @@ const  UserIconButton = () => {
             < div className="dropdown-content">
                 <div className="hello-user">
                     <span>Hello, </span>
-                    <Link to={`/photos/user/${currentUser.id}/`} className="username"> {currentUser.username}</Link>
+                    <Link to={`/photos/user/${currentUser.currentUserId}/`} className="username"> {currentUser}</Link>
                 </div>
                 <span>
                     <button className='log-out-btn' type='submit' onClick={handleLogOut }>Log Out</button>
