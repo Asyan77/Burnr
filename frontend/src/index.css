@@ -49,11 +49,12 @@ table {
 
 /* styles.css */
 
-/* body {
+body {
     margin: 0;
     padding: 0;
-    background-image: url('https://www.dandelionchandelier.com/wp-content/uploads/2018/08/Love-Collective-Evolution.jpg');
-    background-size: cover; /* Adjust background image sizing */
+	
+    /* background-image: url('https://www.dandelionchandelier.com/wp-content/uploads/2018/08/Love-Collective-Evolution.jpg'); */
+    /* background-size: cover; Adjust background image sizing */
 	/* background-size: 100vh; */
     /* background-repeat: no-repeat; Prevent image from repeating */
-  /* }  */
+  }  

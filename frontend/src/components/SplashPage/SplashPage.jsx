@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import "./SplashPage.css"
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function SplashPage () {
     const [currentImage, setCurrentImage] = useState(0);
+    const currentUser = useSelector (state => state.session.currentUser)
     const imageFiles = new Array(15)
 
     const shuffle = useCallback(() => {
@@ -16,6 +18,7 @@ function SplashPage () {
         return () => clearInterval(intervalID);
     }, [shuffle])
 
+    if (currentUser) return <Navigate to='/explore' replace={true} />
 
     return (
         

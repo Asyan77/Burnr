@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import { loginUser } from '../../store/session';
-import logo from "/assests/logos/burnrLogo2.png"
+import bikeLogo from "/assests/logos/burnr-logo-bike.png"
 
 
 function LogInForm() {
@@ -54,7 +54,7 @@ function LogInForm() {
     <div className='login-page'>
       <div className='outer-form-box-LI'>
           <form className="form-LI" onSubmit={handleSubmit}>
-            <img src={logo} className='form-logo-LI' alt='burnr-logo'/>
+            <img src={bikeLogo} className='form-logo-LI' alt='burnr-logo'/>
             <div className='header-LI'>Log In to Burnr</div>
             {showErrors()}
             <div className='form-fields-LI'>

@@ -1,72 +1,63 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../../store/session";
 import './UserIconButton.css'
 import userIcon from '/assests/logos/DefaultProfilePicture.jpg'
 
-const  UserIconButton = ({ user, setLogin, setShowModal }) => {
+const  UserIconButton = () => {
+    const currentUser = useSelector(state => state.session.currentUser);
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
+    let openDropDown;
 
 
-    const openMenu = () => {
+    const openMenu = (e) => {
+        e.stopPropagation();
         if (showMenu) return;
         setShowMenu(true);
+        console.log('is this working?')
     };
 
     useEffect(() => {
         if (!showMenu) return;
-
+        console.log("inside useEffect")
         const closeMenu = () => {
             setShowMenu(false);
         };
-
+ 
         document.addEventListener('click', closeMenu);
         return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
 
     const handleLogOut = async () => {
-        await dispatch(logoutUser(user.id))
+        await dispatch(logoutUser(currentUser.id))
+        navigate('/')
+      }
+
+      if (showMenu) {
+        openDropDown =
+        <div className="profile-dropdown">
+            < div className="dropdown-content">
+                <div className="hello-user">
+                    <span>Hello, </span>
+                    <Link to={`/photos/user/${currentUser.id}/`} className="username"> {currentUser.username}</Link>
+                </div>
+                <span>
+                    <button className='log-out-btn' type='submit' onClick={handleLogOut }>Log Out</button>
+                </span>
+            </div>
+        </div>
       }
 
     return (
         <>
             <div className="profile-button-actual-div">
-                <img onClick={openMenu} className="nav-bar-profile-picture" src={userIcon} alt='' />
+                <img onClick={openMenu} className="user-icon-btn" src={userIcon} alt='' />
             </div>
-            {showMenu && (user ?
-                (<div className="adjustment-for-profile-dropdown">
-                    < div className="profile-dropdown">
-                        <div className="hello-user-navbar">
-                            <span>Hello, </span>
-                            <Link to={`/user/${user.id}/`} className="username"> {user.username}</Link>
-                        </div>
-                        <span>
-                            <button className='log-out-btn' type='submit' onClick={handleLogOut }>Log Out</button>
-                        </span>
-                    </div>
-                </div>) :
-                (<ul className="profile-dropdown">
-                    <button
-                        className="logout"
-                        onClick={() => {
-                            setLogin(true)
-                            setShowModal(true)
-                        }}>Log In</button>
-    3
-                    <button
-                        className="logout"
-                        onClick={() => {
-
-                            setLogin(false)
-                            setShowModal(true)
-                        }}>
-                        Sign Up
-                    </button>
-                </ul>)
-            )
-            }
+            {openDropDown}
+            
         </>
     );
 }

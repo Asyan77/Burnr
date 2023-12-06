@@ -1,40 +1,31 @@
-// import React from 'react';
 import './NavBar.css'
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../store/session';
-// import UserIconButton from './UserIconButton/UserIconButton';
+import UserIconButton from './UserIconButton/UserIconButton';
 import logo from "/assests/logos/burnrLogo2.png"
 import uploadIcon from '/assests/logos/upload.png'
 
 function NavBar() {
   const currentUser = useSelector(state => state.session.currentUser);
   const dispatch = useDispatch();
-  // let sessionButtons;
+  const navigate = useNavigate()
 
   const handleLogOut = async () => {
     await dispatch(logoutUser(currentUser.id))
+    navigate('/')
   }
 
-  // if (currentUser) {
-  //   sessionButtons = (
-  //       <div className='profile-button-div'>
-  //         <UserIconButton user={currentUser} className='ProfileButton' />
-  //       </div>
-  //   )
-  // }
-
   return (
-    <nav className="nav-bar">
+    <div className="nav-bar">
         <NavLink className='links-on-nav-bar' to='/' >
             <img src={logo} className='logo-navbar' alt='' />
        </NavLink>   
         { currentUser ?
           <div className='logged-in-nav-btns'>
-            <Link to='/explore' className='explore-btn nav-links'>Explore</Link>
-
             <NavLink to={`/user/${currentUser.id}`} className='you-btn nav-links'>You</NavLink>
+            <Link to='/explore' className='explore-btn nav-links'>Explore</Link>
     
             <input className="search-bar-logged-in" type="text" placeholder="Photos, people, or groups" disabled/>
 
@@ -42,19 +33,18 @@ function NavBar() {
                <img src={uploadIcon} className='upload-icon' alt='' />
             </NavLink>
 
-           <button className='log-out-btn' type='submit' onClick={handleLogOut}>Log Out</button> 
-{/*           
-           {sessionButtons} */}
+           <UserIconButton className='ProfileButton' />
+           {/* <button className='log-out-btn' type='submit' onClick={handleLogOut}>Log Out</button>  */}
+          
          </div>
         :
-         <div className='logged-out-nav-btns'>
+        <div className='logged-out-nav-btns'>
             <input className="search-bar-logged-out" type="text" placeholder="Photos, people, or groups" disabled/>
             <Link to="login" className="login-btn">Log In</Link>
             <Link to="signup" className="signup-btn">Sign Up</Link>
         </div>
         }
-      
-    </nav>
+    </div>
   );
 }
 

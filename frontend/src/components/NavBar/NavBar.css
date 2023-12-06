@@ -1,12 +1,8 @@
-/* Reset default margin and padding for all elements */
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  } */
-  
+
   .nav-bar {
-    /* position: absolute; */
+    box-sizing: border-box;
+    position: fixed;
+    top:0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,26 +11,28 @@
     background-color: #333;
     color: white;
     padding: 10px 20px;
-    /* background-color: rgba(10, 10, 10, 0.25); */
+    /* margin-bottom: 40%; */
+    z-index: 2000;
   }
   
   .logo-navbar {
-    width: 11vw;
+    width: 8vw;
     /* background-color: aqua; */
   }  
 
   .search-bar-logged-out {
     width: 40vw;
-    height: 4vh;
+    height: 3vh;
     background-color: #f8f8f8;
-    border-radius: 12px;
+    border-radius: 5px;
   }
 
   .search-bar-logged-in {
-    width: 40vw;
-    height: 4vh;
-    background-color: #f8f8f8;
-    border-radius: 12px;
+    width: 30vw;
+    height: 2.8vh;
+    background-color: lightgray;
+    border-radius: 5px;
+    margin-left:20vw;
   }
 
   
@@ -82,12 +80,12 @@
     text-decoration:none;
     color: white;
     font-weight: 100;
-    font-size: 1.25em;
+    font-size: 1em;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    padding-left: 4%;
+    /* padding-left: 5%; */
     /* background-color: aqua; */
     width: 4em;
-    margin-left: 7vw;
+    margin-left: 16vw;
   }
   .signup-btn {
     text-decoration:none;
@@ -102,8 +100,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* padding-right: 3%; */
-    margin-right: 4%;
+    margin-right: 1vw;
   }
   
   .log-out-btn {

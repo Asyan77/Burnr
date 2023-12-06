@@ -4,7 +4,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import { loginUser } from '../../store/session';
 import { createUser } from '../../store/user';
-import logo from "/assests/logos/burnrLogo2.png"
+import bikeLogo from "/assests/logos/burnr-logo-bike.png"
 
 
 function NewUserForm() {
@@ -65,7 +65,7 @@ function NewUserForm() {
   return (
     <div className='outer-form-box-SU'>
       <form className='form-SU' onSubmit={handleSubmit}>
-          <img src={logo} className='form-logo-SU' alt='burnr-logo'/>
+          <img src={bikeLogo} className='form-logo-SU' alt='burnr-logo'/>
           <div className='header-SU'>Sign Up for Burnr</div>
           {showErrors()}
           <div className='form-fields-SU'>
