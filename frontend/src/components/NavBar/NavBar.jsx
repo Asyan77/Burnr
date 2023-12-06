@@ -15,22 +15,25 @@ function NavBar() {
        </NavLink>   
         { currentUser ?
           <div className='logged-in-nav-btns'>
-            <NavLink to={`/user/${currentUser.id}`} className='you-btn nav-links'>You</NavLink>
-            <Link to='/explore' className='explore-btn nav-links'>Explore</Link>
+            <div className='left-side-logged-in'> 
+              <NavLink to={`/user/${currentUser.id}`} className='you-btn nav-links'>You</NavLink>
+              <Link to='/explore' className='explore-btn nav-links'>Explore</Link>
+            </div>
     
             <input className="search-bar-logged-in" type="text" placeholder="Photos, people, or groups" disabled/>
 
-            <NavLink className='upload-btn' to='/upload'>
-               <img src={uploadIcon} className='upload-icon' alt='' />
-            </NavLink>
+            <div className='right-side-logged-in'> 
+              <NavLink className='upload-btn' to='/upload'>
+                 <img src={uploadIcon} className='upload-icon' alt='' />
+              </NavLink>
 
-           <UserIconButton className='ProfileButton' />
-           {/* <button className='log-out-btn' type='submit' onClick={handleLogOut}>Log Out</button>  */}
+              <UserIconButton className='ProfileButton' />
+            </div>
           
          </div>
         :
         <div className='logged-out-nav-btns'>
-            <input className="search-bar-logged-out" type="text" placeholder="Photos, people, or groups" disabled/>
+            {/* <input className="search-bar-logged-out" type="text" placeholder="Photos, people, or groups" disabled/> */}
             <Link to="login" className="login-btn">Log In</Link>
             <Link to="signup" className="signup-btn">Sign Up</Link>
         </div>

@@ -10,20 +10,19 @@ const  UserIconButton = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
-    let openDropDown;
-
 
     const openMenu = (e) => {
         e.stopPropagation();
         if (showMenu) return;
         setShowMenu(true);
-    
+        console.log("working?")
     };
 
     useEffect(() => {
         if (!showMenu) return;
         console.log("inside useEffect")
         const closeMenu = () => {
+            setShowMenu(false)
         };
  
         document.addEventListener('click', closeMenu);
@@ -35,29 +34,21 @@ const  UserIconButton = () => {
         navigate('/')
       }
 
-      if (showMenu) {
-        openDropDown =
-        <div className="profile-dropdown">
-            < div className="dropdown-content">
-                <div className="hello-user">
-                    <span>Hello, </span>
-                    <Link to={`/photos/user/${currentUser.currentUserId}/`} className="username"> {currentUser}</Link>
-                </div>
-                <span>
-                    <button className='log-out-btn' type='submit' onClick={handleLogOut }>Log Out</button>
-                </span>
-            </div>
-        </div>
-      }
+      console.log(showMenu)
 
     return (
-        <>
-            <div className="profile-button-actual-div">
-                <img onClick={openMenu} className="user-icon-btn" src={userIcon} alt='' />
+        <div className="whole-box">
+          <img onClick={openMenu} className="user-icon-btn" src={userIcon} alt='' />
+          {showMenu ? (
+          < div className="dropdown-content-box">
+            <div className="dropdown-content1">
+                <span>Hello, </span>
+                <Link to={`/photos/user/${currentUser.currentUserId}/`} className="username"> {currentUser}</Link>
             </div>
-            {openDropDown}
-            
-        </>
+            <div className='log-out' onClick={handleLogOut }>Log Out</div>
+          </div>   
+             ) : null}
+        </div>
     );
 }
 

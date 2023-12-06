@@ -26,41 +26,56 @@
     background-color: lightgrey;
     border-radius: 5px;
   }
-
+  
+  .nav-links:hover {
+    color: light-grey;
+    text-decoration: underline;
+  }
+  
+  .logged-in-nav-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:  center;
+    width: 85vw;
+    height: 5vh;
+    /* border: purple solid 4px; */
+  }
+  
+  .left-side-logged-in {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: red; */
+    width: 10vw;
+  }
+  
+  .explore-btn {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+  }
+  .you-btn {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+  }
+  
   .search-bar-logged-in {
     width: 30vw;
     height: 2.8vh;
     background-color: lightgray;
     border-radius: 5px;
-    margin-left:20vw;
+    margin-left: 33vw;
   }
-
-  
-  .nav-links:hover {
-    /* color: #ffc107; */
-    text-decoration: underline;
-  }
-
-  .logged-in-nav-btns {
+  .right-side-logged-in {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items:  center;
-    width: 90vw;
-    height: 5vh;
-    /* border: purple solid 4px; */
+    width: 9vw;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: yellow; */
   }
-  .explore-btn {
-    color: white;
-    font-size: 1.3vw;
-    text-decoration: none;
-  }
-  .you-btn {
-    color: white;
-    font-size: 1.3vw;
-    text-decoration: none;
-  }
-
   .upload-icon {
     width: 3vw;
     height: 5vh;
@@ -86,7 +101,8 @@
     /* padding-left: 5%; */
     /* background-color: aqua; */
     width: 4em;
-    margin-left: 16vw;
+    margin-left: 56vw;
+    /* margin-left: 16vw; */
   }
   .signup-btn {
     text-decoration:none;

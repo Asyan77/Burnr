@@ -1,50 +1,48 @@
+
+.whole-box {
+    position: relative;
+    /* background-color: greenyellow; */
+    right: 2vw;
+
+}
+
 .user-icon-btn {
     width: 2.5vw;
-    margin-right: 2vw;
+    margin-left: 3vw;
     border-radius: 20px;
 }
 
-.profile-dropdown {
-    position: fixed;
-    display: inline-block;
-    margin-right: 55vw;
-    margin-left: 90%;
-    /* height: 20vh; */
-    /* width: 20vw; */
-}
-
-.dropdown-content {
-    /* position: fixed; */
+.dropdown-content-box {
+    position: absolute;
+    right: 1em;
+    list-style-type: none;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    background-color: #f9f9f9;
-    min-width: 160px;
+    margin: 1em 0;
+    padding: 0;
+    border: 1px solid grey;
+    height: 13vh;
+    width: 10vw;
+    margin-right: 20vw ;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     border-radius: 3px;
-    z-index: 1;
-    height: 15vh;
-    width: 25vw;
-    margin-top: 30vh;
-    margin-left: 30vw;
-    margin-bottom: 10vh;
-    border: black .5px solid;
 }
-.hello-user {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.dropdown-content1 {
     color: black;
+    margin: 0;
+    /* background-color: #f1f1f1; */
 }
 .username{
     color: black;
+    text-decoration: none;
     /* background-color: bisque; */
-    /* margin-right: 2em; */
 }
 
-.log-out-btn {
-    width: 10vw;
+.log-out{
+    cursor: pointer;
+    color: black;
     
 }
 
@@ -54,10 +52,15 @@
     display: block;
 }
 
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
+.username a:hover {
+    color: gray;
+    text-decoration: none;
 }
 
+.log-out a:hover {
+    color: gray;
+    text-decoration: none;
+}
 /* Show the dropdown when hovering over the profile button */
 .dropdown:hover .dropdown-content {
     display: block;
