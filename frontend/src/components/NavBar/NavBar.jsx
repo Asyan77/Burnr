@@ -1,21 +1,12 @@
 import './NavBar.css'
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { useDispatch } from 'react-redux';
-import { logoutUser } from '../../store/session';
 import UserIconButton from './UserIconButton/UserIconButton';
 import logo from "/assests/logos/burnrLogo2.png"
 import uploadIcon from '/assests/logos/upload.png'
 
 function NavBar() {
   const currentUser = useSelector(state => state.session.currentUser);
-  const dispatch = useDispatch();
-  const navigate = useNavigate()
-
-  const handleLogOut = async () => {
-    await dispatch(logoutUser(currentUser.id))
-    navigate('/')
-  }
 
   return (
     <div className="nav-bar">
