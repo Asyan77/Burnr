@@ -1,8 +1,8 @@
 
 .whole-box {
     position: relative;
-    /* background-color: greenyellow; */
     right: 2vw;
+    /* background-color: greenyellow; */
 
 }
 
@@ -62,6 +62,6 @@
     text-decoration: none;
 }
 /* Show the dropdown when hovering over the profile button */
-.dropdown:hover .dropdown-content {
+/* .dropdown:hover .dropdown-content {
     display: block;
-}
+} */
