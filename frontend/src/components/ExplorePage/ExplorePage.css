@@ -1,3 +1,26 @@
-h1{
-    position: static;
+
+.photoimage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Creates 4 columns with equal width */
+    gap: 15px; 
+    flex-wrap: wrap;
+    padding-left: 11%;
+    padding-right: 11%;
+    padding-top: 10%;
+    /* margin-left: 10px; */
+    /* height: 50px; */
+    /* border: black solid 1px; */
+    
+  }
+
+.photoimage {
+    width: 100%;
+    /* height: 100%; */
+    /* max-height: 100%; */
+    /* max-width: 100%; */
+    object-fit: cover;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* gap: 5px; */
 }

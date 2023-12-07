@@ -2,6 +2,7 @@ import { combineReducers, applyMiddleware, compose, legacy_createStore } from 'r
 import thunk from 'redux-thunk'
 import sessionReducer from './session';
 import userReducer from './user';
+import photoReducer from './photo';
 // import sessionsReducer from './sessionsReducer';
 // import photoReducer from './photosReducer';
 // import commentsReducer from './commentsReducer';
@@ -9,8 +10,8 @@ import userReducer from './user';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
-    users: userReducer
-  //   photos: photoReducer,
+    users: userReducer,
+    photos: photoReducer,
   //   comments: commentsReducer
 })
 
