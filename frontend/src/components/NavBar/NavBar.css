@@ -6,20 +6,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 8vh;
+    height: 5vh;
     width: 100%;
-    background-color: #333;
-    color: white;
+    background-color: #2e2d2d;
     padding: 10px 20px;
     /* margin-bottom: 40%; */
     z-index: 2000;
   }
   
-  .logo-navbar {
-    width: 8vw;
-    /* background-color: aqua; */
-  }  
-
+  
   .search-bar-logged-out {
     width: 40vw;
     height: 3vh;
@@ -37,36 +32,45 @@
     flex-direction: row;
     justify-content: space-between;
     align-items:  center;
-    width: 85vw;
+    width: 79vw;
     height: 5vh;
+    /* margin-right: 4vw; */
+    margin-left: 9vw;
     /* border: purple solid 4px; */
   }
   
   .left-side-logged-in {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     /* background-color: red; */
-    width: 10vw;
+    width: 16vw;
   }
   
+  .logged-in-logo {
+    width: 6vw;
+   
+    /* background-color: aqua; */
+  }  
+
   .explore-btn {
     color: white;
-    font-size: 1.2em;
+    font-size: 1em;
     text-decoration: none;
   }
   .you-btn {
     color: white;
-    font-size: 1.2em;
+    font-size: 1em;
     text-decoration: none;
   }
   
   .search-bar-logged-in {
-    width: 30vw;
-    height: 2.8vh;
+    width: 20vw;
+    height: 2.4vh;
     background-color: lightgray;
     border-radius: 5px;
-    margin-left: 33vw;
+    margin-left: 36vw;
   }
   .right-side-logged-in {
     display: flex;
@@ -77,8 +81,9 @@
     /* background-color: yellow; */
   }
   .upload-icon {
-    width: 3vw;
-    height: 5vh;
+    width: 2vw;
+    height: 3.5vh;
+    margin-left: 3vw;
     /* background-color: white; */
   }
 
@@ -87,10 +92,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 70vw;
+    width: 100%;
     height: 5vh;
     /* background-color: #c42d2d; */
   }
+
+  .logged-out-logo {
+    width: 6vw;
+    margin-left: 1vw;
+    /* background-color: aqua; */
+  } 
   
   .login-btn {
     text-decoration:none;
@@ -100,9 +111,8 @@
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     /* padding-left: 5%; */
     /* background-color: aqua; */
-    width: 4em;
-    margin-left: 56vw;
-    /* margin-left: 16vw; */
+    width: 3.5em;
+    margin-left: 79vw;
   }
   .signup-btn {
     text-decoration:none;
@@ -113,11 +123,11 @@
     background-color: #f8f8f8;
     border-radius: 3px;
     height: 70%;
-    width: 10%;
+    width: 6%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 1vw;
+    /* margin-right: 1vw; */
   }
   
   .log-out-btn {

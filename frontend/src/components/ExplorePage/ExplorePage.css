@@ -1,15 +1,27 @@
 
+.explore {
+    position: absolute;
+    margin-top: 10vh;
+    /* background-color: purple; */
+    width: 8vw;
+    height: 4vh;
+    top: 1vh;
+    left: 11vw;
+    font-size: 1.5em;
+    font-weight: 100;
+}
+
 .photoimage-grid {
+    /* position: absolute; */
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* Creates 4 columns with equal width */
     gap: 15px; 
     flex-wrap: wrap;
     padding-left: 11%;
     padding-right: 11%;
-    padding-top: 10%;
-    /* margin-left: 10px; */
-    /* height: 50px; */
-    /* border: black solid 1px; */
+    padding-top: 8%;
+    
+   /* background-color: aquamarine; */
     
   }
 

@@ -1,11 +1,11 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import './ExplorePage.css'
-import { getAllPhotos } from "../../store/photo";
+import { allPhotos, getAllPhotos } from "../../store/photo";
 
 const ExplorePage =() => {
   const dispatch = useDispatch();
-//   const photos = useSelector(allPhotos)
+  const photos = useSelector(allPhotos)
 //   const username = useSelector(state => )                                   0
 
   useEffect(() => {
@@ -13,8 +13,9 @@ const ExplorePage =() => {
   }, [dispatch]);
 
     return (
-      <div className="page">
-        {/* <ul className="photoimage-grid"> 
+      <div className="page"> 
+        <div className="explore">Explore</div>
+        <ul className="photoimage-grid">
           {photos.map(photo  => {
             return (
               <div>
@@ -25,7 +26,7 @@ const ExplorePage =() => {
             );
           })}
   
-        </ul> */}
+        </ul>
       </div>
     )
 }

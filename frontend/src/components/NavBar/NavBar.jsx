@@ -10,14 +10,17 @@ function NavBar() {
 
   return (
     <div className="nav-bar">
-        <NavLink className='links-on-nav-bar' to='/' >
+        {/* <NavLink className='links-on-nav-bar' to='/' >
             <img src={logo} className='logo-navbar' alt='' />
-       </NavLink>   
+       </NavLink>    */}
         { currentUser ?
           <div className='logged-in-nav-btns'>
             <div className='left-side-logged-in'> 
-              <NavLink to={`/user/${currentUser.id}`} className='you-btn nav-links'>You</NavLink>
-              <Link to='/explore' className='explore-btn nav-links'>Explore</Link>
+                <NavLink className='links-on-nav-bar' to='/' >
+                  <img src={logo} className='logged-in-logo' alt='' />
+                </NavLink>   
+                <NavLink to={`/user/${currentUser.id}`} className='you-btn nav-links'>You</NavLink>
+                <Link to='/explore' className='explore-btn nav-links'>Explore</Link>
             </div>
     
             <input className="search-bar-logged-in" type="text" placeholder="Photos, people, or groups" disabled/>
@@ -33,6 +36,9 @@ function NavBar() {
          </div>
         :
         <div className='logged-out-nav-btns'>
+            <NavLink className='links-on-nav-bar' to='/' >
+                <img src={logo} className='logged-out-logo' alt='' />
+            </NavLink>  
             {/* <input className="search-bar-logged-out" type="text" placeholder="Photos, people, or groups" disabled/> */}
             <Link to="login" className="login-btn">Log In</Link>
             <Link to="signup" className="signup-btn">Sign Up</Link>

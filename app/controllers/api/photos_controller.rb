@@ -7,8 +7,7 @@ class Api::PhotosController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:user_id])
-        @photo = Photo.find_by(id: params[:id])
+        @photo = Photo.find(id: params[:id])
         render :show
     end
 
