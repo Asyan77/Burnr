@@ -18,7 +18,7 @@ const ExplorePage =() => {
         <ul className="photoimage-grid">
           {photos.map(photo  => {
             return (
-              <div>
+              <div key={photo.id}>
                 <a href={`/photos/${photo.id}`}> 
                   <img key={photo.id} src={photo.photoUrl} alt="" className="photoimage" />
                 </a>
