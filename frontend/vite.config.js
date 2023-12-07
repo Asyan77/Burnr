@@ -13,7 +13,14 @@ export default defineConfig(({ mode }) => ({
   ],
   server: {
     proxy: {
-      '/api': 'http://localhost:5000'
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true
+      },
+      '/rails': {
+        target: 'http://localhost:5000',
+        changeOrigin: true
+      }
     },
     // To automatically open the app in the browser whenever the server starts,
     // uncomment the following line:

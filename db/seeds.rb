@@ -9,7 +9,7 @@
 #   end
 require 'open-uri'
 
-ActiveRecord::Base.transaction do
+
     # Like.destroy_all
     # Album.destroy_all
     User.destroy_all
@@ -164,10 +164,3 @@ ActiveRecord::Base.transaction do
   # comment10 = Comment.create!(author_id: zach.id, photo_id: 10, body: "")
   # comment11 = Comment.create!(author_id: zach.id, photo_id: 10, body: "")
   # comment12 = Comment.create!(author_id: zach.id, photo_id: 10, body: "")
-
-
-
-
-
-
-end

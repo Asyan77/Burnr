@@ -6,6 +6,7 @@ import { loginUser } from '../../store/session';
 import bikeLogo from "/assets/logos/burnr-logo-bike.png"
 
 
+
 function LogInForm() {
   const dispatch = useDispatch()
   const [email, setEmail] = useState('');

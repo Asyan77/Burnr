@@ -19,7 +19,7 @@ class User < ApplicationRecord
     before_validation :ensure_session_token
     has_secure_password # automates password= and defines #authenticate(password)
 
-    has_many :photos
+    has_many_attached :photos
 
     def self.find_by_credentials(email, password)
       user = User.find_by(email: email)

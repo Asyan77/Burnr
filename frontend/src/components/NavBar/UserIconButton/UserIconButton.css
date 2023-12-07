@@ -14,7 +14,9 @@
 
 .dropdown-content-box {
     position: absolute;
-    right: 1em;
+    /* right: 1px; */
+    left: -5vw;
+    top: 40px;
     list-style-type: none;
     display: flex;
     flex-direction: column;
@@ -24,10 +26,11 @@
     padding: 0;
     border: 1px solid grey;
     height: 13vh;
-    width: 10vw;
+    width: 15vw;
     margin-right: 20vw ;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     border-radius: 3px;
+    max-width: 200px;
 }
 .dropdown-content1 {
     color: black;
