@@ -4,7 +4,7 @@
     background-repeat: no-repeat; 
     background-image: url('../../../assets/logos/loginBackgound.png');
     z-index: 2000;
-    top: 8vh;
+    top: 5vh;
     height: 92vh;
     /* background-color: purple; */
 }

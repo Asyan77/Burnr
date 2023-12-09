@@ -11,9 +11,9 @@ export const receiveAllPhotos = (photos) => ({
   photos
 });
 
-export const receiveOnePhoto = photoId => ({
+export const receiveOnePhoto = photo => ({
     type: RECEIVE_ONE_PHOTO,
-    photoId
+    photo
   });
 
   export const deletePhoto = photoId => ({
@@ -39,6 +39,7 @@ export const getOnePhoto = (photoId) => async dispatch => {
     const res = await grabOnePhoto(photoId)
     if (res.ok) {
       const photo =  await res.json();
+      console.log(photo, 'get one photo')
       return dispatch(receiveOnePhoto(photo));
     } else {
       const data = await res.json();
@@ -49,7 +50,8 @@ export const getOnePhoto = (photoId) => async dispatch => {
 
 export const allPhotos = (state) => state.photos ? Object.values(state.photos) : null
 export const onePhoto = (id) => (state) => state.photos[id]
-export const getUserPhotos = (userId) => (state) => state.photos ? Object.values(state.photos.userId[userId]) : null
+export const getUserPhotos = (userId) => (state) => state.photos ? Object.values(state.photos).filter(photo => photo.userId === userId) : null
+
 
 
 const photoReducer = (state ={}, action) => {
@@ -58,6 +60,8 @@ const photoReducer = (state ={}, action) => {
   switch (action.type) {
     case RECEIVE_ALL_PHOTOS:
         return { ...nextState, ...action.photos };
+    case RECEIVE_ONE_PHOTO:
+        return nextState[action.photo.id] = action.photo;
     // return action.photos
     // case SET_CURRENT_USER:
     //   nextState[action.user.id]= action.user;

@@ -20,6 +20,9 @@ export const receiveCurrentUser = user => ({
 //   userId
 // });
 
+export const getUsername = (id) => (state) => state.users[id].username 
+
+
 // Thunk Action Creators
 export const createUser = userData => async dispatch => {
   const res = await createNewUser(userData)

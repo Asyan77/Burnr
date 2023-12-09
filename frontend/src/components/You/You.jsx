@@ -1,24 +1,25 @@
-import './ProfilePage.css'
+
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import './You.css'
 import { getAllPhotos, getUserPhotos } from '../../store/photo';
 import { useEffect } from 'react';
 import profilePic from "/assets/logos/loginBackgound.png"
-import { getUsername } from '../../store/user';
-
-
-
-const ProfilePage = () => {
+const You = () => {
     const dispatch = useDispatch();
-    const { userId } = useParams();
-    const userPhotos = useSelector(getUserPhotos(userId));
-    const username = useSelector(getUsername(userId))
+    const currentUserId =  useSelector(state => state.session.currentUserId)
+    const currentUser = useSelector(state => state.users[currentUserId])
+    const currentUserPhotos = useSelector(getUserPhotos(currentUserId));
 
 useEffect(() => {
     dispatch(getAllPhotos())
 },[dispatch])
 
+
+
+
       return (
+ 
         <div className="you-page">
             <div className="you-profile-header">
 
@@ -26,23 +27,23 @@ useEffect(() => {
                     <img src={profilePic} className='profile-pic-circle'></img>
                     <div className='left-inner-box1'>
                         <div className='left-inner-box2'>
-                            <div className="you-username">{username}</div>
+                            <div className="you-username">{currentUser.username}</div>
                             <button className='follow'>Follow</button>
                             <div className='dots'>...</div>
                         </div>
                         <div className='left-inner-box3'>
                             <div className='pro'>PRO</div>
-                            <div className='left-bottom-text'>{username}s Moment</div>
-                            <div className='left-bottom-text'>1.8K Followers</div>
-                            <div className='left-bottom-text'>389 Following</div>
+                            <div className='left-bottom-text'>{currentUser.username}s Moment</div>
+                            <div className='left-bottom-text'>7.2K Followers</div>
+                            <div className='left-bottom-text'>282 Following</div>
                         </div>
                     </div>   
                 </div>
 
                 <div className='right-outer-box'>
-                    <div> {userPhotos.length} Photos</div>
-                    <div>United States</div>
-                    <div>Joined 2022</div>
+                    <div> {currentUserPhotos.length} Photos</div>
+                    <div>Taiwan</div>
+                    <div>Joined 2013</div>
                 </div>
             </div>
 
@@ -58,12 +59,12 @@ useEffect(() => {
                 </div>
             </div>
                 {<ul className="user-profile-photo-grid"> 
-                    {userPhotos.map(photo => {
+                    {currentUserPhotos.map(photo => {
                         return (
                             <div key={photo.id}>
-                                <Link to={`/photos/${userId}/${photo.id}`}>
-                                    <img key={photo.id} src={photo.photoUrl} alt="user-photos" className="user-photoimage" />
-                                </Link>
+                            <Link to={`/photos/${currentUserId}/${photo.id}`}>
+                                 <img key={photo.id} src={photo.photoUrl} alt="user-photos" className="user-photoimage" />
+                            </Link>
                             </div>
                             );
                         })}
@@ -72,4 +73,4 @@ useEffect(() => {
       );
     }
 
-export default ProfilePage
+export default You

@@ -7,24 +7,20 @@ import uploadIcon from '/assets/logos/upload.png'
 
 function NavBar() {
   const currentUser = useSelector(state => state.session.currentUser);
+  const userId = useSelector(state => state.session.currentUserId);
 
   return (
     <div className="nav-bar">
-        {/* <NavLink className='links-on-nav-bar' to='/' >
-            <img src={logo} className='logo-navbar' alt='' />
-       </NavLink>    */}
         { currentUser ?
           <div className='logged-in-nav-btns'>
             <div className='left-side-logged-in'> 
                 <NavLink className='links-on-nav-bar' to='/' >
                   <img src={logo} className='logged-in-logo' alt='' />
                 </NavLink>   
-                <NavLink to={`/user/${currentUser.id}`} className='you-btn nav-links'>You</NavLink>
+                <NavLink to={`/photos/${userId}`} className='you-btn nav-links'>You</NavLink>
                 <Link to='/explore' className='explore-btn nav-links'>Explore</Link>
             </div>
-    
             <input className="search-bar-logged-in" type="text" placeholder="Photos, people, or groups" disabled/>
-
             <div className='right-side-logged-in'> 
               <NavLink className='upload-btn' to='/upload'>
                  <img src={uploadIcon} className='upload-icon' alt='' />

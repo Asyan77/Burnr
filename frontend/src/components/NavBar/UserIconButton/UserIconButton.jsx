@@ -15,12 +15,10 @@ const  UserIconButton = () => {
         e.stopPropagation();
         if (showMenu) return;
         setShowMenu(true);
-        console.log("working?")
     };
 
     useEffect(() => {
         if (!showMenu) return;
-        console.log("inside useEffect")
         const closeMenu = () => {
             setShowMenu(false)
         };
@@ -33,8 +31,6 @@ const  UserIconButton = () => {
         await dispatch(logoutUser(currentUser.id))
         navigate('/')
       }
-
-      console.log(showMenu)
 
     return (
         <div className="whole-box">

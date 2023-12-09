@@ -63,7 +63,7 @@ function NewUserForm() {
   if (currentUser) return <Navigate to='/explore' replace={true}/>
 
   return (
-    <div className='signup-background'> Hello
+    <div className='signup-background'>
       <div className='outer-form-box-SU'>
         <form className='form-SU' onSubmit={handleSubmit}>
             <img src={bikeLogo} className='form-logo-SU' alt='burnr-logo'/>
