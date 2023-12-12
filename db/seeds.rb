@@ -213,7 +213,7 @@ require 'open-uri'
 
   
   puts "Creating comments..."
-  comment1 = Comment.create!(user_id: ben.id, photo_id: photo2.id, comment: "I hope there's A/C or a fan inside those pastries. Could be a personal sauna or a personal cooler! ")
+  comment1 = Comment.create!(user_id: ben.id, photo_id: photo61.id, comment: "I hope there's A/C or a fan inside those pastries. Could be a personal sauna or a personal cooler! ")
   comment2 = Comment.create!(user_id: riley.id, photo_id: photo3.id, comment: "I was on this! I took a nap and watched the sunset, was magical.")
   comment3 = Comment.create!(user_id: charles.id, photo_id: photo5.id, comment: "I saw this at my first year at BM, so wild that it's actually made out of real trucks")
   comment4 = Comment.create!(user_id: neha.id, photo_id: photo34.id, comment: "I love the Janky Barge, that's my friend's camp!")

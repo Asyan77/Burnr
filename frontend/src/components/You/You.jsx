@@ -1,7 +1,7 @@
 import './You.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from "react-router-dom";
-import { getAllPhotos, getUserPhotos } from '../../store/photo';
+import { getAllUserPhotos, getUserPhotos } from '../../store/photo';
 import { useEffect } from 'react';
 import profilePic from "/assets/logos/loginBackgound.png"
 import { getAllUsers, getUsername } from '../../store/user';
@@ -12,13 +12,10 @@ const You = () => {
     const dispatch = useDispatch();
     const photos = useSelector(getUserPhotos(+userId));  
     const username = useSelector(getUsername(userId))
-    console.log(username)
-
-    useEffect(() => {
-        dispatch(getAllPhotos())
-    },[dispatch])
+  
     
     useEffect(() => {
+        dispatch(getAllUserPhotos(userId))
         dispatch(getAllUsers())
     },[dispatch])
 

@@ -2,14 +2,18 @@ class Api::CommentsController < ApplicationController
     before_action :require_logged_in, only: [:create, :update, :destroy]
 
     def index
-        @comments = Comment.all
+        if params[:photo_id]
+            @comments = Comment.where(photo_id: params[:photo_id])
+        else
+             @comments = Comment.all
+        end
         render :index
     end
 
-    def show
-        @comments = Comment.find_by(photo_id: params[:photo_id])
-        render :show
-    end
+    # def show
+    #     @comments = Comment.find_by(photo_id: params[:photo_id])
+    #     render :show
+    # end
 
     def create
         @comment = Comment.new(comment_params)
@@ -33,7 +37,7 @@ class Api::CommentsController < ApplicationController
     def destroy
         @comment = Comment.find_by(id: params[:id])
         if @comment&.destroy
-            render :index
+            head :no_content
         else
           render json: ['Something went wrong'], status: 422
         end

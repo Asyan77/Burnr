@@ -8,6 +8,13 @@ export const grabAllPhotos = async ()=> {
     return res
 }
 
+export const grabAllUserPhotos = async (userId)=> {
+  const res = await csrfFetch(`/api/photos?user_id=${userId}`, {
+    method: 'GET'
+  })
+  return res
+}
+
 export const grabOnePhoto = async (photoId)=> {
     const res = await csrfFetch(`/api/photos/${photoId}`, {
       method: 'GET',

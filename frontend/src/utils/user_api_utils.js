@@ -16,6 +16,13 @@ export const grabAllUsers = async () => {
   return res
 }
 
+export const grabOneUser = async (userId) => {
+  const res = await csrfFetch(`/api/users/${userId}`, {
+    method: 'GET'
+  })
+  return res
+}
+
 
 
 export const destroyUser = async() => {

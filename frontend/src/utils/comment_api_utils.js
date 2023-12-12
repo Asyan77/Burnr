@@ -1,8 +1,8 @@
 import { csrfFetch } from "./csrf";
 
 
-export const grabAllComments = async ()=> {
-    const res = await csrfFetch('/api/comments', {
+export const grabAllComments = async (photoId)=> {
+    const res = await csrfFetch(`/api/comments?photoId=${photoId}`, {
       method: 'GET'
     })
     return res
@@ -37,7 +37,7 @@ export const editComment = async (commentId, commentData) => {
 
 //delete a comment
 export const destroyComment = async(commentId) => {
-  const res = await csrfFetch(`/api/comments/:${commentId}`, {
+  const res = await csrfFetch(`/api/comments/${commentId}`, {
     method: 'DELETE',
   })
   return res

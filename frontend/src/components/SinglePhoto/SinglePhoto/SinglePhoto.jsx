@@ -3,10 +3,9 @@ import './SinglePhoto.css'
 import { useEffect } from 'react';
 import { getOnePhoto, onePhoto } from '../../../store/photo';
 import { Link, useParams } from 'react-router-dom';
-import { getUsername } from '../../../store/user';
 import userIcon from '/assets/logos/zebra.png'
 import editIcon from '/assets/logos/editIcon.png'
-import { allPhotosComments, getAllComments } from '../../../store/comment';
+import { allPhotosComments, deleteOneComment, getAllComments} from '../../../store/comment';
 import CommentForm from '../CommentForm/CommentForm';
 import EditPhotoCommentModal from '../EditPhotoComment/EditCommentModal';
 import deleteIcon from '../../../../assets/logos/deleteIcon.png'
@@ -20,17 +19,13 @@ const SinglePhoto = () => {
     const photosComments = useSelector(allPhotosComments(+photoId))
     const currentUser = useSelector(state => state.session.currentUser);
     const currentUserId = useSelector(state => state.session.currentUserId);
-    const username = useSelector(getUsername(userId))
-
 
     useEffect(() => {
-        dispatch(getAllComments())
-    },[dispatch])
-
-    useEffect(() => {
+        dispatch(getAllComments(photoId))
         dispatch(getOnePhoto(photoId))
-    },[dispatch, photoId])
+    },[dispatch, photoId, userId])
 
+   
     const formatDate = (date) => {
         const dateObj = new Date(date)
         return dateObj.toDateString()
@@ -38,11 +33,7 @@ const SinglePhoto = () => {
  
     const deleteComment = async (e, commentId) => {
         e.preventDefault();
-        const res = await dispatch(deleteComment(commentId))
-        if (res.ok) {
-            await res.json()
-            dispatch(getOnePhoto(photoId))
-        }
+        dispatch(deleteOneComment(commentId))
     }
 
     const openEditModal = (e, commentId, currentComment) => {
@@ -65,8 +56,8 @@ const SinglePhoto = () => {
                 <div className='right-box-SP'>
                     <div className='top-right-box-SP'>
                         <img className='user-icon-SP' src={userIcon}/>
-                        <Link className='username-link-SP' to={`/photos/${userId}`}>
-                            <div className='username-SP'>{username}</div>
+                        <Link className='username-link-SP' to={`/photos/${photo.userId}`}>
+                            <div className='username-SP'>{photo.username}</div>
                         </Link>
                     </div>
 

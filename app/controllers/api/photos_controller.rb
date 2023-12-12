@@ -2,7 +2,11 @@ class Api::PhotosController < ApplicationController
     before_action :require_logged_in, only: [:create, :update, :destroy]
 
     def index
-        @photos = Photo.all
+        if params[:user_id]
+            @photos = Photo.where(user_id: params[:user_id])
+        else
+            @photos = Photo.all
+        end
         render :index
     end
 

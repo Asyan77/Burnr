@@ -7,13 +7,10 @@ import { Link } from "react-router-dom";
 const ExplorePage =() => {
   const dispatch = useDispatch();
   const photos = useSelector(allPhotos)
-//   const username = useSelector(state => )                                   0
-
+                                 
   useEffect(() => {
     dispatch(getAllPhotos())
   }, [dispatch]);
-
-
 
 
     return (

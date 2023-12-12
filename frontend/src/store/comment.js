@@ -2,6 +2,7 @@ import { createNewComment, destroyComment, editComment, grabAllComments, grabAll
 
 // Type Constants
 export const RECEIVE_ALL_COMMENTS = 'comments/RECEIVE_ALL_COMMENTS';
+export const RECEIVE_ONE_COMMENT = 'comments/RECEIVE_ONE_COMMENT';
 export const RECEIVE_ALL_PHOTOS_COMMENTS = 'comments/RECEIVE_ALL_PHOTOS_COMMENTS';
 export const CREATE_COMMENT = 'comments/CREATE_COMMENT'
 export const UPDATE_COMMENT = 'comments/UPDATE_COMMENT'
@@ -34,8 +35,8 @@ commentId
 });
 
 // Thunk Action Creators
-export const getAllComments = () => async dispatch => {
-  const res = await grabAllComments()
+export const getAllComments = (photoId) => async dispatch => {
+  const res = await grabAllComments(photoId)
   if (res.ok) {
     const comments =  await res.json();
     return dispatch(receiveAllComments(comments));
@@ -82,7 +83,7 @@ export const updateComment =(commentId, commentData) => async dispatch => {
   }
 }
 
-export const deleteComment = (commentId) => async dispatch => {
+export const deleteOneComment = (commentId) => async dispatch => {
   const res = await destroyComment(commentId);
   if(res.ok) {
     return dispatch(deleteAComment(commentId))
@@ -98,7 +99,7 @@ export const allPhotosComments = (photoId) => (state) => state.comments ? Object
 
 
 const commentReducer = (state ={}, action) => {
-  const nextState = Object.assign(state);
+  const nextState = Object.assign({}, state);
 
   switch (action.type) {
     case RECEIVE_ALL_COMMENTS:
