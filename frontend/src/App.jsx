@@ -6,7 +6,7 @@ import NewUserForm from "./components/NewUserForm/NewUserForm";
 import NavBar from "./components/NavBar/NavBar";
 import { Outlet } from "react-router-dom";
 import You from "./components/You/You";
-import SinglePhoto from "./components/SinglePhoto/SinglePhoto.jsx/SinglePhoto";
+import SinglePhoto from "./components/SinglePhoto/SinglePhoto/SinglePhoto";
 const router = createBrowserRouter([
   {
     path: '/',
@@ -31,8 +31,8 @@ const router = createBrowserRouter([
       </>,
     children: [
       // { index: true, element:  <You/> },
-      { path: ':userId', element: <You/>  },
       { path: ':userId/:photoId', element: <SinglePhoto/>  },
+      { path: ':userId', element: <You/>},
       // { path: ':username/albums', element: <Albums /> },
       // { path: 'username/albums/:albumId', element: <AlbumPhotos/> },
     ]

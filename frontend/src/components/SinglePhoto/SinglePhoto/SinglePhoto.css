@@ -16,8 +16,9 @@
 
 .single-photo-image {
     padding-top: 11vh;
-    height: 72vh;
+    height: 70vh;
     margin-right: 10vw;
+    padding-bottom: 8vh;
     /* padding-right: 10vw; */
 }
 
@@ -49,6 +50,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.username-link-SP{
+    text-decoration: none;
+}
 
 .mid-right-box-SP {
     height: 12vh;
@@ -93,9 +97,70 @@
 
 
 .bottom-box-SP {
-    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2em;
+    align-items: center;
+    background-color: rgb(227, 225, 225);
+    height: 100vh;
 }
 
+.comments-SP {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: greenyellow; */
+    width: 40em;
+}
+
+.comment-label {
+    font-size: 2em;
+    padding-bottom: .5em;
+    text-decoration: underline;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.comment-details-SP {
+    display: flex;
+    flex-direction: column;
+    /* background-color: blueviolet; */
+    width: 100%;
+}
+
+.comment-details-SP:hover {
+    background-color: white;
+}
+
+
+.author-link{
+    text-decoration: underline;
+    font-size: 1.3em;
+    padding-bottom: .4em;
+    padding-top: 1em;
+}
+
+.edit-options-SP {
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-comment {
+    font-size: 1.3em;
+}
+
+.comment-buttons{
+    display: flex;
+    justify-content: space-around;
+    width: 2.8em;
+    margin-right: 1em;
+    /* background-color: pink; */
+}
+
+.delete-btn-SP, 
+.edit-btn-SP {
+    height: 1em;
+}
 .text-SP {
     font-family: Arial, Helvetica, sans-serif;
 }

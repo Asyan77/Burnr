@@ -9,6 +9,14 @@ export const createNewUser = async userData => {
   return res
 }
 
+export const grabAllUsers = async () => {
+  const res = await csrfFetch('/api/users', {
+    method: 'GET'
+  })
+  return res
+}
+
+
 
 export const destroyUser = async() => {
 

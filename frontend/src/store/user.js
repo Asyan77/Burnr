@@ -1,9 +1,10 @@
-import { createNewUser } from "../utils/user_api_utils";
+import { createNewUser, grabAllUsers } from "../utils/user_api_utils";
 import { SET_CURRENT_USER} from "./session";
 
 
 // Type Constants
 export const RECEIVE_CURRENT_USER = 'user/RECEIVE_CURRENT_USER';
+export const SET_ALL_USERS = 'user/SET_ALL_USERS'
 export const DESTROY_USER = 'user/DESTROY_USER';
 
 // Action Creators
@@ -12,15 +13,16 @@ export const receiveCurrentUser = user => ({
   user
 });
 
-
-
+export const setAllUsers = users => ({
+  type: SET_ALL_USERS,
+  users
+})
 
 // export const removeCurrentUser = userId => ({
 //   type: REMOVE_CURRENT_USER,
 //   userId
 // });
 
-export const getUsername = (id) => (state) => state.users[id].username 
 
 
 // Thunk Action Creators
@@ -37,6 +39,22 @@ export const createUser = userData => async dispatch => {
   }
 };
 
+
+export const getAllUsers = () => async dispatch => {
+  const res = await grabAllUsers();
+  if(res.ok) {
+    const data = await res.json();
+    console.log(data, 'data of all users')
+    return dispatch(setAllUsers(data))
+  } else {
+    const data = await res.json()
+    return data.errors
+  }
+}
+
+export const getUsername = (id) => (state) => state.users[id].username 
+
+
 const userReducer = (state ={}, action) => {
   const nextState = Object.assign(state);
 
@@ -44,9 +62,8 @@ const userReducer = (state ={}, action) => {
     case RECEIVE_CURRENT_USER:
       nextState[action.user.id] = action.user;
       return nextState;
-    case SET_CURRENT_USER:
-      nextState[action.user.id]= action.user;
-      return nextState;
+    case SET_ALL_USERS:
+      return action.users;
     case DESTROY_USER:
       delete nextState[action.userId];
       return nextState;

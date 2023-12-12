@@ -12,14 +12,14 @@ require 'open-uri'
 
     # Like.destroy_all
     # Album.destroy_all
-    # Comment.destroy_all
+    Comment.destroy_all
     Photo.destroy_all
     User.destroy_all
 
-    # ActiveRecord::Base.connection.reset_pk_sequence!('photos')
+    ActiveRecord::Base.connection.reset_pk_sequence!('comments')
+    ActiveRecord::Base.connection.reset_pk_sequence!('photos')
     ActiveRecord::Base.connection.reset_pk_sequence!('users')
     # ActiveRecord::Base.connection.reset_pk_sequence!('albums')
-    # ActiveRecord::Base.connection.reset_pk_sequence!('comments')
 
 
   puts "Creating users..."
@@ -32,16 +32,17 @@ require 'open-uri'
 
 
   puts "Creating photos..."
-  photo1 = Photo.create!(title: 'Angler Fish Art Car', user_id: zach.id, tag: ["art car", "fish", "animal"], description: '')
-  photo1.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/art+cars/angler-fish-artcar.png"), filename:'angler-fish-artcar.png')
-  
-  photo2 = Photo.create!(title: 'Cupcake & Muffin Art Cars', user_id: zach.id, description: 'Driving a Muffin Car Is Fun')
-  photo2.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/art+pieces/cupcakes.png"), filename:'cupcakes.png')
+
+  photo1 = Photo.create!(title: 'Mosaic Octopus', user_id: james.id, description: 'The attention to detail was incredible and very fun to climb :) ')
+  photo1.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/octopus.png"), filename:'octopus.png')
+
+  photo2 = Photo.create!(title: 'Fallen Robot', user_id: neha.id, description: '')
+  photo2.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/robot.png"), filename:'robot.png')
   
   photo3 = Photo.create!(title: 'Lord Snort', user_id: zach.id, tag: ["art", "animal"], description: 'Got to climb all over this giant galloping wild boar sculpture in 2016! This gnarly swine weighs aprox. 20,000 pounds and is over 20 feet tall and 37 feet long, made out of rusting corrugated metal! ')
   photo3.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/art+pieces/boar2019.png"), filename:'boar2019.png')
   
-  photo4 = Photo.create!(title: '747 Boeing - 2018', user_id: zach.id, description: 'Yup... thats a real Boeing 747 turned into a giant art car. So dope!! ')
+  photo4 = Photo.create!(title: '747 Boeing - 2018', user_id: zach.id, description: 'An actual Boeing 747 turned into a giant art car ')
   photo4.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/art+pieces/boring747.png"), filename:'boring747.png')
   
   photo5 = Photo.create!(title: 'Big Rig Jig!', user_id: zach.id, description: 'Two real tanker trucks twisted into a 50-foot-tall upright "S." Built for 2009 Burning Man by Mike Ross')
@@ -53,13 +54,13 @@ require 'open-uri'
   photo7 = Photo.create!(title: 'Dawww', user_id: riley.id, description: 'Amy was pretty surprised <3 ')
   photo7.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/people/colly-amy-proposal.png"), filename:'colly-amy-proposal.png')
 
-  photo8 = Photo.create!(title: 'Miss Fields Slayin', user_id: charles.id, description: '')
+  photo8 = Photo.create!(title: 'Miss Fields Slayin', user_id: zach.id, description: '')
   photo8.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/people/ryan-fields.png"), filename:'ryan-fields.png')
   
   photo9 = Photo.create!(title: 'Temple of Fires BM 2009', user_id: zach.id, description: '')
   photo9.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/temple/temple-of-fires2009.png"), filename:'temple-of-fires2009.png')
   
-  photo10 = Photo.create!(title: 'Dusty Man 2014', user_id: zach.id, description: 'Caught in a whiteout duststorm on the Janky Barge')
+  photo10 = Photo.create!(title: 'Dusty Man 2014', user_id: zach.id, description: 'Caught in a whiteout dust storm on the Janky Barge')
   photo10.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/the+man/2014-dusty-man.png"), filename:'2014-dusty-man.png')
   
   photo11 = Photo.create!(title: 'Cheshire Centaur on a Bike in the Desert ', user_id: ben.id, description: '')
@@ -77,7 +78,7 @@ require 'open-uri'
   photo15 = Photo.create!(title: "Airing Out Your Dirty Laundry", user_id: ben.id, description:'I love the simple snarky art installations')
   photo15.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/airing+out+dirty+laundy.png"), filename:'airing-out-dirty-laundry.png')
   
-  photo16 = Photo.create!(title: 'Collin in the Petaled Portal', user_id: ben.id, description: '')
+  photo16 = Photo.create!(title: 'Collin in the Petaled Portal', user_id: james.id, description: '')
   photo16.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/people/colly.png"), filename:'colly.png')
   
   photo17 = Photo.create!(title: 'Night at the Climb-In', user_id: ben.id, description: '..aka.. the car-kebob! I did not get a chance to climb this beauty before it got shut down from someone falling off of it.')
@@ -92,7 +93,7 @@ require 'open-uri'
   photo20 = Photo.create!(title: 'Costco', user_id: ben.id, description: 'LOL, who comes up with this stuff???')
   photo20.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/camps/costco-camp.png"), filename:'costco-camp.png')
   
-  photo21 = Photo.create!(title: 'Alien Chess Camp', user_id: riley.id, description: 'Turns out aliens are really good at chess, kinda not surprised...')
+  photo21 = Photo.create!(title: 'Alien Chess Camp', user_id: james.id, description: 'Turns out aliens are really good at chess, kinda not surprised...')
   photo21.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/camps/alien-chess-camp.png"), filename:'alien-chess-camp.png')
   
   photo22 = Photo.create!(title: 'Flybrarians in the Flybrary', user_id: zach.id, description: '')
@@ -101,16 +102,16 @@ require 'open-uri'
   photo23 = Photo.create!(title: 'Robot Heart Sunrise ', user_id: riley.id, description: 'I love when the sound camps art cars join together and create giant massive art car party out in deep playa <3 so magical! ')
   photo23.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/camps/robotheart.png"), filename:'robotheart.png')
   
-  photo24 = Photo.create!(title: 'Peekaboo Skeleton', user_id: riley.id, description: 'I wish I know what the meaning was behind this piece. What do you think it is? ')
+  photo24 = Photo.create!(title: 'Peekaboo Skeleton', user_id: charles.id, description: 'I wish I know what the meaning was behind this piece. What do you think it is? ')
   photo24.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/2023art.png"), filename:'2023art.png')
   
-  photo25 = Photo.create!(title: 'Happy day on the Playa', user_id: zach.id, description: '')
+  photo25 = Photo.create!(title: 'Happy day on the Playa', user_id: riley.id, description: '')
   photo25.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/people/people.png"), filename:'people.png')
 
   photo26 = Photo.create!(title: 'Embrace 2019', user_id: riley.id, description: '')
   photo26.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/art+pieces/embrace2018.png"), filename:'embrace2018.png')
 
-  photo27 = Photo.create!(title: 'Facing the FearBeast 2022', user_id: riley.id, description: 'One of my fav art pieces from this year. Made from tires, the FearBeast represents doubts, insecurites, and negative talk you tell yourself. What you do not see in the photo is a child standing in front of the FearBeast. The beast is saying hurtful words, talking down to him. When community gathers around the child, the child starts to glow which represents the spark of life and the power of love. Inside the FearBeast there is a child inside that starts to glow and the realization that you are your own Fearbeast and how community can impower you.')
+  photo27 = Photo.create!(title: 'Facing the FearBeast 2022', user_id: zach.id, description: 'One of my fav art pieces from this year, it was so dark, powerful, and heartwarming')
   photo27.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/art+pieces/fearbeast2022.png"), filename:'fearbeast2022.png')
 
   photo28 = Photo.create!(title: 'Tea Pots 2016', user_id: riley.id, description: "Have you ever want to cruise around the desert in as a gang of tea pots? Apparently it's been there for two years but I didn't see it until this year... as with all art cars there, you can just climb in any time and enjoy high tea while watching the desert go by out the window...")
@@ -155,7 +156,7 @@ require 'open-uri'
   photo51 = Photo.create!(title: 'BRC <3', user_id: james.id, description: 'Ariel view of the clock system grid that makes of the city of Black Rock City')
   photo51.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/black+rock+city.png"), filename:'black-rock-city.png')
   
-  photo52 = Photo.create!(title: 'Catstronauts', user_id: james.id, description: '')
+  photo52 = Photo.create!(title: 'Catstronauts', user_id: zach.id, description: '')
   photo52.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/catstronauts.png"), filename:'Catstronauts.png')
   
   photo53 = Photo.create!(title: 'Classics', user_id: james.id, tag: ["art", "animal"], description: 'Found some Campbell tomato soup and saltine crackers in deep playa, haha ')
@@ -164,26 +165,26 @@ require 'open-uri'
   photo54 = Photo.create!(title: 'Neat Bike', user_id: james.id, description: '')
   photo54.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/coolbike.png"), filename:'cool-bike.png')
   
-  photo55 = Photo.create!(title: 'Deep Playa Dumps', user_id: james.id, description: 'Ran into Catmandu serving up hot dumplings out in deep playa. The chopsticks shot out flames, pretty neat!')
+  photo55 = Photo.create!(title: 'Deep Playa Dumps', user_id: james.id, description: 'Ran into Catmandu serving up hot dumplings out in deep playa. The chopsticks shot out flames, and there was a DJ on the top')
   photo55.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/deep+playa+dumplings.png"), filename:'deep-playa-dumps.png')
 
   photo56 = Photo.create!(title: "Bathtub break", user_id: neha.id, description:'Hiding out from dust storms')
   photo56.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/dustybreak.png"), filename:'bathtub.png')
   
-  photo57 = Photo.create!(title: 'Egg Baby', user_id: neha.id, description: '')
+  photo57 = Photo.create!(title: 'Egg Baby', user_id: charles.id, description: '')
   photo57.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/eggbaby.png"), filename:'egg-baby.png')
   
-  photo58 = Photo.create!(title: 'Steampunk Elephant', user_id: riley.id, description: '')
-  photo58.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/elephant.png"), filename:'elephant')
+  # photo58 = Photo.create!(title: 'Steampunk Elephant', user_id: riley.id, description: '')
+  # photo58.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/elephant.png"), filename:'elephant')
   
   photo59 = Photo.create!(title: 'Lumin Shroomin', user_id: james.id, description: 'The mushrooms looked like they were breathing by expanding and folding and changing color shape and size. This is one of my favorite art this year.')
   photo59.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/loomin+shroomin.png"), filename:'loominshroomin.png')
   
-  photo60 = Photo.create!(title: 'Mosaic Octopus', user_id: james.id, description: 'The attention to detail was incredible and very fun to climb :) ')
-  photo60.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/octopus.png"), filename:'octopus.png')
-
-  photo61 = Photo.create!(title: 'Fallen Robot', user_id: neha.id, description: '')
-  photo61.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/robot.png"), filename:'robot.png')
+  photo60 = Photo.create!(title: 'Angler Fish Art Car', user_id: james.id, tag: ["art car", "fish", "animal"], description: '')
+  photo60.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/art+cars/angler-fish-artcar.png"), filename:'angler-fish-artcar.png')
+  
+  photo61 = Photo.create!(title: 'Cupcake & Muffin Art Cars', user_id: zach.id, description: 'Have you ever been chased by a muffin or cupcake in the desert, while the cupcakes give out cupcakes???')
+  photo61.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/art+pieces/cupcakes.png"), filename:'cupcakes.png')
   
   photo62 = Photo.create!(title: 'Free snail rides!', user_id: neha.id, description: '')
   photo62.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/snail+ride.png"), filename:'snail-ride.png')
@@ -194,10 +195,10 @@ require 'open-uri'
   photo64 = Photo.create!(title: 'UFO Man', user_id: neha.id, description: '')
   photo64.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/the+man+ufo.png"), filename:'ufo-man.png')
   
-  photo65 = Photo.create!(title: 'The Meta Yak', user_id: neha.id, description: 'You climb into this 50ft tall yak to find a living room inside the Yak filled with pictures of more yaks!')
+  photo65 = Photo.create!(title: 'The Meta Yak 2023', user_id: neha.id, description: 'You climb into this 50ft tall yak to find a living room inside the Yak filled with pictures of more yaks!')
   photo65.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/The+Meta-Yak.png"), filename:'big-rig.png')
 
-  photo66 = Photo.create!(title: "Sunset Art", user_id: ben.id, description:'')
+  photo66 = Photo.create!(title: "Sunset Art", user_id: zach.id, description:'')
   photo66.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/newPics/sunset.png"), filename:'sunset.png')
   
   photo67 = Photo.create!(title: 'Hardware', user_id: riley.id, description: 'Toolbox art car')
@@ -209,17 +210,22 @@ require 'open-uri'
   photo69 = Photo.create!(title: 'Leave your doubts and out-dated stories behind', user_id: charles.id, description: 'All aboard the boeing 747! Tight rules on whats allowed on the plane.')
   photo69.photo.attach(io: URI.open("https://burnr-seeds.s3.us-west-1.amazonaws.com/camps/boring747.png"), filename:'boring747.png')
 
-#   puts "Creating comments..."
 
-#   comment1 = Comment.create!(author_id: ben.id, photo_id: photo2.id, body: "I hope there's A/C or a fan inside those pastries. Could be a personal sauna or a personal cooler! ")
-#   comment2 = Comment.create!(author_id: riley.id, photo_id: photo3.id, body: "I was on this! I took a nap and watched the sunset, was magical.")
-#   comment3 = Comment.create!(author_id: charles.id, photo_id: photo5.id, body: "I saw this at my first year at BM, so wild that it's actually made out of real trucks")
-  # comment4 = Comment.create!(author_id: neha.id, photo_id: 10, body: "")
-  # comment5 = Comment.create!(author_id: zach.id, photo_id: 10, body: "")
-  # comment6 = Comment.create!(author_id: zach.id, photo_id: 10, body: "")
-  # comment7 = Comment.create!(author_id: zach.id, photo_id: 10, body: "")
-  # comment8 = Comment.create!(author_id: zach.id, photo_id: 10, body: "")
-  # comment9 = Comment.create!(author_id: zach.id, photo_id: 10, body: "")
-  # comment10 = Comment.create!(author_id: zach.id, photo_id: 10, body: "")
-  # comment11 = Comment.create!(author_id: zach.id, photo_id: 10, body: "")
-  # comment12 = Comment.create!(author_id: zach.id, photo_id: 10, body: "")
+  
+  puts "Creating comments..."
+  comment1 = Comment.create!(user_id: ben.id, photo_id: photo2.id, comment: "I hope there's A/C or a fan inside those pastries. Could be a personal sauna or a personal cooler! ")
+  comment2 = Comment.create!(user_id: riley.id, photo_id: photo3.id, comment: "I was on this! I took a nap and watched the sunset, was magical.")
+  comment3 = Comment.create!(user_id: charles.id, photo_id: photo5.id, comment: "I saw this at my first year at BM, so wild that it's actually made out of real trucks")
+  comment4 = Comment.create!(user_id: neha.id, photo_id: photo34.id, comment: "I love the Janky Barge, that's my friend's camp!")
+  comment5 = Comment.create!(user_id: riley.id, photo_id: photo27.id, comment: "My husband's friend, Tigre, made this. He was such a talented artist, RIP. They grew up together in Philly.")
+  comment6 = Comment.create!(user_id: ben.id, photo_id: photo27.id, comment: "I was here one night and False Prophet was there with thier artcar. People were roasting marshmellows from their flame shooters, it was quite a scene.")
+  comment7 = Comment.create!(user_id: riley.id, photo_id: photo38.id, comment: "So many young kids at the burn this year")
+  comment8 = Comment.create!(user_id: neha.id, photo_id: photo55.id, comment: "Mmmmmm dumplings.... what a great idea")
+  comment9 = Comment.create!(user_id: zach.id, photo_id: photo59.id, comment: "Anyone know who this artist is? I always hoped to see this art back on the playa")
+  comment10 = Comment.create!(user_id: riley.id, photo_id: photo65.id, comment: "My partner thought this was Money for the longest time, funny to know it was a Yak afterall! ")
+  comment11 = Comment.create!(user_id: charles.id, photo_id: photo6.id, comment: "Classic!")
+  comment12 = Comment.create!(user_id: zach.id, photo_id: photo13.id, comment: "This makes me want to up my bike-game, so creative!")
+  comment13 = Comment.create!(user_id: james.id, photo_id: photo27.id, comment: " Made from tires, the FearBeast represents doubts, insecurites, and negative talk you tell yourself.What you do not see in the photo is a child standing in front of the FearBeast. The beast is saying hurtful words, talking down to him. When community gathers around the child, the child starts to glow which represents the spark of life and the power of love. Inside the FearBeast there is a child inside that starts to glow and the realization that you are your own Fearbeast and how community can impower you.")
+
+
+

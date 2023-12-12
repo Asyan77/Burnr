@@ -1,22 +1,26 @@
-
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from "react-router-dom";
 import './You.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from "react-router-dom";
 import { getAllPhotos, getUserPhotos } from '../../store/photo';
 import { useEffect } from 'react';
 import profilePic from "/assets/logos/loginBackgound.png"
+import { getAllUsers, getUsername } from '../../store/user';
+
+
 const You = () => {
+    const {userId} = useParams();
     const dispatch = useDispatch();
-    const currentUserId =  useSelector(state => state.session.currentUserId)
-    const currentUser = useSelector(state => state.users[currentUserId])
-    const currentUserPhotos = useSelector(getUserPhotos(currentUserId));
+    const photos = useSelector(getUserPhotos(+userId));  
+    const username = useSelector(getUsername(userId))
+    console.log(username)
 
-useEffect(() => {
-    dispatch(getAllPhotos())
-},[dispatch])
-
-
-
+    useEffect(() => {
+        dispatch(getAllPhotos())
+    },[dispatch])
+    
+    useEffect(() => {
+        dispatch(getAllUsers())
+    },[dispatch])
 
       return (
  
@@ -27,13 +31,13 @@ useEffect(() => {
                     <img src={profilePic} className='profile-pic-circle'></img>
                     <div className='left-inner-box1'>
                         <div className='left-inner-box2'>
-                            <div className="you-username">{currentUser.username}</div>
+                            <div className="you-username">{username}</div>
                             <button className='follow'>Follow</button>
                             <div className='dots'>...</div>
                         </div>
                         <div className='left-inner-box3'>
                             <div className='pro'>PRO</div>
-                            <div className='left-bottom-text'>{currentUser.username}s Moment</div>
+                            <div className='left-bottom-text'>{username}s Moment</div>
                             <div className='left-bottom-text'>7.2K Followers</div>
                             <div className='left-bottom-text'>282 Following</div>
                         </div>
@@ -41,7 +45,7 @@ useEffect(() => {
                 </div>
 
                 <div className='right-outer-box'>
-                    <div> {currentUserPhotos.length} Photos</div>
+                    <div> {photos.length} Photos</div>
                     <div>Taiwan</div>
                     <div>Joined 2013</div>
                 </div>
@@ -59,10 +63,10 @@ useEffect(() => {
                 </div>
             </div>
                 {<ul className="user-profile-photo-grid"> 
-                    {currentUserPhotos.map(photo => {
+                    {photos.map(photo => {
                         return (
                             <div key={photo.id}>
-                            <Link to={`/photos/${currentUserId}/${photo.id}`}>
+                            <Link to={`/photos/${userId}/${photo.id}`}>
                                  <img key={photo.id} src={photo.photoUrl} alt="user-photos" className="user-photoimage" />
                             </Link>
                             </div>

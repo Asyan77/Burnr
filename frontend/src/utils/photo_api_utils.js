@@ -9,9 +9,8 @@ export const grabAllPhotos = async ()=> {
 }
 
 export const grabOnePhoto = async (photoId)=> {
-    const res = await csrfFetch('/api/photos', {
+    const res = await csrfFetch(`/api/photos/${photoId}`, {
       method: 'GET',
-      body: JSON.stringify(photoId)
     })
     return res
 }

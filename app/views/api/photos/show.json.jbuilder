@@ -1,4 +1,4 @@
-json.set! photo.id do
+json.photo do
     json.partial! 'photo', photoo: @photo
 end 
 

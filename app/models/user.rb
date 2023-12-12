@@ -20,6 +20,10 @@ class User < ApplicationRecord
     has_secure_password # automates password= and defines #authenticate(password)
 
     has_many_attached :photos
+    has_many :comments
+
+    has_many :commented_photos, through: :comments
+  
 
     def self.find_by_credentials(email, password)
       user = User.find_by(email: email)

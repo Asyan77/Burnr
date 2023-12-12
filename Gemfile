@@ -32,7 +32,6 @@ group :development, :test do
   gem "faker"
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
-  gem "annotate"
   gem "pry-rails"
   gem "better_errors"
   gem "binding_of_caller"
@@ -41,6 +40,7 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem "annotate"
 
 end
 
