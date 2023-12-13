@@ -22,17 +22,13 @@ export const grabOnePhoto = async (photoId)=> {
     return res
 }
 
-
-
-
-//upload a photo
-// export const createNewPhoto = async userData => {
-//   const res = await csrfFetch('/api/users', {
-//     method: 'POST',
-//     body: JSON.stringify(userData)
-//   })
-//   return res
-// }
+export const createNewPhoto = async (photoDetails) => {
+  const res = await csrfFetch('/api/photos', {
+    method: 'POST',
+    body: photoDetails
+  })
+  return res
+}
 
 //delete a photo
 // export const destroyPhoto = async() => {

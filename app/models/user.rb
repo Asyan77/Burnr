@@ -20,7 +20,7 @@ class User < ApplicationRecord
     has_secure_password # automates password= and defines #authenticate(password)
 
     has_many_attached :photos
-    has_many :comments
+    has_many :comments, dependent: :destroy
 
     has_many :commented_photos, through: :comments
   

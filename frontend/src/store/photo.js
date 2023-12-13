@@ -1,4 +1,4 @@
-import { grabAllPhotos, grabAllUserPhotos, grabOnePhoto } from "../utils/photo_api_utils";
+import { createNewPhoto, grabAllPhotos, grabAllUserPhotos, grabOnePhoto } from "../utils/photo_api_utils";
 
 // Type Constants
 export const RECEIVE_ALL_PHOTOS = 'photo/RECEIVE_ALL_PHOTOS';
@@ -22,10 +22,10 @@ export const receiveOnePhoto = data => ({
     data
   });
 
-  export const deletePhoto = photoId => ({
-    type: DESTROY_PHOTO,
-    photoId
-  });
+export const deletePhoto = photoId => ({
+type: DESTROY_PHOTO,
+  photoId
+});
 
 // Thunk Action Creators
 export const getAllPhotos = () => async dispatch => {
@@ -64,6 +64,20 @@ export const getOnePhoto = (photoId) => async dispatch => {
       return data.errors
     }
   };
+
+
+  export const uploadOnePhoto = (photoDetails) => async dispatch => {
+    const res = await createNewPhoto(photoDetails)
+    if (res.ok) {
+      const photo = await res.json();
+      return dispatch(receiveOnePhoto(photo));
+    } else {
+      const data = await res.json();
+      console.log(data, "could not recieve all users photos")
+      return data.errors
+    }
+  };
+
 
 export const allPhotos = (state) => state.photos ? Object.values(state.photos) : null
 export const onePhoto = (id) => (state) => state.photos[id]
