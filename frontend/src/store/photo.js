@@ -70,7 +70,8 @@ export const getOnePhoto = (photoId) => async dispatch => {
     const res = await createNewPhoto(photoDetails)
     if (res.ok) {
       const photo = await res.json();
-      return dispatch(receiveOnePhoto(photo));
+      await dispatch(receiveOnePhoto(photo));
+      return res
     } else {
       const data = await res.json();
       console.log(data, "could not recieve all users photos")

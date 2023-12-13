@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadOnePhoto } from "../../../store/photo";
+import bikeLogo from "/assets/logos/burnr-logo-bike.png"
 import './UploadPhotoForm.css'
+import { Navigate, useNavigate } from "react-router-dom";
 
 const UploadPhotoForm = () => {
     // const history = useHistory(); // so that we can redirect after the image upload is successful
+    // const [album, setAlbum] = useState(0)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [tags, setTags] = useState("")
-    const [album, setAlbum] = useState(0)
     const [errors, setErrors] = useState([])
     const [disable, setDisable] = useState(true)
-    const currentUser = useSelector(state => state.session.user)
+    const currentUser = useSelector(state => state.session.currentUser)
+    const currentUserId = useSelector(state => state.session.currentUserId)
     // const userAlbums = useSelector(state => { return state })
     // const userAlbumsArray = Object.values(userAlbums.albumReducer.albumsForUser)
 
@@ -62,26 +66,34 @@ const UploadPhotoForm = () => {
         e.preventDefault();
         if (errors.length > 0) return
         const formData = new FormData();
-        formData.append("photo[image]", image);
+        formData.append("photo[photo]", image);
         formData.append("photo[title]", title)
         formData.append("photo[description]", description)
         formData.append("photo[tags]", tags)
+        formData.append('photo[user_id]', currentUserId)
         // if (album > 0) formData.append("albums", +album)
 
         setImageLoading(true);
 
-        dispatch(uploadOnePhoto(formData))
-        setImageLoading(false);
-        
-        // setTimeout(() => {
-        //     history.push(`/photos/${data.id}`);
-        // }, 500)
+        const res = await dispatch(uploadOnePhoto(formData))
+        if (res.ok) {
+            console.log(res)
+            setImage(null);
+            setTags('');
+            setTitle('');
+            setErrors([]);
+            setDisable(true);
+            setDescription('');
+            setImageLoading(false)
+            navigate(`/photos/${currentUserId}`)
+        } 
     }
 
 
     return (
         <div className="whole-upload-container">
             <form onSubmit={handleSubmit}>
+                <img src={bikeLogo} className="upload-logo" alt="logo" />
                 <div className='errors-for-sign-up'>
                     {errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
@@ -109,17 +121,17 @@ const UploadPhotoForm = () => {
                     <label>Description</label>
                     <input
                         className='sign-up-form-inputs-only'
-                        placeholder="Not Required"
+                        placeholder="optional"
                         type="text"
                         onChange={updateDescription}
                         value={description}
                         />
                 </div>
                 <div className='all-sign-up-form-inputs-labels'>
-                    <label>Tag (optional)</label>
+                    <label>Tag</label>
                     <input
                         className='sign-up-form-inputs-only'
-                        placeholder="Example,Tags,Format"
+                        placeholder="optional"
                         type="text"
                         onChange={updateTags}
                         value={tags}
