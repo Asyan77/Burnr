@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar/NavBar";
 import { Outlet } from "react-router-dom";
 import You from "./components/You/You";
 import SinglePhoto from "./components/SinglePhoto/SinglePhoto/SinglePhoto";
+import UploadPhoto from "./components/UploadPhoto/UploadPhoto";
 const router = createBrowserRouter([
   {
     path: '/',
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
       // { index: true, element:  <You/> },
       { path: ':userId/:photoId', element: <SinglePhoto/>  },
       { path: ':userId', element: <You/>},
+      { path: 'upload', element: <UploadPhoto/>},
       // { path: ':username/albums', element: <Albums /> },
       // { path: 'username/albums/:albumId', element: <AlbumPhotos/> },
     ]

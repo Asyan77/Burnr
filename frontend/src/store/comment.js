@@ -71,7 +71,7 @@ export const createComment =(commentData) => async dispatch => {
   }
 }
 
-export const updateComment =(commentId, commentData) => async dispatch => {
+export const updateOneComment =(commentId, commentData) => async dispatch => {
   const res = await editComment(commentId, commentData)
   if (res.ok) {
     const data = await res.json();

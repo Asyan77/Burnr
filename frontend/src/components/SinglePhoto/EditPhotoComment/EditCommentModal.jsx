@@ -1,41 +1,40 @@
-import '../CommentForm/CommentForm.css'
-import { useState, useEffect } from "react";
-import EditCommentForm from "../EditCommentForm/EditCommentForm";
+import './EditCommentModal.css'
+import { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { updateOneComment } from '../../../store/comment';
 
-const EditPhotoCommentModal = ({ commentId, currentComment, user, commentOwner, photoId }) => {
-    const [showCommentForm, setShowCommentForm] = useState(true)
-    const editCommentButton = document?.getElementsByClassName('edit-comment-button')
+const EditPhotoCommentModal = ({ setShowEditForm, commentId, currentComment, photoId }) => {
+    const dispatch = useDispatch()
+    const [comment, setComment] = useState(currentComment)
 
-    useEffect(() => {
-        if (!showCommentForm) return;
+    const updateComment = (e) => {
+        setComment(e.target.value)
+    }
 
-        const closeCommentForm = () => {
-            setShowCommentForm(false)
-        }
-        for (let i = 0; i < editCommentButton.length; i++) {
-            editCommentButton[i].addEventListener('click', closeCommentForm);
-        }
-    }, [showCommentForm, editCommentButton])
-
-    const closeCommentForm = () => {
-        setShowCommentForm(!showCommentForm)
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const commentData = new FormData()
+        commentData.append('comment[comment]', comment)
+        const res = await dispatch(updateOneComment(commentId, commentData))
+        setShowEditForm(false)
     }
 
     return (
-        <div className="comment-container">
-            {showCommentForm ?
-                <EditCommentForm setShowCommentForm={setShowCommentForm} showCommentForm={showCommentForm} photoId={photoId} commentText={currentComment} commentId={commentId} />
-            : null }
-            <div>
-                {!showCommentForm ?
-                    <div className="comment-edit-and-delete-div">
-                        <span onClick={closeCommentForm} className='edit-comment-button'><i className="fa-regular fa-pen-to-square"></i></span>
-                        {/* <span onClick={e => deleteCommentButton(e, commentId)} className='edit-comment-button' ><i className="fa-regular fa-trash-can"></i></span> */}
-                    </div>
-                    : null}
-            </div>
+        <div className="comment-container">          
+            <form onSubmit={handleSubmit}>
+                <textarea
+                    className='edit-comment-textarea'
+                    type="text" 
+                    value={comment} 
+                    required
+                    onChange={updateComment}
+                />
+                 <div className="submit-button-edit-comment-div">
+                    <button onClick={()=>setShowEditForm(false)} type="submit" className="cancel-button-edit-comment">Cancel</button>
+                    <button onClick={handleSubmit} type="submit" className="submit-button-edit-comment">Done</button>
+                </div>
+            </form>        
         </div>
-
     )
 }
 

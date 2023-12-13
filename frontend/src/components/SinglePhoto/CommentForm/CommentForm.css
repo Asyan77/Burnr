@@ -20,41 +20,15 @@
     border-color: rgb(207, 214, 217);
 }
 
-.comment-textarea:focus,
-.edit-comment-textarea:focus {
+.comment-textarea:focus {
     border: .001em solid rgb(0, 153, 255);
     outline: .005em solid rgb(0, 153, 255);
-}
-
-.submit-button-edit-comment-div {
-    display: flex;
-    justify-content: flex-end;
-    /* margin-left: 5.25em;
-    margin-top: .5em;
-    width: fit-content; */
 }
 
 .submit-comment-btn-div {
     display: flex;
     justify-content: center;
     margin-top: .5em;
-}
-
-.comments-container {
-    margin-top: 1em;
-}
-
-.submit-button-edit-comment {
-    color: white;
-    background-color: rgb(18, 143, 220);
-    border: none;
-    border-radius: .25em;
-    padding-top: .25em;
-    padding-bottom: .25em;
-    padding-left: 2em;
-    padding-right: 2em;
-    font-size: 1em;
-    width: 7em;
 }
 
 .submit-button-comment {
@@ -66,23 +40,11 @@
     align-items: center;
     border-radius: .25em;
     font-size: 1em;
-    width: 7em;
+    width: 8em;
     height: 2em;
 }
 
-.submit-button-comment:disabled,
-.submit-button-edit-comment:disabled {
-    background: #999;
-    color: #555;
-    cursor: not-allowed;
-}
-
-.submit-button-comment:hover,
-.submit-button-edit-comment:hover {
+.submit-button-comment:hover {
     background-color: rgb(18, 156, 220);
     cursor: pointer;
-}
-
-.comment-error {
-    color: red;
 }

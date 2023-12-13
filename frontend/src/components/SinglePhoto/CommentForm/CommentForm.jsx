@@ -1,5 +1,5 @@
 import './CommentForm.css'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createComment } from '../../../store/comment'
 
@@ -7,13 +7,10 @@ import { createComment } from '../../../store/comment'
 const CommentForm = ({photoId}) => {
     const dispatch = useDispatch()
     const [comment, setComment] = useState('')
-    const user = useSelector(state => state.session.currentUser);
 
     const updateComment = (e) => {
         setComment(e.target.value)
     }
-    // useEffect(() => {
-    // }, [comment])
 
 
     const handleSubmit = async (e) => {
@@ -21,7 +18,7 @@ const CommentForm = ({photoId}) => {
         const commentData = new FormData();
         commentData.append("comment[photoId]", photoId);
         commentData.append("comment[comment]", comment)
-        const res = await dispatch(createComment(commentData))
+        await dispatch(createComment(commentData))
         setComment('')
     }
 
@@ -35,7 +32,7 @@ const CommentForm = ({photoId}) => {
                     type="text" onChange={updateComment} value={comment} required />
             </div>
             <div className="submit-comment-btn-div">
-                <button type="submit" className="submit-button-comment" >Comment</button>
+                <button type="submit" className="submit-button-comment" >Add Comment</button>
             </div>       
         </form>
     </div>

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import './SinglePhoto.css'
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getOnePhoto, onePhoto } from '../../../store/photo';
 import { Link, useParams } from 'react-router-dom';
 import userIcon from '/assets/logos/zebra.png'
@@ -19,6 +19,10 @@ const SinglePhoto = () => {
     const photosComments = useSelector(allPhotosComments(+photoId))
     const currentUser = useSelector(state => state.session.currentUser);
     const currentUserId = useSelector(state => state.session.currentUserId);
+    const [showEditForm, setShowEditForm] = useState(false)
+    const [selectedComment, setSelectedComment] = useState(null)
+
+ 
 
     useEffect(() => {
         dispatch(getAllComments(photoId))
@@ -36,12 +40,22 @@ const SinglePhoto = () => {
         dispatch(deleteOneComment(commentId))
     }
 
-    const openEditModal = (e, commentId, currentComment) => {
+    const openEditModal = (commentId) => (e) => {
         e.preventDefault();
-        return (
-            <EditPhotoCommentModal commentId={commentId} currentComment={currentComment} />
-        )
+        e.stopPropagation();
+        if (showEditForm) return;
+        setShowEditForm(true);
+        setSelectedComment(commentId)
+  
     }
+
+    useEffect(() => {
+        if (!showEditForm) return;
+        const closeEditForm = () => {
+            setShowEditForm(false)
+        };
+        return () => document.removeEventListener("click", closeEditForm);
+    }, [showEditForm]);
 
     if(!photo) return null
 
@@ -85,20 +99,26 @@ const SinglePhoto = () => {
                             <div className="comment-details-SP" key={comment.id}>
                                 <Link to={`/photos/${comment.userId}`} className='author-link'>{comment.author} </Link>
                                 <div className='edit-options-SP'>
-                                    <div className='comment-comment'>{comment.comment}</div>
-                                    {comment.userId === currentUserId ?
-                                        <div className="comment-buttons">
-                                            <img className="delete-btn-SP" src={deleteIcon} alt="delete" onClick={e => deleteComment(e, comment.id)} />
-                                            <img className="edit-btn-SP"src={editIcon} onClick={e => openEditModal(e, comment.id, comment.comment,)} alt="edit" />
+                                    {showEditForm && selectedComment === comment.id ? 
+                                        <div id='edit-display'>
+                                            <EditPhotoCommentModal setShowEditForm={setShowEditForm} commentId={comment.id} currentComment={comment.comment} />                                 
                                         </div>
-                                    : null } 
+                                  : <>
+                                     <div className='comment-comment'>{comment.comment}</div>
+                                        {comment.userId === currentUserId ?
+                                            <div className="comment-buttons">
+                                                <img className="delete-btn-SP" src={deleteIcon} alt="delete" onClick={e => deleteComment(e, comment.id)} />
+                                                <img className="edit-btn-SP"src={editIcon} onClick={openEditModal(comment.id)} alt="edit" />
+                                            </div>
+                                        : null }                                    
+                                    </>
+                                    }
                                 </div>
-                                
                             </div>
                         );
                     })}
                     {currentUser ? 
-                         <CommentForm photoId={+photoId} /> : null
+                        <CommentForm photoId={+photoId} /> : null
                     }
                 </div>  
             </div>
