@@ -1,4 +1,4 @@
-import '/UploadPhoto.css'
+import './UploadPhoto.css'
 
 const UploadPhoto = ( ) => {
     return (

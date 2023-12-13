@@ -1,6 +1,6 @@
 
 import { createNewUser, grabAllUsers, grabOneUser } from "../utils/user_api_utils";
-import { SET_CURRENT_USER} from "./session";
+// import { SET_CURRENT_USER} from "./session";
 
 
 // Type Constants

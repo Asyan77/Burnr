@@ -17,7 +17,7 @@ const You = () => {
     useEffect(() => {
         dispatch(getAllUserPhotos(userId))
         dispatch(getAllUsers())
-    },[dispatch])
+    },[dispatch, userId])
 
       return (
  
