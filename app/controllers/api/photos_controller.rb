@@ -36,7 +36,7 @@ class Api::PhotosController < ApplicationController
     def destroy
         @photo = Photo.find_by(id: params[:id])
         if @photo&.destroy
-            render :index
+            head :no_content
         else
           render json: ['Something went wrong'], status: 422
         end

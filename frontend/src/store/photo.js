@@ -1,4 +1,4 @@
-import { createNewPhoto, grabAllPhotos, grabAllUserPhotos, grabOnePhoto } from "../utils/photo_api_utils";
+import { createNewPhoto, destroyPhoto, grabAllPhotos, grabAllUserPhotos, grabOnePhoto } from "../utils/photo_api_utils";
 
 // Type Constants
 export const RECEIVE_ALL_PHOTOS = 'photo/RECEIVE_ALL_PHOTOS';
@@ -79,6 +79,19 @@ export const getOnePhoto = (photoId) => async dispatch => {
     }
   };
 
+  export const deleteOnePhoto = (photoId) => async dispatch => {
+    const res = await destroyPhoto(photoId)
+    if (res.ok) {
+      dispatch(deletePhoto(photoId));
+      return res
+    } else {
+      const data = await res.json();
+      console.log(data, "could not delete this photo")
+      return data.errors
+    }
+  };
+
+
 
 export const allPhotos = (state) => state.photos ? Object.values(state.photos) : null
 export const onePhoto = (id) => (state) => state.photos[id]
@@ -97,13 +110,12 @@ const photoReducer = (state ={}, action) => {
     case RECEIVE_ONE_PHOTO:
         nextState[action.data.photo.id] = action.data.photo;
         return nextState
-    // return action.photos
     // case SET_CURRENT_USER:
     //   nextState[action.user.id]= action.user;
     //   return nextState;
-    // case DESTROY_USER:
-    //   delete nextState[action.userId];
-    //   return nextState;
+    case DESTROY_PHOTO:
+      delete nextState[action.photoId];
+      return nextState;
     default:
       return state;
   }

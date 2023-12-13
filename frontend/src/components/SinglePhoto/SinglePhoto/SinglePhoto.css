@@ -7,19 +7,48 @@
 
 .link-back-SP {
     color: white;
-    margin-top: 11vh;
+    margin-top: 8vh;
     text-decoration: none;
     font-size: 13px;
+    height: 3em;
     font-family: Arial, Helvetica, sans-serif;
     /* background-color: yellow; */
+}
+
+.arrow {
+    height: 1em;
+    width: 2em;
+    color: white;
+}
+
+.left-box-SP {
+    /* background-color: purple; */
+    /* width: 50%; */
+    margin-right: 5%;
 }
 
 .single-photo-image {
     padding-top: 11vh;
     height: 70vh;
-    margin-right: 10vw;
+    /* width: 100%; */
+    /* margin-right: -4vw; */
     padding-bottom: 8vh;
     /* padding-right: 10vw; */
+}
+
+.photo-options-SP {
+    /* position: absolute; */
+    margin-top: 44em;
+    display: flex;
+    justify-content: space-around;
+    /* background-color: pink; */
+}
+
+.delete-photo-SP,
+.fav-btn {
+    color: white;
+    height: 1.5em;
+    width: 2em;
 }
 
 .right-box-SP {
@@ -55,7 +84,6 @@
 }
 
 .mid-right-box-SP {
-    height: 12vh;
     margin-left: 1.5em;
     margin-right: 1.5em;
     margin-top: 1.5em;
@@ -70,12 +98,9 @@
     font-weight: bold;
 }
 
-.mid-right-box-SP:hover{
-    background-color: lightgrey;
-}
-
 .edit-icon-SP{
-    display: none;
+    width: 1em;
+    margin-left: 95%;
 }
 
 .edit-icon-SP:hover{

@@ -81,15 +81,15 @@
     /* background-color: yellow; */
   }
 
-  .upload-btn{
-    background-color: blue;
-    
+  .upload-btn {
+    background-color: red;
   }
-  .upload-icon {
-    width: 2vw;
-    height: 3.5vh;
-    margin-left: 3vw;
-    /* background-color: white; */
+  .upload-icon-NB {
+    color: white;
+    width: 2em;
+    height: 2em;
+    margin-left: 2em;
+    /* background-color: green; */
   }
 
   

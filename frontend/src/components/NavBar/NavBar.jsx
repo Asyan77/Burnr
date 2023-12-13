@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import UserIconButton from './UserIconButton/UserIconButton';
 import logo from "/assets/logos/burnrLogo2.png"
-import uploadIcon from '/assets/logos/upload.png'
+import { SlCloudUpload } from "react-icons/sl";
 
 function NavBar() {
   const currentUser = useSelector(state => state.session.currentUser);
@@ -23,9 +23,8 @@ function NavBar() {
             <input className="search-bar-logged-in" type="text" placeholder="Photos, people, or groups" disabled/>
             <div className='right-side-logged-in'> 
               <Link className='upload-btn' to='/photos/upload'>
-                 <img src={uploadIcon} className='upload-icon' alt='upload' />
+                 <SlCloudUpload className='upload-icon-NB'/>
               </Link>
-
               <UserIconButton className='ProfileButton' />
             </div>
           

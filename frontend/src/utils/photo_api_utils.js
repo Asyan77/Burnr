@@ -30,11 +30,9 @@ export const createNewPhoto = async (photoDetails) => {
   return res
 }
 
-//delete a photo
-// export const destroyPhoto = async() => {
-
-//   const res = await csrfFetch('/api/users', {
-//     method: 'DELETE',
-//   })
-//   return res
-// }
+export const destroyPhoto = async (photoId) => {
+  const res = await csrfFetch(`/api/photos/${photoId}`, {
+    method: 'DELETE'
+  })
+  return res
+}

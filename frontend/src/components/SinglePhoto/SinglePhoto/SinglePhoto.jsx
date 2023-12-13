@@ -1,27 +1,30 @@
 import { useDispatch, useSelector } from 'react-redux'
 import './SinglePhoto.css'
 import { useEffect, useState } from 'react';
-import { getOnePhoto, onePhoto } from '../../../store/photo';
-import { Link, useParams } from 'react-router-dom';
+import { deleteOnePhoto, getOnePhoto, onePhoto } from '../../../store/photo';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import userIcon from '/assets/logos/zebra.png'
 import editIcon from '/assets/logos/editIcon.png'
 import { allPhotosComments, deleteOneComment, getAllComments} from '../../../store/comment';
 import CommentForm from '../CommentForm/CommentForm';
 import EditPhotoCommentModal from '../EditPhotoComment/EditCommentModal';
 import deleteIcon from '../../../../assets/logos/deleteIcon.png'
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { GoTrash } from "react-icons/go";
+import { IoStarOutline } from "react-icons/io5";
 
 
 const SinglePhoto = () => {
     const {photoId} = useParams();
     const {userId} = useParams();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const photo = useSelector(onePhoto(photoId));
     const photosComments = useSelector(allPhotosComments(+photoId))
     const currentUser = useSelector(state => state.session.currentUser);
     const currentUserId = useSelector(state => state.session.currentUserId);
     const [showEditForm, setShowEditForm] = useState(false)
     const [selectedComment, setSelectedComment] = useState(null)
-
  
 
     useEffect(() => {
@@ -57,16 +60,31 @@ const SinglePhoto = () => {
         return () => document.removeEventListener("click", closeEditForm);
     }, [showEditForm]);
 
+
+    const handleDeletePhoto = async(e) => {
+        e.preventDefault();
+        const res = await dispatch(deleteOnePhoto(photoId))
+        if(res.ok) {
+            navigate(`/photos/${userId}`)
+        }
+    }
     if(!photo) return null
 
     return (
         <div className='single-photo-page'>
             <div className='top-box-SP'>
-                <Link to='' className='link-back-SP'> Back to photostream</Link>
+                <Link to={`/photos/${userId}`} className='link-back-SP'> 
+                    <FaArrowLeftLong className='arrow'/> Back to photostream
+                </Link>
                 <div className='left-box-SP'>
                     <img src={photo.photoUrl} alt="single-photo" className="single-photo-image" />
                 </div>
-
+                {userId == currentUserId ?
+                <div className='photo-options-SP'>
+                    <IoStarOutline className='fav-btn'/>
+                     <GoTrash className='delete-photo-SP' onClick={handleDeletePhoto}/>
+                </div>
+                : null}
                 <div className='right-box-SP'>
                     <div className='top-right-box-SP'>
                         <img className='user-icon-SP' src={userIcon}/>
@@ -75,10 +93,14 @@ const SinglePhoto = () => {
                         </Link>
                     </div>
 
+                    
                     <div className='mid-right-box-SP'>
-                        <img src={editIcon} className='edit-icon-SP'/>
+                        {userId == currentUserId ?
+                             <img src={editIcon} className='edit-icon-SP'/>
+                        : null}
                         <div className='text-SP title-SP'>{photo.title}</div>
                         <div className='text-SP description-SP'>{photo.description}</div>
+                        <img src="" alt="" />
                     </div>
          
                     <div className='bottom-right-box-SP'>
