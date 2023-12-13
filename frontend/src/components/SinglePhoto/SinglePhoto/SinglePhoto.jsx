@@ -78,7 +78,7 @@ const SinglePhoto = () => {
                     <div className='mid-right-box-SP'>
                         <img src={editIcon} className='edit-icon-SP'/>
                         <div className='text-SP title-SP'>{photo.title}</div>
-                        <div className='text-SP'>{photo.description}</div>
+                        <div className='text-SP description-SP'>{photo.description}</div>
                     </div>
          
                     <div className='bottom-right-box-SP'>

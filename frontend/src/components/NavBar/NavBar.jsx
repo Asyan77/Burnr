@@ -22,9 +22,9 @@ function NavBar() {
             </div>
             <input className="search-bar-logged-in" type="text" placeholder="Photos, people, or groups" disabled/>
             <div className='right-side-logged-in'> 
-              <NavLink className='upload-btn' to='/photos/upload'>
+              <Link className='upload-btn' to='/photos/upload'>
                  <img src={uploadIcon} className='upload-icon' alt='upload' />
-              </NavLink>
+              </Link>
 
               <UserIconButton className='ProfileButton' />
             </div>

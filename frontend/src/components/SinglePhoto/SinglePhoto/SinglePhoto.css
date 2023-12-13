@@ -82,6 +82,11 @@
     height: 1.5em;
 }
 
+.description-SP{
+    /* background-color: aqua; */
+    height: auto;
+}
+
 .bottom-right-box-SP {
     display: flex;
     justify-content: space-between;
@@ -129,11 +134,13 @@
 }
 
 .author-link{
-    text-decoration: underline;
+    text-decoration: none;
     font-size: 1.3em;
     padding-bottom: .4em;
     padding-top: 1em;
     width: 10em;
+    color: rgb(28, 121, 197);
+    font-family: Arial, Helvetica, sans-serif;
     /* background-color: red; */
     
 }
@@ -152,7 +159,7 @@
 }
 
 .comment-comment {
-    font-size: 1.3em;
+    font-size: 1.2em;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -178,4 +185,5 @@
 
 .text-SP {
     font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: .7em;
 }

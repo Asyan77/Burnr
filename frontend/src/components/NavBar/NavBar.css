@@ -13,7 +13,7 @@
     /* margin-bottom: 40%; */
     z-index: 2000;
   }
-  
+
   
   .search-bar-logged-out {
     width: 40vw;
@@ -79,6 +79,11 @@
     justify-content: space-between;
     align-items: center;
     /* background-color: yellow; */
+  }
+
+  .upload-btn{
+    background-color: blue;
+    
   }
   .upload-icon {
     width: 2vw;
