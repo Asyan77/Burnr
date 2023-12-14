@@ -21,7 +21,6 @@ export const receiveOneUser = user => ({
 });
 
 
-
 export const setAllUsers = users => ({
   type: SET_ALL_USERS,
   users
@@ -53,7 +52,6 @@ export const getAllUsers = () => async dispatch => {
   const res = await grabAllUsers();
   if(res.ok) {
     const data = await res.json();
-    console.log(data, 'data of all users')
     return dispatch(setAllUsers(data))
   } else {
     const data = await res.json()
@@ -65,7 +63,6 @@ export const getOneUser = (userId) => async dispatch => {
   const res = await grabOneUser(userId);
   if(res.ok) {
     const data = await res.json();
-    console.log(data, 'data of one user')
     return dispatch(receiveOneUser(data))
   } else {
     const data = await res.json()
@@ -74,6 +71,7 @@ export const getOneUser = (userId) => async dispatch => {
 }
 
 export const getUsername = (userId) => (state) => state.users[userId].username 
+export const getUser = (userId) => (state) => state.users[userId]
 
 
 const userReducer = (state ={}, action) => {

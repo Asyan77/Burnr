@@ -42,7 +42,6 @@ export const getAllComments = (photoId) => async dispatch => {
     return dispatch(receiveAllComments(comments));
   } else {
     const data = await res.json();
-    console.log(data, "could not recieve all comments")
     return data.errors
   }
 };
@@ -54,7 +53,6 @@ export const getAllPhotosComments = (photoId) => async dispatch => {
       return dispatch(receiveAllPhotosComments(comments));
     } else {
       const data = await res.json();
-      console.log(data, "could not recieve all photos comments")
       return data.errors
     }
   };
@@ -66,7 +64,6 @@ export const createComment =(commentData) => async dispatch => {
     return dispatch(createAComment(data))
   } else {
     const data = await res.json()
-    console.log(data, "could not create a new comment")
     return data.errors
   }
 }
@@ -78,7 +75,6 @@ export const updateOneComment =(commentId, commentData) => async dispatch => {
     return dispatch(updateAComment(data))
   } else {
     const data = await res.json()
-    console.log(data, "could not update this comment")
     return data.errors
   }
 }
@@ -89,7 +85,6 @@ export const deleteOneComment = (commentId) => async dispatch => {
     return dispatch(deleteAComment(commentId))
   } else {
     const data = await res.json()
-    console.log(data, "could not delete comment")
     return data.errors
   }
 }

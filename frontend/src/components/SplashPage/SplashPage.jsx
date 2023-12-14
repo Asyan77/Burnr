@@ -8,15 +8,20 @@ function SplashPage () {
     const currentUser = useSelector (state => state.session.currentUser)
     const imageFiles = new Array(15)
 
-    const shuffle = useCallback(() => {
-        const index = Math.floor(Math.random() * imageFiles.length);
+    const rotateBackgroundIndex = useCallback(() => {
+        const index = (currentImage + 1) % imageFiles.length
         setCurrentImage(index);
-    }, [imageFiles.length]);
+    }, [imageFiles.length, currentImage]);
+
+    // const rotateBackgroundIndex = (imageFiles, currentImage) => {
+    //    const index = (currentImage + 1) % imageFiles.length
+    //    setCurrentImage(index)
+    // }
 
     useEffect(() => {
-        const intervalID = setInterval(shuffle, 5000);
+        const intervalID = setInterval(rotateBackgroundIndex, 5000);
         return () => clearInterval(intervalID);
-    }, [shuffle])
+    }, [rotateBackgroundIndex])
 
     if (currentUser) return <Navigate to='/explore' replace={true} />
 

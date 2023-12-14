@@ -33,7 +33,6 @@ type: DESTROY_PHOTO,
   photoId
 });
 
-// Thunk Action Creators
 export const getAllPhotos = () => async dispatch => {
   const res = await grabAllPhotos()
   if (res.ok) {
@@ -41,7 +40,6 @@ export const getAllPhotos = () => async dispatch => {
     return dispatch(receiveAllPhotos(photos));
   } else {
     const data = await res.json();
-    console.log(data, "could not recieve all photos")
     return data.errors
   }
 };
@@ -53,7 +51,6 @@ export const getAllUserPhotos = (userId) => async dispatch => {
     return dispatch(receiveAllUserPhotos(photos));
   } else {
     const data = await res.json();
-    console.log(data, "could not recieve all users photos")
     return data.errors
   }
 };
@@ -66,7 +63,6 @@ export const getOnePhoto = (photoId) => async dispatch => {
       return dispatch(receiveOnePhoto(photo));
     } else {
       const data = await res.json();
-      console.log(data, "could not recieve one photo")
       return data.errors
     }
   };
@@ -79,7 +75,6 @@ export const getOnePhoto = (photoId) => async dispatch => {
       await dispatch(updateAPhoto(data.photo));
     } else {
       const data = await res.json();
-      console.log(data, "could not update this photo")
       return data.errors
     }
   };
@@ -92,7 +87,6 @@ export const getOnePhoto = (photoId) => async dispatch => {
       return res
     } else {
       const data = await res.json();
-      console.log(data, "could not recieve all users photos")
       return data.errors
     }
   };
@@ -104,18 +98,13 @@ export const getOnePhoto = (photoId) => async dispatch => {
       return res
     } else {
       const data = await res.json();
-      console.log(data, "could not delete this photo")
       return data.errors
     }
   };
 
-
-
 export const allPhotos = (state) => state.photos ? Object.values(state.photos) : null
 export const onePhoto = (id) => (state) => state.photos[id]
 export const getUserPhotos = (userId) => (state) => state.photos ? Object.values(state.photos).filter(photo => photo.userId === userId) : null
-
-
 
 const photoReducer = (state ={}, action) => {
   const nextState = Object.assign({},state);
@@ -128,9 +117,6 @@ const photoReducer = (state ={}, action) => {
     case RECEIVE_ONE_PHOTO:
         nextState[action.data.photo.id] = action.data.photo;
         return nextState
-    // case SET_CURRENT_USER:
-    //   nextState[action.user.id]= action.user;
-    //   return nextState;
     case UPDATE_ONE_PHOTO:
         nextState[action.data.id] = action.data;
         return nextState;   

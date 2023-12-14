@@ -76,7 +76,6 @@ const UploadPhotoForm = () => {
 
         const res = await dispatch(uploadOnePhoto(formData))
         if (res.ok) {
-            console.log(res)
             setImage(null);
             setTags('');
             setTitle('');
