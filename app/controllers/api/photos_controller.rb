@@ -25,7 +25,7 @@ class Api::PhotosController < ApplicationController
     end
 
     def update
-        @photo = Photo.find_by(id)
+        @photo = Photo.find_by(id: params[:id])
         if @photo.update(photo_params)
             render :show
         else

@@ -7,11 +7,12 @@ import userIcon from '/assets/logos/zebra.png'
 import editIcon from '/assets/logos/editIcon.png'
 import { allPhotosComments, deleteOneComment, getAllComments} from '../../../store/comment';
 import CommentForm from '../CommentForm/CommentForm';
-import EditPhotoCommentModal from '../EditPhotoComment/EditCommentModal';
+import EditPhotoCommentModal from '../EditComment/EditCommentModal';
 import deleteIcon from '../../../../assets/logos/deleteIcon.png'
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { GoTrash } from "react-icons/go";
 import { IoStarOutline } from "react-icons/io5";
+import EditPhotoDetails from '../EditPhotoDetails/EditPhotoDetails';
 
 
 const SinglePhoto = () => {
@@ -20,11 +21,12 @@ const SinglePhoto = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const photo = useSelector(onePhoto(photoId));
+    const [showPhotoEdit, setShowPhotoEdit] = useState(false)
+    const [showEditForm, setShowEditForm] = useState(false)
+    const [selectedComment, setSelectedComment] = useState(null)
     const photosComments = useSelector(allPhotosComments(+photoId))
     const currentUser = useSelector(state => state.session.currentUser);
     const currentUserId = useSelector(state => state.session.currentUserId);
-    const [showEditForm, setShowEditForm] = useState(false)
-    const [selectedComment, setSelectedComment] = useState(null)
  
 
     useEffect(() => {
@@ -32,7 +34,6 @@ const SinglePhoto = () => {
         dispatch(getOnePhoto(photoId))
     },[dispatch, photoId, userId])
 
-   
     const formatDate = (date) => {
         const dateObj = new Date(date)
         return dateObj.toDateString()
@@ -52,14 +53,12 @@ const SinglePhoto = () => {
   
     }
 
-    useEffect(() => {
-        if (!showEditForm) return;
-        const closeEditForm = () => {
-            setShowEditForm(false)
-        };
-        return () => document.removeEventListener("click", closeEditForm);
-    }, [showEditForm]);
-
+    const openPhotoEdits = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (showPhotoEdit) return;
+        setShowPhotoEdit(true);
+    }
 
     const handleDeletePhoto = async(e) => {
         e.preventDefault();
@@ -93,15 +92,17 @@ const SinglePhoto = () => {
                         </Link>
                     </div>
 
-                    
+                    {!showPhotoEdit ?
                     <div className='mid-right-box-SP'>
                         {userId == currentUserId ?
-                             <img src={editIcon} className='edit-icon-SP'/>
-                        : null}
+                             <img src={editIcon} onClick={openPhotoEdits} className='edit-icon-SP'/>
+                             : null}
                         <div className='text-SP title-SP'>{photo.title}</div>
                         <div className='text-SP description-SP'>{photo.description}</div>
-                        <img src="" alt="" />
                     </div>
+                    :
+                    <EditPhotoDetails setShowPhotoEdit={setShowPhotoEdit} photoId={photoId} title={photo.title} description={photo.description}  />
+                    }
          
                     <div className='bottom-right-box-SP'>
                         <div className='text-SP'>11 views</div>

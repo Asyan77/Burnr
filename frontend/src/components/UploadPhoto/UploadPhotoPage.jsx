@@ -6,7 +6,6 @@ import UploadPhotoForm from './UploadPhotoForm/UploadPhotoForm';
 
 const UploadPhoto = ( ) => {
     const dispatch = useDispatch();
-    const user = useSelector(state => state.session.currentUser);
     const userId = useSelector(state => state.session.currentUserId);
     const userPhotos = useSelector(state => state.photos)
     const photoCount = Object.keys(userPhotos).length

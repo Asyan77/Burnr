@@ -22,6 +22,14 @@ export const grabOnePhoto = async (photoId)=> {
     return res
 }
 
+export const editPhoto = async (photoId, photoDetails)=> {
+  const res = await csrfFetch(`/api/photos/${photoId}`, {
+    method: 'PATCH',
+    body: photoDetails
+  })
+  return res
+}
+
 export const createNewPhoto = async (photoDetails) => {
   const res = await csrfFetch('/api/photos', {
     method: 'POST',

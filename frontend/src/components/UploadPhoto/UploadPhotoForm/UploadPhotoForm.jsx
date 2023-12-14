@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { uploadOnePhoto } from "../../../store/photo";
 import bikeLogo from "/assets/logos/burnr-logo-bike.png"
 import './UploadPhotoForm.css'
-import { Navigate, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 const UploadPhotoForm = () => {
     // const history = useHistory(); // so that we can redirect after the image upload is successful
@@ -17,7 +17,6 @@ const UploadPhotoForm = () => {
     const [tags, setTags] = useState("")
     const [errors, setErrors] = useState([])
     const [disable, setDisable] = useState(true)
-    const currentUser = useSelector(state => state.session.currentUser)
     const currentUserId = useSelector(state => state.session.currentUserId)
     // const userAlbums = useSelector(state => { return state })
     // const userAlbumsArray = Object.values(userAlbums.albumReducer.albumsForUser)

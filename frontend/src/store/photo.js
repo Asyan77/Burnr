@@ -1,9 +1,10 @@
-import { createNewPhoto, destroyPhoto, grabAllPhotos, grabAllUserPhotos, grabOnePhoto } from "../utils/photo_api_utils";
+import { createNewPhoto, destroyPhoto, editPhoto, grabAllPhotos, grabAllUserPhotos, grabOnePhoto } from "../utils/photo_api_utils";
 
 // Type Constants
 export const RECEIVE_ALL_PHOTOS = 'photo/RECEIVE_ALL_PHOTOS';
 export const RECEIVE_ALL_USER_PHOTOS = 'photo/RECEIVE_ALL_USER_PHOTOS';
 export const RECEIVE_ONE_PHOTO = 'photo/RECEIVE_ONE_PHOTO';
+export const UPDATE_ONE_PHOTO ='photo/UPDATE_ONE_PHOTO'
 export const DESTROY_PHOTO = 'photo/DESTROY_PHOTO';
 
 // Action Creators
@@ -20,7 +21,12 @@ export const receiveAllUserPhotos = (photos) => ({
 export const receiveOnePhoto = data => ({
     type: RECEIVE_ONE_PHOTO,
     data
-  });
+});
+
+export const updateAPhoto = data => ({
+  type: UPDATE_ONE_PHOTO,
+  data
+});
 
 export const deletePhoto = photoId => ({
 type: DESTROY_PHOTO,
@@ -65,6 +71,18 @@ export const getOnePhoto = (photoId) => async dispatch => {
     }
   };
 
+
+  export const updateOnePhoto = (photoId, photoDetails) => async dispatch => {
+    const res = await editPhoto(photoId, photoDetails)
+    if (res.ok) {
+      const data = await res.json();
+      await dispatch(updateAPhoto(data));
+    } else {
+      const data = await res.json();
+      console.log(data, "could not update this photo")
+      return data.errors
+    }
+  };
 
   export const uploadOnePhoto = (photoDetails) => async dispatch => {
     const res = await createNewPhoto(photoDetails)
@@ -113,6 +131,9 @@ const photoReducer = (state ={}, action) => {
     // case SET_CURRENT_USER:
     //   nextState[action.user.id]= action.user;
     //   return nextState;
+    case UPDATE_ONE_PHOTO:
+        nextState[action.data.id] = { ...nextState[action.data.id], ...action.data };
+        return nextState;   
     case DESTROY_PHOTO:
       delete nextState[action.photoId];
       return nextState;
