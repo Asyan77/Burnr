@@ -68,7 +68,7 @@ const UploadPhotoForm = () => {
         formData.append("photo[photo]", image);
         formData.append("photo[title]", title)
         formData.append("photo[description]", description)
-        formData.append("photo[tags]", tags)
+        formData.append("photo[tag]", tags)
         formData.append('photo[user_id]', currentUserId)
         // if (album > 0) formData.append("albums", +album)
 
@@ -112,7 +112,9 @@ const UploadPhotoForm = () => {
                         placeholder="Required" 
                         type="text" 
                         onChange={updateTitle} 
-                        value={title} />
+                        value={title}
+                        required />
+                       
                 </div>
 
                 <div className='all-sign-up-form-inputs-labels'>
