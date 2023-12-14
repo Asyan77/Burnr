@@ -21,13 +21,10 @@ function NavBar() {
                 <Link to='/explore' className='explore-btn nav-links'>Explore</Link>
             </div>
             <input className="search-bar-logged-in" type="text" placeholder="Photos, people, or groups" disabled/>
-            <div className='right-side-logged-in'> 
-              <Link className='upload-btn' to='/photos/upload'>
-                 <SlCloudUpload className='upload-icon-NB'/>
-              </Link>
-              <UserIconButton className='ProfileButton' />
-            </div>
-          
+            <Link className='upload-btn' to='/photos/upload'>
+                <SlCloudUpload className='upload-icon-NB'/>
+            </Link>
+            <UserIconButton className='ProfileButton' />
          </div>
         :
         <div className='logged-out-nav-btns'>

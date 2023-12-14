@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { updateOneComment } from '../../../store/comment';
 
-const EditPhotoCommentModal = ({ setShowEditForm, commentId, currentComment}) => {
+const EditPhotoCommentModal = ({ setShowEditCommentForm, commentId, currentComment}) => {
     const dispatch = useDispatch()
     const [comment, setComment] = useState(currentComment)
 
@@ -16,7 +16,7 @@ const EditPhotoCommentModal = ({ setShowEditForm, commentId, currentComment}) =>
         const commentData = new FormData()
         commentData.append('comment[comment]', comment)
         await dispatch(updateOneComment(commentId, commentData))
-        setShowEditForm(false)
+        setShowEditCommentForm(false)
     }
 
     return (
@@ -30,7 +30,7 @@ const EditPhotoCommentModal = ({ setShowEditForm, commentId, currentComment}) =>
                     onChange={updateComment}
                 />
                  <div className="submit-button-edit-comment-div">
-                    <button onClick={()=>setShowEditForm(false)} type="submit" className="cancel-button-edit-comment">Cancel</button>
+                    <button onClick={()=>setShowEditCommentForm(false)} type="submit" className="cancel-button-edit-comment">Cancel</button>
                     <button onClick={handleSubmit} type="submit" className="submit-button-edit-comment">Done</button>
                 </div>
             </form>        

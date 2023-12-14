@@ -1,14 +1,13 @@
 
 .whole-box {
     position: relative;
-    right: 2vw;
+    margin-left: 2vw;
     /* background-color: greenyellow; */
 
 }
 
 .user-icon-btn {
     width: 2vw;
-    margin-left: 3vw;
     border-radius: 20px;
 }
 

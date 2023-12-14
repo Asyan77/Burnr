@@ -72,23 +72,17 @@
     border-radius: 5px;
     margin-left: 36vw;
   }
-  .right-side-logged-in {
-    display: flex;
-    flex-direction: row;
-    width: 9vw;
-    justify-content: space-between;
-    align-items: center;
-    /* background-color: yellow; */
-  }
 
   .upload-btn {
-    background-color: red;
+    margin-left: 2vw;
+    /* background-color: red; */
   }
+
   .upload-icon-NB {
     color: white;
-    width: 2em;
-    height: 2em;
-    margin-left: 2em;
+    width: 5vh;
+    height: 4vh;
+    /* margin-left: 2em; */
     /* background-color: green; */
   }
 

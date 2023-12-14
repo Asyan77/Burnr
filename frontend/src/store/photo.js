@@ -76,7 +76,7 @@ export const getOnePhoto = (photoId) => async dispatch => {
     const res = await editPhoto(photoId, photoDetails)
     if (res.ok) {
       const data = await res.json();
-      await dispatch(updateAPhoto(data));
+      await dispatch(updateAPhoto(data.photo));
     } else {
       const data = await res.json();
       console.log(data, "could not update this photo")
@@ -132,7 +132,7 @@ const photoReducer = (state ={}, action) => {
     //   nextState[action.user.id]= action.user;
     //   return nextState;
     case UPDATE_ONE_PHOTO:
-        nextState[action.data.id] = { ...nextState[action.data.id], ...action.data };
+        nextState[action.data.id] = action.data;
         return nextState;   
     case DESTROY_PHOTO:
       delete nextState[action.photoId];

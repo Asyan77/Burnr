@@ -21,37 +21,38 @@ const SinglePhoto = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const photo = useSelector(onePhoto(photoId));
-    const [showPhotoEdit, setShowPhotoEdit] = useState(false)
-    const [showEditForm, setShowEditForm] = useState(false)
     const [selectedComment, setSelectedComment] = useState(null)
     const photosComments = useSelector(allPhotosComments(+photoId))
     const currentUser = useSelector(state => state.session.currentUser);
     const currentUserId = useSelector(state => state.session.currentUserId);
- 
+    const [showPhotoEdit, setShowPhotoEdit] = useState(false)
+    const [showEditCommentForm, setShowEditCommentForm] = useState(false)
+    
 
+    
     useEffect(() => {
         dispatch(getAllComments(photoId))
         dispatch(getOnePhoto(photoId))
     },[dispatch, photoId, userId])
-
+    
     const formatDate = (date) => {
         const dateObj = new Date(date)
         return dateObj.toDateString()
     }
- 
+    
     const deleteComment = async (e, commentId) => {
         e.preventDefault();
         dispatch(deleteOneComment(commentId))
     }
-
+    
     const openEditModal = (commentId) => (e) => {
         e.preventDefault();
         e.stopPropagation();
-        if (showEditForm) return;
-        setShowEditForm(true);
+        if (showEditCommentForm) return;
+        setShowEditCommentForm(true);
         setSelectedComment(commentId)
-  
     }
+  
 
     const openPhotoEdits = (e) => {
         e.preventDefault();
@@ -122,9 +123,9 @@ const SinglePhoto = () => {
                             <div className="comment-details-SP" key={comment.id}>
                                 <Link to={`/photos/${comment.userId}`} className='author-link'>{comment.author} </Link>
                                 <div className='edit-options-SP'>
-                                    {showEditForm && selectedComment === comment.id ? 
+                                    {showEditCommentForm && selectedComment === comment.id ? 
                                         <div id='edit-display'>
-                                            <EditPhotoCommentModal setShowEditForm={setShowEditForm} commentId={comment.id} currentComment={comment.comment} />                                 
+                                            <EditPhotoCommentModal setShowEditCommentForm={setShowEditCommentForm} commentId={comment.id} currentComment={comment.comment} />                                 
                                         </div>
                                   : <>
                                      <div className='comment-comment'>{comment.comment}</div>

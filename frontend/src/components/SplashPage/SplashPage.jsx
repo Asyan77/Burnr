@@ -26,8 +26,8 @@ function SplashPage () {
             <div className={`background-image image${currentImage}`}></div>
             <div className="splash-text-box">
                 <div className="main-text1">Excite your imagination</div>
-                <div className="main-text2">Join the Burnr community, home to tens of billions of .</div>
-                <div className="main-text2">photos and 2 million groups</div>
+                <div className="main-text2">Join the Burnr community, home to tens of billions of</div>
+                <div className="main-text2">photos and 2 million groups.</div>
                 <Link to='/signup'>
                     <button className="start-btn">Start for free</button>
                 </Link>

@@ -1,6 +1,6 @@
 
 import { createNewUser, grabAllUsers, grabOneUser } from "../utils/user_api_utils";
-// import { SET_CURRENT_USER} from "./session";
+import { SET_CURRENT_USER} from "./session";
 
 
 // Type Constants
@@ -88,6 +88,9 @@ const userReducer = (state ={}, action) => {
       return nextState;
     case SET_ALL_USERS:
       return action.users;
+    case SET_CURRENT_USER:
+      nextState[action.user.id] = action.user;
+      return nextState;
     case DESTROY_USER:
       delete nextState[action.userId];
       return nextState;

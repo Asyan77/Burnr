@@ -8,7 +8,6 @@ const EditPhotoDetails = ({setShowPhotoEdit, photoId, title, description}) => {
     const [newTitle, setNewTitle] = useState(title)
     const[newDescription, setNewDescription] = useState(description);
 
-
     const updateTitle = (e) => {
         setNewTitle(e.target.value)
     }
