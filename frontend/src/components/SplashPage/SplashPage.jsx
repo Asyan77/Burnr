@@ -13,11 +13,6 @@ function SplashPage () {
         setCurrentImage(index);
     }, [imageFiles.length, currentImage]);
 
-    // const rotateBackgroundIndex = (imageFiles, currentImage) => {
-    //    const index = (currentImage + 1) % imageFiles.length
-    //    setCurrentImage(index)
-    // }
-
     useEffect(() => {
         const intervalID = setInterval(rotateBackgroundIndex, 5000);
         return () => clearInterval(intervalID);

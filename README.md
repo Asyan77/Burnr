@@ -1,4 +1,4 @@
-# ![logo](app/assets/header.png)
+# ![logo](app/assets/header1.png)
 
 ### Basic Overview
 Burnr, a clone of Flickr, is a photo-sharing platform and social network where users can share photos from Burning Man. Without signing in users are only able to browse photos. Upon sign-in they are directed to the Explore page where they can browse photos from all users. From there the exploration begins! Here are a few ways to get started: 
