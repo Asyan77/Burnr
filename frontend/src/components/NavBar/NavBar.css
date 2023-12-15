@@ -32,10 +32,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items:  center;
-    width: 79vw;
+    width: 82vw;
     height: 5vh;
+    margin-left: 6.5vw;
     /* margin-right: 4vw; */
-    margin-left: 9vw;
     /* border: purple solid 4px; */
   }
   
@@ -44,8 +44,9 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    width: 17vw;
     /* background-color: red; */
-    width: 16vw;
+    /* margin-left: 3vw; */
   }
   
   .logged-in-logo {
@@ -70,22 +71,26 @@
     height: 2.4vh;
     background-color: lightgray;
     border-radius: 5px;
-    margin-left: 36vw;
   }
-
-  .upload-btn {
-    margin-left: 2vw;
-    /* background-color: red; */
-  }
-
+  
   .upload-icon-NB {
     color: white;
     width: 5vh;
     height: 4vh;
-    /* margin-left: 2em; */
+    margin-left: 2em;
     /* background-color: green; */
   }
+  
+  .github-logged-in{
+    margin-left: 40vw;
+    height: 5vh;
+  }
 
+  .linkedIn-logged-in {
+    height: 3vh;
+    margin-right: 1vw;
+    margin-left: .5vw;
+  }
   
   .logged-out-nav-btns {
     display: flex;
@@ -102,6 +107,15 @@
     /* background-color: aqua; */
   } 
   
+  .github-logged-out{
+    height: 5vh;
+    margin-left: 4vw;
+  }
+
+  .linkedIn-logged-out {
+    height: 3vh;
+  }
+
   .login-btn {
     text-decoration:none;
     color: white;
@@ -111,7 +125,7 @@
     /* padding-left: 5%; */
     /* background-color: aqua; */
     width: 3.5em;
-    margin-left: 79vw;
+    margin-left: 70vw;
   }
   .signup-btn {
     text-decoration:none;

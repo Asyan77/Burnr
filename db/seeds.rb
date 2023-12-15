@@ -23,11 +23,11 @@ require 'open-uri'
 
 
   puts "Creating users..."
-  zach = User.create!(username: 'Demo', email: 'zach@mail.com', password: 'zachword')
+  zach = User.create!(username: 'Demo Graphic', email: 'zach@mail.com', password: 'zachword')
   ben = User.create!(username: 'Squeeze', email: 'ben@mail.com', password: 'benwordd')
   riley  = User.create!(username: 'Riley Monster', email: 'riley@mail.com', password: 'rileyword')
   charles = User.create!(username: 'Salvage', email: 'charles@mail.com', password: 'charlesword')
-  james = User.create!(username: 'Lil Peanut', email: 'james@mail.com', password: 'jamesword')
+  james = User.create!(username: 'J. Peanutty', email: 'james@mail.com', password: 'jamesword')
   neha = User.create!(username: 'Neha', email: 'neha@mail.com', password: 'nehaword')
 
 
