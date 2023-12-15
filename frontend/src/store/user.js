@@ -63,7 +63,7 @@ export const getOneUser = (userId) => async dispatch => {
   const res = await grabOneUser(userId);
   if(res.ok) {
     const data = await res.json();
-    return dispatch(receiveOneUser(data))
+    return dispatch(receiveOneUser(data.user))
   } else {
     const data = await res.json()
     return data.errors
