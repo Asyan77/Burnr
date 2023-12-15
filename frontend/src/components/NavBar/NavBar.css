@@ -109,11 +109,14 @@
   
   .github-logged-out{
     height: 5vh;
-    margin-left: 4vw;
+    margin-left: 72vw;
+    /* background-color: pink; */
   }
 
   .linkedIn-logged-out {
     height: 3vh;
+    margin-right: 1vw;
+    /* background-color: aqua; */
   }
 
   .login-btn {
@@ -122,10 +125,9 @@
     font-weight: 100;
     font-size: 1em;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    /* padding-left: 5%; */
+
     /* background-color: aqua; */
     width: 3.5em;
-    margin-left: 70vw;
   }
   .signup-btn {
     text-decoration:none;
@@ -140,12 +142,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* margin-right: 1vw; */
   }
   
   .log-out-btn {
     background-color: aliceblue;
-    /* color: #ece4e4; */
     border: 1px solid black;
     padding: 10px 20px;
     cursor: pointer;
