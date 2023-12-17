@@ -83,7 +83,7 @@
   
   .github-logged-in{
     margin-left: 40vw;
-    height: 5vh;
+    /* background-color: peachpuff; */
   }
 
   .linkedIn-logged-in {
@@ -169,3 +169,7 @@
     }
   }
   
+
+  .github {
+    height: 5vh;
+  }

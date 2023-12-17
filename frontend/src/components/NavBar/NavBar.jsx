@@ -22,15 +22,15 @@ function NavBar() {
                 <NavLink to={`/photos/${userId}`} className='you-btn nav-links'>You</NavLink>
                 <Link to='/explore' className='explore-btn nav-links'>Explore</Link>
             </div>
-            <Link to='https://github.com/Asyan77' target="_blank">
-               <img className='github-logged-in' src={githubLogo} alt="" />
+            <Link to='https://github.com/Asyan77' className='github-logged-in' target="_blank">
+               <img className='github' src={githubLogo} alt="" />
             </Link>
             <Link to='http://www.linkedin.com/in/ashley-yan' target="_blank">
                <img className='linkedIn-logged-in' src={linkedInLogo} alt="" />
             </Link>
             <input className="search-bar-logged-in" type="text" placeholder="Photos, people, or groups" disabled/>
             <Link to='/photos/upload'> 
-                <SlCloudUpload className='upload-icon-NB'/>
+              <SlCloudUpload className='upload-icon-NB'/>
             </Link>
             <UserIconButton className='ProfileButton' />
          </div>
@@ -39,8 +39,8 @@ function NavBar() {
             <NavLink className='links-on-nav-bar' to='/' >
                 <img src={logo} className='logged-out-logo' alt='' />
             </NavLink>  
-            <Link to='https://github.com/Asyan77' target="_blank">
-               <img className='github-logged-out' src={githubLogo} alt="" />
+            <Link to='https://github.com/Asyan77' className='github-logged-out' target="_blank">
+               <img className='github' src={githubLogo} alt="" />
             </Link>
             <Link to='http://www.linkedin.com/in/ashley-yan' target="_blank">
                <img className='linkedIn-logged-out' src={linkedInLogo} alt="" />
