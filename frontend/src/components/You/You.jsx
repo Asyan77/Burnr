@@ -26,7 +26,7 @@ const You = () => {
                 <div className='header-details-box1'>
                     <div className='header-inner-box1'>
                         <div className="you-username">{user?.username}</div>
-                        <button className='follow'>Follow</button>
+                        <div className='follow'>Follow</div>
                         <button className='dots'>...</button>         
                     </div>
                     <div className='header-inner-box2'>
@@ -46,12 +46,12 @@ const You = () => {
             </div>
             <div className='profile-middle-bar'>
                 <div className='middle-bar-links'>
-                    <Link className='mid-link-text'>About</Link>
-                    <Link className='mid-link-text photostream'>Photostream</Link>
-                    <Link className='mid-link-text'>Albums</Link>
-                    <Link className='mid-link-text'>Faves</Link>
-                    <Link className='mid-link-text'>Galleries</Link>
-                    <Link className='mid-link-text'>Groups</Link>
+                    <div className='mid-link-text'>About</div>
+                    <div className='mid-link-text photostream'>Photostream</div>
+                    <div className='mid-link-text'>Albums</div>
+                    <div className='mid-link-text'>Faves</div>
+                    <div className='mid-link-text'>Galleries</div>
+                    <div className='mid-link-text'>Groups</div>
                 </div>
             </div>
             {<ul className="user-profile-photo-grid"> 

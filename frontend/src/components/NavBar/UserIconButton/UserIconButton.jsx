@@ -7,9 +7,11 @@ import userIcon from '/assets/logos/DefaultProfilePicture.jpg'
 
 const  UserIconButton = () => {
     const currentUser = useSelector(state => state.session.currentUser);
+    const currentUserId = useSelector(state => state.session.currentUserId);
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
+
 
     const openMenu = (e) => {
         e.stopPropagation();
@@ -38,8 +40,8 @@ const  UserIconButton = () => {
           {showMenu ? (
           < div className="dropdown-content-box">
             <div className="dropdown-content1">
-                <span>Hello, </span>
-                <Link to={`/photos/user/${currentUser.currentUserId}/`} className="username"> {currentUser}</Link>
+                <span >Hello, </span>
+                <Link to={`/photos/${currentUserId}/`} className="username"> {currentUser}</Link>
             </div>
             <div className='log-out' onClick={handleLogOut }>Log Out</div>
           </div>   

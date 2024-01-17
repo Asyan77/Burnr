@@ -49,12 +49,11 @@ useEffect(() => {
             <div className='profile-middle-bar'>
                 <div className='middle-bar-links'>
                     <Link className='mid-link-text'>About</Link>
-                    <Link className='mid-link-text photostream'>Photostream</Link>
+                    <Link className='mid-link-text photostream'>Photo</Link>
                     <Link className='mid-link-text'>Albums</Link>
                     <Link className='mid-link-text'>Faves</Link>
                     <Link className='mid-link-text'>Galleries</Link>
                     <Link className='mid-link-text'>Groups</Link>
-
                 </div>
             </div>
                 {<ul className="user-profile-photo-grid"> 

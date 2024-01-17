@@ -74,7 +74,7 @@ const SinglePhoto = () => {
         <div className='single-photo-page'>
             <div className='top-box-SP'>
                 <Link to={`/photos/${userId}`} className='link-back-SP'> 
-                    <FaArrowLeftLong className='arrow'/> Back to photostream
+                    <FaArrowLeftLong className='arrow'/> {`${photo.username}'s photostream`}
                 </Link>
                 <div className='left-box-SP'>
                     <img src={photo.photoUrl} alt="single-photo" className="single-photo-image" />

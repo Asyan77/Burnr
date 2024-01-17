@@ -2,6 +2,7 @@
 .whole-box {
     position: relative;
     margin-left: 1vw;
+    margin-right: 25px;
     /* background-color: greenyellow; */
 }
 
@@ -35,6 +36,7 @@
     color: black;
     margin: 0;
     /* background-color: #f1f1f1; */
+    font-family: Arial, Helvetica, sans-serif;
 }
 .username{
     color: black;
@@ -43,6 +45,7 @@
 }
 
 .log-out{
+    font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
     color: black;
     
@@ -54,13 +57,13 @@
     display: block;
 }
 
-.username a:hover {
-    color: gray;
+.username:hover {
+    color: hotpink;
     text-decoration: none;
 }
 
-.log-out a:hover {
-    color: gray;
+.log-out:hover {
+    color: rgb(25, 86, 199);
     text-decoration: none;
 }
 /* Show the dropdown when hovering over the profile button */

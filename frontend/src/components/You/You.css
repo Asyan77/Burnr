@@ -26,6 +26,7 @@
     height: 5em;
     margin-left: 1vw;
     margin-bottom: 3vh;
+    font-family: Arial, Helvetica, sans-serif;
     /* background-color: blue; */
 }
 
@@ -52,6 +53,9 @@
     font-weight: 500;
     background-color: white;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dots {
@@ -130,6 +134,7 @@
     justify-content: space-between;
     color: aliceblue;
     margin-right: 12em;
+    /* font-family: Arial, Helvetica, sans-serif; */
     /* background-color: pink; */
 }
 
@@ -147,6 +152,7 @@
     align-items: center;
     height: 2.8em;
     border: lightgrey 1px solid;
+    /* font-family: Arial, Helvetica, sans-serif; */
     /* background-color: aquamarine; */
 }
 
@@ -157,6 +163,7 @@
     align-items: center;
     width: 38em;
     margin-left: 10em;
+    font-family: Arial, Helvetica, sans-serif;
     /* background-color: rgb(41, 41, 161); */
 }
 
@@ -168,7 +175,7 @@
     font-weight: 400;
     height: 3em;
     text-decoration: none;
-    font-family:Arial, Helvetica, sans-serif;
+
     color: rgb(88, 85, 85);
 }
 
@@ -178,15 +185,16 @@
     align-items: center;
     border-bottom: rgb(89, 195, 231) solid 3px;
     width: 18%;
+
 }
 
-.mid-link-text:hover {
+/* .mid-link-text:hover {
     display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: rgb(89, 195, 231) solid 3px;
     width: 15%;
-}
+} */
 
 .user-profile-photo-grid {
     display: grid;

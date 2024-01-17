@@ -21,7 +21,7 @@ const EditPhotoCommentModal = ({ setShowEditCommentForm, commentId, currentComme
 
     return (
         <div className="comment-container">          
-            <form onSubmit={handleSubmit}>
+            <form className='form-text' onSubmit={handleSubmit}>
                 <textarea
                     className='edit-comment-textarea'
                     type="text" 

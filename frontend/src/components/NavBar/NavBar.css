@@ -6,7 +6,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 5vh;
+    height: 50px;
+    min-height: 30px;
     width: 100%;
     background-color: #2e2d2d;
     padding: 10px 20px;
@@ -44,13 +45,19 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 17vw;
+    min-width: 17vw;
     /* background-color: red; */
-    /* margin-left: 3vw; */
+    margin-left: 3vw;
   }
   
+  .links-on-nav-bar{
+    min-width: 130px;
+    /* background-color: aqua; */
+  }
+
   .logged-in-logo {
-    width: 6vw;
+    width: 100px;
+  
    
     /* background-color: aqua; */
   }  
@@ -59,11 +66,17 @@
     color: white;
     font-size: 1em;
     text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: 60px;
+    /* background-color: aqua; */
   }
   .you-btn {
     color: white;
     font-size: 1em;
     text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: 40px;
+    /* background-color: aquamarine; */
   }
   
   .search-bar-logged-in {
@@ -71,18 +84,21 @@
     height: 2.4vh;
     background-color: lightgray;
     border-radius: 5px;
+    margin-right: 10px;
   }
   
   .upload-icon-NB {
     color: white;
     width: 5vh;
     height: 4vh;
-    margin-left: 2em;
+    /* margin-left: 2em; */
     /* background-color: green; */
   }
   
   .github-logged-in{
-    margin-left: 40vw;
+    margin-left: 35vw;
+    min-height: 35px;
+    min-width: 35px;
     /* background-color: peachpuff; */
   }
 
@@ -90,6 +106,7 @@
     height: 3vh;
     margin-right: 1vw;
     margin-left: .5vw;
+    min-height: 25px;
   }
   
   .logged-out-nav-btns {
@@ -124,7 +141,7 @@
     color: white;
     font-weight: 100;
     font-size: 1em;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
     /* background-color: aqua; */
     width: 3.5em;
@@ -134,7 +151,7 @@
     color: rgb(3, 3, 3);
     font-weight: 100;
     font-size: 1em;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: #f8f8f8;
     border-radius: 3px;
     height: 70%;
@@ -152,6 +169,7 @@
     margin-right: 10px;
     border-radius: 5px;
     width: 10%;
+    /* font-family: Arial, Helvetica, sans-serif; */
   }
 
   /* Responsive styles for smaller screens */

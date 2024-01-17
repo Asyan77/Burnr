@@ -1,14 +1,19 @@
 
 .explore {
-    position: absolute;
-    margin-top: 10vh;
-    /* background-color: purple; */
-    width: 8vw;
-    height: 4vh;
+    /* position: absolute; */
+    margin-top: 90px;
+    margin-left: 11%;
+    width: 200px;
+    min-width: 8vw;
+    min-height: 50px;
     top: 1vh;
     left: 11vw;
     font-size: 1.5em;
     font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(87, 84, 84);
+    font-weight: 200;
+    /* background-color: purple; */
 }
 
 .photoimage-grid {
@@ -19,7 +24,6 @@
     flex-wrap: wrap;
     padding-left: 11%;
     padding-right: 11%;
-    padding-top: 8%;
     
    /* background-color: aquamarine; */
     
