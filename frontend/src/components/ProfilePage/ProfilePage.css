@@ -164,13 +164,13 @@
     width: 18%;
 }
 
-.mid-link-text:hover {
+/* .mid-link-text:hover {
     display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: rgb(89, 195, 231) solid 3px;
     width: 15%;
-}
+} */
 
 .user-profile-photo-grid {
     display: grid;
