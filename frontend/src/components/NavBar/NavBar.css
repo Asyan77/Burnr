@@ -1,4 +1,9 @@
 
+  .hello {
+    font-size: 100px;
+    color: #f8f8f8;
+  }
+
   .nav-bar {
     box-sizing: border-box;
     position: fixed;
