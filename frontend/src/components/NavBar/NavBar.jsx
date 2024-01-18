@@ -21,7 +21,7 @@ function NavBar() {
                 </NavLink>   
                 <NavLink to={`/photos/${userId}`} className='you-btn nav-links'>You</NavLink>
                 <Link to='/explore' className='explore-btn nav-links'>Explore</Link>
-                <div className='hello'>Hello Olya</div>
+                {/* <div className='hello'>Hello Olya</div> */}
             </div>
             <Link to='https://github.com/Asyan77' className='github-logged-in' target="_blank">
                <img className='github' src={githubLogo} alt="" />
