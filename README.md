@@ -90,24 +90,61 @@ Conditionals were added to render edit options if the photo or comment belongs t
     }
 ```
 
-```
- function clearUnpinnedDataCards (e) {
-  const arrayOfChildren = Array.from(dataCardBody.children);
-
-  arrayOfChildren.forEach(function(child) {
-    if (!child.classList.contains("pinned")) {
-      dataCardBody.removeChild(child)    
-      } 
-    })
-
-    if (dataCardBody.children.length === 0) {
-      clearDataCardsBtn.classList.add("hide")
-      clearDataCardsBtn.classList.remove("show")
-    }
-}
-  ```
-
 3. SinglePhoto show page - This page required the most design and logistics. Pulling data from various slices of state, plus featuring 2 of the more challenging pieces of the CRUD process, updating, for both photos and comments. Click [here](frontend/src/components/SinglePhoto/SinglePhoto/SinglePhoto.jsx) To see how all of these pieces interlaced for form the photo's show page. 
+
+```
+ const {photoId} = useParams();
+    const {userId} = useParams();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const photo = useSelector(onePhoto(photoId));
+    const [selectedComment, setSelectedComment] = useState(null)
+    const photosComments = useSelector(allPhotosComments(+photoId))
+    const currentUser = useSelector(state => state.session.currentUser);
+    const currentUserId = useSelector(state => state.session.currentUserId);
+    const [showPhotoEdit, setShowPhotoEdit] = useState(false)
+    const [showEditCommentForm, setShowEditCommentForm] = useState(false)
+    
+    
+    useEffect(() => {
+        dispatch(getAllComments(photoId))
+        dispatch(getOnePhoto(photoId))
+    },[dispatch, photoId, userId])
+    
+    const formatDate = (date) => {
+        const dateObj = new Date(date)
+        return dateObj.toDateString()
+    }
+    
+    const deleteComment = async (e, commentId) => {
+        e.preventDefault();
+        dispatch(deleteOneComment(commentId))
+    }
+    
+    const openEditModal = (commentId) => (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (showEditCommentForm) return;
+        setShowEditCommentForm(true);
+        setSelectedComment(commentId)
+    }
+  
+    const openPhotoEdits = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (showPhotoEdit) return;
+        setShowPhotoEdit(true);
+    }
+
+    const handleDeletePhoto = async(e) => {
+        e.preventDefault();
+        const res = await dispatch(deleteOnePhoto(photoId))
+        if(res.ok) {
+            navigate(`/photos/${userId}`)
+        }
+    }
+    if(!photo) return null
+```
 
 
 ### Upcoming Features! 

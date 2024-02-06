@@ -28,7 +28,6 @@ const SinglePhoto = () => {
     const [showPhotoEdit, setShowPhotoEdit] = useState(false)
     const [showEditCommentForm, setShowEditCommentForm] = useState(false)
     
-
     
     useEffect(() => {
         dispatch(getAllComments(photoId))
@@ -53,7 +52,6 @@ const SinglePhoto = () => {
         setSelectedComment(commentId)
     }
   
-
     const openPhotoEdits = (e) => {
         e.preventDefault();
         e.stopPropagation();
