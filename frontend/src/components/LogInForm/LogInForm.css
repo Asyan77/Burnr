@@ -83,6 +83,7 @@
     color: aliceblue;
     background-color: rgb(53, 144, 213);
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .demo-sign-up-btn-LI {
@@ -96,6 +97,7 @@
     border: 1px solid black;
     background-color: rgb(53, 144, 213);
     border-radius: 3px;
+    cursor: pointer;
 
 }
 .already-a-member-sign-up-LI {
