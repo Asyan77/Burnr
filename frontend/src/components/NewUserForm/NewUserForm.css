@@ -1,0 +1,120 @@
+.signup-background {
+    position: relative;
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-image: url('../../../assets/logos/background.png');
+    z-index: 2000;
+    top: 60px;
+    height: 92vh;
+}
+
+.outer-form-box-SU {
+    position: absolute;
+    height: 50vh;
+    width: 20vw;
+    margin-top: 11%;
+    margin-left: 42%;
+    box-shadow: 0px 2px 6px rgb(244, 242, 242);
+    /* background-color: rgb(241, 233, 233); */
+    background-color: rgba(141, 135, 135, 0.35);
+}
+
+.form-SU {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    /* background-color: rgb(17, 34, 29); */
+}
+
+.form-logo-SU {
+    width: 3vw;
+    margin-bottom: 20px;
+    /* background-color: blue; */
+}
+
+.header-SU {
+    padding-bottom: 3%;
+    font-size: 2vh;
+}
+.errors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    margin-right: 2em;
+    margin-left: 2em;
+    /* background-color: aquamarine; */
+}
+
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    color: rgb(174, 54, 54);
+
+}
+
+.form-fields-SU {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 10px;
+    width: 75%;
+    border-radius: 5px;
+}
+
+.email-field-SU ,
+.password-field-SU ,
+.username-field-SU  {
+    padding-top: 20px;
+    margin-top: 8px;
+    height: 2vh;
+    font-size: 2vh;
+    border-radius: 5px;
+}
+
+.btns-bottom-of-form-SU {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 8%;
+    margin-bottom: 10px;
+    width: 76%;
+    border-radius: 5px;
+}
+
+.sign-up-btn-SU  {
+    background-color: rgb(53, 144, 213);
+    color: aliceblue;
+    width: 100%;
+    height: 4vh;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-size: 2vh;
+}
+
+.demo-sign-up-btn-SU  {
+    border: 1px solid black;
+    width: 100%;
+    height: 4vh;
+    border-radius: 5px;
+    padding-top: 3px;
+    color: aliceblue;
+    border: 1px solid black;
+    background-color: rgb(53, 144, 213);
+    border-radius: 3px;
+    font-size: 2vh;
+}
+
+
+.already-a-member-sign-up-SU {
+    display: flex;
+    justify-content: center;
+    color: aliceblue;
+    font-size: 2vh;
+    margin-top: 13px;
+}

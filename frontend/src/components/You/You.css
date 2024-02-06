@@ -1,0 +1,222 @@
+.you-page {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.you-profile-header{
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    align-items: end;
+    background-color: rgb(103, 86, 20);
+}
+
+.profile-pic-circle {
+    margin-left: 9em;
+    margin-bottom: 1em;
+    height: 6em;
+    width: 6em;
+    border-radius: 50px;
+}
+
+.header-details-box1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 5em;
+    margin-left: 1vw;
+    margin-bottom: 3vh;
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: blue; */
+}
+
+.header-inner-box1 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 3.8vh;
+    margin-top: 2vh;
+    /* background-color: rgb(131, 131, 188); */
+}
+
+.you-username {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    color: aliceblue;
+}
+
+.follow {
+    width: 4vw;
+    height: 4.5vh;
+    margin-left: 1em;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    padding-bottom: 1.5vh;
+    border: white solid 2px;
+    border-radius: 2px;
+    height: 3.8vh;
+    width: 2.5vw;
+    margin-left: .5vw;
+}
+
+.header-inner-box2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5vh;
+    /* background-color: burlywood; */
+
+}
+
+.left-inner-box3 {
+    display: flex;
+    align-items: center;
+    /* background-color: rgb(145, 32, 87); */
+}
+
+.pro {
+    border: white solid 1.5px;
+    border-radius: 2px;
+    padding: 3px;
+    color: white;
+    font-size: 12px;
+}
+
+.moment {
+    color: white;
+    font-size: 1.5vh;
+    margin-left: .5vw;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.left-bottom-text {
+    color: white;
+    font-size: 1.5vh;
+    margin-left: 1vw;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.profile-header-mini-links {
+    display:flex;
+    justify-content: space-between;
+    color: aliceblue;
+    /* background-color: blue; */
+    width: 140vh;
+    padding-bottom: 3%;
+}
+
+.left-mini-links {
+    display: flex;
+    justify-content: space-between;
+    color: aliceblue;
+    /* background-color: pink; */
+    width: 20%;
+}
+
+.right-outer-box {
+    display: flex;
+    justify-content: space-between;
+    color: aliceblue;
+    margin-right: 12em;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    /* background-color: pink; */
+}
+
+.right-bottom-text-you {
+    margin-right: 5vw;
+}
+
+.text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.profile-middle-bar {
+    display: flex;
+    align-items: center;
+    height: 2.8em;
+    border: lightgrey 1px solid;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    /* background-color: aquamarine; */
+}
+
+.middle-bar-links {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 38em;
+    margin-left: 10em;
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-color: rgb(41, 41, 161); */
+}
+
+.mid-link-text {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    height: 3em;
+    text-decoration: none;
+
+    color: rgb(88, 85, 85);
+}
+
+.photostream {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: rgb(89, 195, 231) solid 3px;
+    width: 18%;
+
+}
+
+/* .mid-link-text:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: rgb(89, 195, 231) solid 3px;
+    width: 15%;
+} */
+
+.user-profile-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 4 columns with equal width */
+    gap: 5px; 
+    flex-wrap: wrap;
+    padding-left: 8%;
+    padding-right: 11%;
+    padding-top: 3%;
+    width: 82%;
+    /* background-color: aqua; */
+    
+  }
+
+.user-photoimage {
+    width: 100%;
+    /* height: 100%; */
+    /* max-height: 100%; */
+    /* max-width: 100%; */
+    object-fit: cover;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* gap: 5px; */
+}

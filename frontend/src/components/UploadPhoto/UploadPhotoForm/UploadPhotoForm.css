@@ -1,0 +1,79 @@
+.whole-upload-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 33em;
+    border: rgb(238, 7, 123) solid 3px;
+    background-color: rgb(178, 174, 174);
+    border-radius: 3px;
+}
+
+.upload-logo {
+    margin-bottom: 1em;
+    margin-left: 8em;
+}
+
+.errors-for-sign-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(238, 7, 123);
+    text-align: center;
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+
+.upload-form-divs {
+    display: flex;
+    flex-direction: column;
+    padding-top: .5em;
+}
+
+.choose-file-button-upload {
+    margin-bottom: 2em;
+    padding-left: 3.5em;
+}
+
+input::file-selector-button {
+    background-color: rgb(18, 143, 220);
+    color: rgb(255, 255, 249);
+    border-radius: .25em;
+    border: none;
+    padding: .5em;
+}
+
+input::file-selector-button:hover {
+    background-color: rgb(20, 156, 240);
+}
+
+.upload-submit-button-div {
+    padding-top: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1em;
+}
+
+.all-sign-up-form-inputs-labels {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: .5em;
+}
+
+.sign-up-form-inputs-only {
+    height: 3.75em;
+    border-radius: .4em;
+    border: .1em solid rgb(137, 137, 137);
+    padding-left: 1em;
+}
+
+.sign-up-form-inputs-only:focus {
+    border: .001em solid rgb(0, 153, 255);
+    outline: .005em solid rgb(0, 153, 255);
+}
