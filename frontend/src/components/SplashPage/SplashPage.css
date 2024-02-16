@@ -84,4 +84,71 @@
   .image14 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background14.png'); }
   .image15 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background15.png'); }
 
-  
+  @media (max-width: 600px) {
+    /* .background-image {
+      position: absolute;
+      top: 60px;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      z-index: -1;
+    } */
+    
+    .splash-text-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        margin-top: 30vh;
+        color: rgb(149, 43, 187);
+        z-index: 1;
+        height: 2em;
+        width: 7em;
+        /* background-color: aqua; */
+    }
+    
+    .main-text1 {
+        font-size: 2em;
+        margin-bottom: .5em;
+    
+    }
+    
+    .main-text2 {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1em;
+      max-width: 45vw;
+      /* background-color: aqua; */
+    }
+/* 
+    .sign-up-link{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: aqua;
+    } */
+    
+    .start-btn{
+        margin-top: 2em;
+        margin-right: 4em;
+        height: 7vh;
+        width: 9em;
+        z-index: 1;
+        text-align: center;
+        background-color: white;
+        border-radius: 7px;
+        font-size: 25px;
+        font-weight: 500;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    
+    .start-btn:hover {
+      color: gray;
+      cursor: pointer;
+    }
+}

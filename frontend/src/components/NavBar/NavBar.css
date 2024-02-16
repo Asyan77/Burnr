@@ -1,9 +1,3 @@
-
-  .hello {
-    font-size: 100px;
-    color: #f8f8f8;
-  }
-
   .nav-bar {
     box-sizing: border-box;
     position: fixed;
@@ -181,17 +175,151 @@
   }
 
   /* Responsive styles for smaller screens */
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     .nav-bar {
-      flex-direction: column;
+      box-sizing: border-box;
+      /* position: fixed; */
+      top:0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 2em;
+      width: 100%;
+      background-color: #2e2d2d;
+      padding: 10px 20px;
+      /* margin-bottom: 40%; */
+      z-index: 2000;
     }
   
-    .nav-links {
-      margin-top: 10px;
+    .logged-in-nav-btns {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items:  center;
+      width: 82vw;
+      height: 5vh;
+      margin-left: 6.5vw;
+      /* margin-right: 4vw; */
+      /* border: purple solid 4px; */
+    }
+    
+    .left-side-logged-in {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      min-width: 17vw;
+      /* background-color: red; */
+      margin-left: 3vw;
+    }
+    
+    .links-on-nav-bar{
+      min-width: 130px;
+      /* background-color: aqua; */
     }
   
-    .user-actions {
-      margin-top: 10px;
+    .logged-in-logo {
+      width: 100px;
+    
+     
+      /* background-color: aqua; */
+    }  
+  
+    .explore-btn {
+      color: white;
+      font-size: 1em;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      min-width: 60px;
+      /* background-color: aqua; */
+    }
+    .you-btn {
+      color: white;
+      font-size: 1em;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      min-width: 40px;
+      /* background-color: aquamarine; */
+    }
+    
+    .search-bar-logged-in {
+      width: 20vw;
+      height: 2.4vh;
+      background-color: lightgray;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    
+    .upload-icon-NB {
+      color: white;
+      width: 5vh;
+      height: 4vh;
+      /* margin-left: 2em; */
+      /* background-color: green; */
+    }
+    
+    .github-logged-in{
+      margin-left: 35vw;
+      min-height: 35px;
+      min-width: 35px;
+      /* background-color: peachpuff; */
+    }
+  
+    .linkedIn-logged-in {
+      height: 3vh;
+      margin-right: 1vw;
+      margin-left: .5vw;
+      min-height: 25px;
+    }
+    
+    .logged-out-nav-btns {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 5vh;
+      /* background-color: #c42d2d; */
+    }
+  
+    .logged-out-logo {
+      width: 1em;
+      margin-left: 1vw;
+      /* background-color: aqua; */
+    } 
+    
+  
+    .login-btn {
+      text-decoration:none;
+      color: white;
+      font-weight: 100;
+      font-size: 1em;
+      font-family: Arial, Helvetica, sans-serif;
+      /* background-color: aqua; */
+    }
+    .signup-btn {
+      text-decoration:none;
+      color: rgb(3, 3, 3);
+      font-weight: 100;
+      font-size: 1em;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f8f8f8;
+      border-radius: 3px;
+      height: 35px;
+      min-width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .log-out-btn {
+      background-color: aliceblue;
+      border: 1px solid black;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-right: 10px;
+      border-radius: 5px;
+      width: 10%;
+      /* font-family: Arial, Helvetica, sans-serif; */
     }
   }
   
