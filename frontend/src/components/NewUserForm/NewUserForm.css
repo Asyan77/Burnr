@@ -120,3 +120,38 @@
     font-size: 2vh;
     margin-top: 13px;
 }
+
+@media (max-width: 600px) {
+    .outer-form-box-SU {
+        width: 80%;
+        margin-top: 15%;
+        margin-left: 10%;
+        margin-right: 10%;
+        height: 70%;
+    }
+
+    .form-logo-SU {
+        width: 20%;
+    }
+
+    .header-SU {
+        font-size: 1.8rem;
+    }
+
+    .email-field-SU,
+    .password-field-SU,
+    .username-field-SU {
+        height: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .sign-up-btn-SU,
+    .demo-sign-up-btn-SU {
+        height: 3rem;
+        font-size: 1.2rem;
+    }
+
+    .already-a-member-sign-up-LI {
+        font-size: 1.2rem;
+    }
+}
