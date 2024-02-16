@@ -1,6 +1,6 @@
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom";
 import SplashPage from "./components/SplashPage/SplashPage";
-import LogInForm from "./components/LogInForm/LoginForm";
+import LogInForm from "./components/LogInForm/LogInForm";
 import ExplorePage from "./components/ExplorePage/ExplorePage";
 import NewUserForm from "./components/NewUserForm/NewUserForm";
 import NavBar from "./components/NavBar/NavBar";
