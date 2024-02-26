@@ -70,7 +70,13 @@ function NewUserForm() {
             <div className='header-SU'>Sign Up for Burnr</div>
             {showErrors()}
             <div className='form-fields-SU'>
-              <input className='username-field-SU' type="text" value={username} placeholder='Username' onChange={handleUsernameChange} ref={usernameInput} required={true}/>
+              <input 
+                className='username-field-SU' 
+                type="text" value={username} 
+                placeholder='Username' 
+                onChange={handleUsernameChange} 
+                ref={usernameInput} 
+                required={true}/>
               <input className='email-field-SU' type="email" value={email} placeholder='Email' onChange={handleEmailChange} ref={emailInput} required={true}/>
               <input className='password-field-SU' type="password" value={password} placeholder='Password' onChange={handlePasswordChange} ref={passwordInput} required ={true} />
             </div>

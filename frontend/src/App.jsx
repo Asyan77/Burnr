@@ -8,6 +8,7 @@ import { Outlet } from "react-router-dom";
 import You from "./components/You/You";
 import SinglePhoto from "./components/SinglePhoto/SinglePhoto/SinglePhoto";
 import UploadPhotoPage from "./components/UploadPhoto/UploadPhotoPage";
+import Scroll from "./components/ScrollToDemo/ScrollTo";
 const router = createBrowserRouter([
   {
     path: '/',
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       { path: 'signup', element: <NewUserForm/>  },
       { path: 'login', element: <LogInForm /> },
       { path: 'explore', element: <ExplorePage /> },
+      { path: 'scroll', element: <Scroll/> },
     ]
   },
   {

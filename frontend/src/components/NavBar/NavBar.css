@@ -196,10 +196,6 @@
       flex-direction: row;
       justify-content: space-between;
       align-items:  center;
-      width: 82vw;
-      height: 5vh;
-      margin-left: 6.5vw;
-      /* margin-right: 4vw; */
       /* border: purple solid 4px; */
     }
     
@@ -208,20 +204,12 @@
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
-      min-width: 17vw;
       /* background-color: red; */
-      margin-left: 3vw;
-    }
-    
-    .links-on-nav-bar{
-      min-width: 130px;
-      /* background-color: aqua; */
     }
   
     .logged-in-logo {
-      width: 100px;
-    
-     
+      width: 5em;
+      margin-left: 1.7em;
       /* background-color: aqua; */
     }  
   
@@ -238,16 +226,11 @@
       font-size: 1em;
       text-decoration: none;
       font-family: Arial, Helvetica, sans-serif;
-      min-width: 40px;
       /* background-color: aquamarine; */
     }
     
     .search-bar-logged-in {
-      width: 20vw;
-      height: 2.4vh;
-      background-color: lightgray;
-      border-radius: 5px;
-      margin-right: 10px;
+      display: none;
     }
     
     .upload-icon-NB {
@@ -259,9 +242,8 @@
     }
     
     .github-logged-in{
-      margin-left: 35vw;
-      min-height: 35px;
-      min-width: 35px;
+   
+      width: 4em;
       /* background-color: peachpuff; */
     }
   
