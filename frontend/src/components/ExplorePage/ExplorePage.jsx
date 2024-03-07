@@ -28,7 +28,6 @@ const ExplorePage =() => {
   //   getRandomPhotos()
   // }
 
-  
 
     return (
       <div className="page"> 

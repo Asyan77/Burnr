@@ -15,8 +15,8 @@
   background-size: cover;
   background-position: center;
   overflow: hidden;
-  transition: background 5s ease;
-  /* background-image: url('https://www.forbes.com/advisor/wp-content/uploads/2023/09/how-much-does-a-cat-cost.jpeg-900x510.jpg'); */
+  /* transition: background 5s ease; */
+  /* background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background0.png'); */
   z-index: -1;
 }
 
@@ -71,22 +71,22 @@
   cursor: pointer;
 }
 
-  .image0 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background0.png'); }
-  .image1 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background1.png'); }
-  .image2 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background2.png'); }
-  .image3 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background3.png'); }
-  .image4 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background4.png'); }
-  .image5 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background5.png'); }
-  .image6 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background6.png'); }
-  .image7 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background7.png'); }
-  .image8 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background8.png'); }
-  .image9 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background9.png'); }
-  .image10 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background10.png'); }
-  .image11 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background11.png'); }
-  .image12 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background12.png'); }
-  .image13 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background13.png'); }
-  .image14 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background14.png'); }
-  .image15 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/burnr2/frontend/assets/SpashImages/background15.png'); }
+  .image0 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background0.png'); }
+  .image1 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background1.png'); }
+  .image2 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background2.png'); }
+  .image3 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background3.png'); }
+  .image4 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background4.png'); }
+  .image5 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background5.png'); }
+  .image6 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background6.png'); }
+  .image7 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background7.png'); }
+  .image8 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background8.png'); }
+  .image9 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background9.png'); }
+  .image10 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background10.png'); }
+  .image11 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background11.png'); }
+  .image12 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background12.png'); }
+  .image13 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background13.png'); }
+  .image14 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background14.png'); }
+  .image15 { background-image: url('/Users/ashleyhoneybee/Desktop/app_academy/projects/fullstack/Burnr-v2/frontend/assets/splashImages/background15.png'); }
 
   @media (max-width: 600px) {
     /* .background-image {
