@@ -1,37 +1,44 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import './ExplorePage.css'
-import { allPhotos} from "../../store/photo";
+import { allPhotos, getAllPhotos} from "../../store/photo";
 import { Link } from "react-router-dom";
+import {  useEffect } from "react";
 
 const ExplorePage =() => {
+  const dispatch = useDispatch();
   const photos = useSelector(allPhotos)
-  let randomPhotos = []
+  // let randomPhotos = [];
+  
+  useEffect(() => {
+    dispatch(getAllPhotos())
+  },[dispatch])
 
-  function getRandomPhotos () {
-    let start = 0;
-    console.log("hey I'm here")
-    let end = photos.length-1
-      while (randomPhotos.length < 20 ) {
-        let randomPicture = Math.floor(Math.random() * (end - start) + start)
-        if(!randomPhotos.includes(randomPicture)) {
-          randomPhotos.push(randomPicture)
-        }
-      }
-  }
+  // const getRandomPhotos = useCallback (() => {
+  //   let start = 0;
+  //   let end = photos.length-1
+  //   while (randomPhotos.length < 20 ) {
+  //     let randomPicture = Math.floor(Math.random() * (end - start) + start)
+  //     if (!randomPhotos.includes(randomPicture)) {
+  //       randomPhotos.push(randomPicture)
+  //     }
+  //   }
+  // }, [photos.length])
+  
+  // if (photos && photos.length > 20) {
+  //   getRandomPhotos()
+  // }
 
-  if (photos && photos.length > 20) {
-    getRandomPhotos()
-  }
+  
 
     return (
       <div className="page"> 
         <div className="explore">Explore</div>
         <ul className="photoimage-grid">
-          {randomPhotos.map(photo  => {
+          {photos.map(photo  => {
             return (
-              <div key={photos[photo].id}>
-                <Link className="user-photoimage" to={`/photos/${photos[photo].userId}/${photos[photo].id}`}>
-                  <img key={photo.id} src={photos[photo].photoUrl} alt="photos" className="user-photoimage" />
+              <div key={photo.id}>
+                <Link className="user-photoimage" to={`/photos/${photo.userId}/${photo.id}`}>
+                  <img key={photo.id} src={photo.photoUrl} alt="photos" className="user-photoimage" />
                 </Link>
               </div>
             );
@@ -43,3 +50,18 @@ const ExplorePage =() => {
 }
 
 export default ExplorePage
+
+
+
+{/* <ul className="photoimage-grid">
+{randomPhotos.map(photo  => {
+  return (
+    <div key={photos[photo].id}>
+      <Link className="user-photoimage" to={`/photos/${photos[photo].userId}/${photos[photo].id}`}>
+        <img key={photo.id} src={photos[photo].photoUrl} alt="photos" className="user-photoimage" />
+      </Link>
+    </div>
+  );
+})}
+
+</ul> */}
