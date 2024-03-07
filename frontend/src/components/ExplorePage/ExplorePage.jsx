@@ -1,31 +1,27 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import './ExplorePage.css'
-import { allPhotos, getAllPhotos } from "../../store/photo";
+import { allPhotos} from "../../store/photo";
 import { Link } from "react-router-dom";
 
 const ExplorePage =() => {
-  const dispatch = useDispatch();
   const photos = useSelector(allPhotos)
   let randomPhotos = []
 
   function getRandomPhotos () {
     let start = 0;
+    console.log("hey I'm here")
     let end = photos.length-1
-    while (randomPhotos.length < 20 ) {
-      let randomPicture = Math.floor(Math.random() * (end - start) + start)
-      if(!randomPhotos.includes(randomPicture)) {
-        randomPhotos.push(randomPicture)
+      while (randomPhotos.length < 20 ) {
+        let randomPicture = Math.floor(Math.random() * (end - start) + start)
+        if(!randomPhotos.includes(randomPicture)) {
+          randomPhotos.push(randomPicture)
+        }
       }
-    }
   }
-  getRandomPhotos()
-  
-  
-  useEffect(() => {
-    dispatch(getAllPhotos())
-  }, [dispatch]);
 
+  if (photos && photos.length > 20) {
+    getRandomPhotos()
+  }
 
     return (
       <div className="page"> 
