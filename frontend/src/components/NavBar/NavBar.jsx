@@ -6,10 +6,35 @@ import logo from "/assets/logos/burnrLogo2.png"
 import linkedInLogo from "/assets/logos/LinkedInLogo.png"
 import githubLogo from "/assets/logos/GitHubLogo.png"
 import { SlCloudUpload } from "react-icons/sl";
+import { useState } from 'react';
+import { allPhotos } from '../../store/photo';
 
 function NavBar() {
   const currentUser = useSelector(state => state.session.currentUser);
   const userId = useSelector(state => state.session.currentUserId);
+  const [searchTerm, setSearchTerm] = useState("");
+  const photos = useSelector(allPhotos);
+
+  function handleInputChange(e) {
+    setSearchTerm(e.target.value)
+  }
+
+  function handleSearch (e) {
+    e.preventDefault();
+    onSearch(searchTerm)
+  }
+
+  function onSearch(searchTerm) {
+    let search = searchTerm.toLowerCase()
+    const pics = Object.values(photos)
+    const descriptionRes = pics.find((photos) => photos.description.toLowerCase().includes(search))
+    const titleRes = pics.find(photos => photos.title.toLowerCase().includes(search))
+    console.log(descriptionRes, titleRes)
+
+
+    // console.log(pics)
+
+  }
 
   return (
     <div className="nav-bar">
@@ -22,13 +47,24 @@ function NavBar() {
                 <NavLink to={`/photos/${userId}`} className='you-btn nav-links'>You</NavLink>
                 <Link to='/explore' className='explore-btn nav-links'>Explore</Link>
             </div>
+
+            <form className="search-bar">
+              <input
+                className='search-bar-input'
+                type="text"
+                placeholder='search for photos by title'
+                value={searchTerm}
+                onChange={handleInputChange}
+                /> 
+              <button className='search-sumbit' onClick={handleSearch}>Submit</button>
+            </form>
             <Link to='https://github.com/Asyan77' className='github-logged-in' target="_blank">
                <img className='github' src={githubLogo} alt="" />
             </Link>
             <Link to='http://www.linkedin.com/in/ashley-yan' target="_blank">
                <img className='linkedIn-logged-in' src={linkedInLogo} alt="" />
             </Link>
-            <input className="search-bar-logged-in" type="text" placeholder="Photos, people, or groups" disabled/>
+            {/* <input className="search-bar-logged-in" type="text" placeholder="Photos, people, or groups" disabled/> */}
             <Link to='/photos/upload'> 
               <SlCloudUpload className='upload-icon-NB'/>
             </Link>

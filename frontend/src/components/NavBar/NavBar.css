@@ -78,14 +78,28 @@
     /* background-color: aquamarine; */
   }
   
-  .search-bar-logged-in {
-    width: 20vw;
-    height: 2.4vh;
-    background-color: lightgray;
-    border-radius: 5px;
-    margin-right: 10px;
+  .search-bar {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: aqua; */
+    width:400px;
+    margin-left: 26vw;
+    height: 35px;
   }
   
+  .search-bar-input {
+    display: inline;
+    width: 320px;
+    border-radius: 5px;
+    background-color: lightgray;
+  }
+  
+  .search-submit {
+    border-radius: 5px;
+    background-color: purple;
+    height: 60px;
+  }
+
   .upload-icon-NB {
     color: white;
     width: 5vh;
@@ -95,7 +109,7 @@
   }
   
   .github-logged-in{
-    margin-left: 35vw;
+    margin-left: 10px;
     min-height: 35px;
     min-width: 35px;
     /* background-color: peachpuff; */
@@ -104,7 +118,7 @@
   .linkedIn-logged-in {
     height: 3vh;
     margin-right: 1vw;
-    margin-left: .5vw;
+    margin-left: 10px;
     min-height: 25px;
   }
   
@@ -242,7 +256,7 @@
       /* background-color: aquamarine; */
     }
     
-    .search-bar-logged-in {
+    .searchbar{
       width: 20vw;
       height: 2.4vh;
       background-color: lightgray;

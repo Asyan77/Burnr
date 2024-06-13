@@ -43,7 +43,7 @@ const  UserIconButton = () => {
                 <span >Hello, </span>
                 <Link to={`/photos/${currentUserId}/`} className="username"> {currentUser}</Link>
             </div>
-            <div className='log-out' onClick={handleLogOut }>Log Out</div>
+            <div className='log-out' onClick={handleLogOut}>Log Out</div>
           </div>   
              ) : null}
         </div>
