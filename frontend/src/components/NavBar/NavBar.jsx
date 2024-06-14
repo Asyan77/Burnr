@@ -27,13 +27,9 @@ function NavBar() {
   function onSearch(searchTerm) {
     let search = searchTerm.toLowerCase()
     const pics = Object.values(photos)
-    const descriptionRes = pics.find((photos) => photos.description.toLowerCase().includes(search))
-    const titleRes = pics.find(photos => photos.title.toLowerCase().includes(search))
-    console.log(descriptionRes, titleRes)
-
-
-    // console.log(pics)
-
+    let descriptionRes = pics.find((photos) => photos.description.toLowerCase().includes(search))
+    let titleRes = pics.find(photos => photos.title.toLowerCase().includes(search))
+    console.log(descriptionRes ,titleRes)
   }
 
   return (
