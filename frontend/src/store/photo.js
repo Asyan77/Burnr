@@ -105,6 +105,9 @@ export const getOnePhoto = (photoId) => async dispatch => {
 export const allPhotos = (state) => state.photos ? Object.values(state.photos) : null
 export const onePhoto = (id) => (state) => state.photos[id]
 export const getUserPhotos = (userId) => (state) => state.photos ? Object.values(state.photos).filter(photo => photo.userId === userId) : null
+export const getSearchedPhotosByTitle = (searchTerm) => state => state.photos ? Object.values(state.photos).filter(photo => photo.title.toLowerCase().includes(searchTerm)) : null
+export const getSearchedPhotosByDescription = (searchTerm) => state => state.photos ? Object.values(state.photos).filter(photo => photo.description.toLowerCase().includes(searchTerm)) : null
+
 
 const photoReducer = (state ={}, action) => {
   const nextState = Object.assign({},state);

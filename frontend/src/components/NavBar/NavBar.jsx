@@ -13,7 +13,6 @@ function NavBar() {
   const currentUser = useSelector(state => state.session.currentUser);
   const userId = useSelector(state => state.session.currentUserId);
   const [searchTerm, setSearchTerm] = useState("");
-  const photos = useSelector(allPhotos);
   const navigate = useNavigate();
 
   function handleInputChange(e) {
