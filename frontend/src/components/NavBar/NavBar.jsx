@@ -1,5 +1,5 @@
 import './NavBar.css'
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, Navigate, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import UserIconButton from './UserIconButton/UserIconButton';
 import logo from "/assets/logos/burnrLogo2.png"
@@ -14,6 +14,7 @@ function NavBar() {
   const userId = useSelector(state => state.session.currentUserId);
   const [searchTerm, setSearchTerm] = useState("");
   const photos = useSelector(allPhotos);
+  const navigate = useNavigate();
 
   function handleInputChange(e) {
     setSearchTerm(e.target.value)
@@ -21,16 +22,17 @@ function NavBar() {
 
   function handleSearch (e) {
     e.preventDefault();
-    onSearch(searchTerm)
+    navigate(`photos/search/${searchTerm}`)
   }
 
-  function onSearch(searchTerm) {
-    let search = searchTerm.toLowerCase()
-    const pics = Object.values(photos)
-    let descriptionRes = pics.find((photos) => photos.description.toLowerCase().includes(search))
-    let titleRes = pics.find(photos => photos.title.toLowerCase().includes(search))
-    console.log(descriptionRes ,titleRes)
-  }
+  // function onSearch(searchTerm) {
+  //   let search = searchTerm.toLowerCase()
+  //   const pics = Object.values(photos)
+  //   let descriptionRes = pics.find((photos) => photos.description.toLowerCase().includes(search))
+  //   let titleRes = pics.find(photos => photos.title.toLowerCase().includes(search))
+  //   const searchRes = [descriptionRes, titleRes]
+  //   return searchRes
+  // }
 
   return (
     <div className="nav-bar">

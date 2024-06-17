@@ -8,6 +8,7 @@ import { Outlet } from "react-router-dom";
 import You from "./components/You/You";
 import SinglePhoto from "./components/SinglePhoto/SinglePhoto/SinglePhoto";
 import UploadPhotoPage from "./components/UploadPhoto/UploadPhotoPage";
+import SearchResults from "./components/SearchResults/SearchResults";
 const router = createBrowserRouter([
   {
     path: '/',
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
   {
     path: '/photos',
     element: 
-      <>
+    <>
         <NavBar/>
         <Outlet/>
       </>,
@@ -35,6 +36,8 @@ const router = createBrowserRouter([
       { path: ':userId/:photoId', element: <SinglePhoto/>  },
       { path: ':userId', element: <You/>},
       { path: 'upload', element: <UploadPhotoPage/>},
+      {path: 'search/:searchTerm', element: <SearchResults/> }
+  
       // { path: ':username/albums', element: <Albums /> },
       // { path: 'username/albums/:albumId', element: <AlbumPhotos/> },
     ]
