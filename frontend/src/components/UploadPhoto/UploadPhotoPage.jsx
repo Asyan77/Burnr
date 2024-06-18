@@ -30,6 +30,8 @@ const UploadPhoto = ( ) => {
         return () => document.removeEventListener("click", closeUploadForm);
     }, [showUploadForm]);
 
+    console.log(window.location.href)
+
     return (
         <div className='upload-page-container'>
             {!showUploadForm ?

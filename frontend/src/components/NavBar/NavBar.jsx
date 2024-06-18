@@ -1,5 +1,5 @@
 import './NavBar.css'
-import { Link, NavLink, Navigate, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import UserIconButton from './UserIconButton/UserIconButton';
 import logo from "/assets/logos/burnrLogo2.png"
@@ -7,7 +7,6 @@ import linkedInLogo from "/assets/logos/LinkedInLogo.png"
 import githubLogo from "/assets/logos/GitHubLogo.png"
 import { SlCloudUpload } from "react-icons/sl";
 import { useState } from 'react';
-import { allPhotos } from '../../store/photo';
 
 function NavBar() {
   const currentUser = useSelector(state => state.session.currentUser);
@@ -21,17 +20,10 @@ function NavBar() {
 
   function handleSearch (e) {
     e.preventDefault();
-    navigate(`photos/search/${searchTerm}`)
+    navigate(`photos/search/${searchTerm}`, {replace:true})
+    setSearchTerm("")
   }
 
-  // function onSearch(searchTerm) {
-  //   let search = searchTerm.toLowerCase()
-  //   const pics = Object.values(photos)
-  //   let descriptionRes = pics.find((photos) => photos.description.toLowerCase().includes(search))
-  //   let titleRes = pics.find(photos => photos.title.toLowerCase().includes(search))
-  //   const searchRes = [descriptionRes, titleRes]
-  //   return searchRes
-  // }
 
   return (
     <div className="nav-bar">

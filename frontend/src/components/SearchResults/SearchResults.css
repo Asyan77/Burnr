@@ -1,6 +1,11 @@
-.test {
-    display: flex;
-    height: 700px;
-    font-size: 900px;
-    background-color: red;
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat (3, 1fr);
+    background-color: purple;
 }
+
+
+.resultPhoto {
+    /* width: 50vw; */
+}
+

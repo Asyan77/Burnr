@@ -1,39 +1,45 @@
-import { useDispatch, useSelector } from "react-redux";
 import './ExplorePage.css'
+import { useDispatch, useSelector, } from "react-redux";
 import { allPhotos, getAllPhotos} from "../../store/photo";
 import { Link } from "react-router-dom";
-import {  useEffect } from "react";
+import { useEffect, useCallback, useState  } from "react";
 
 const ExplorePage =() => {
   const dispatch = useDispatch();
-  const photos = useSelector(allPhotos)
-  // let randomPhotos = [];
+  const photos = useSelector(allPhotos);
+  const [randomPhotos, setRandomPhotos] = useState([])
+
+  let randomPhotoIdx = []
+  
   
   useEffect(() => {
     dispatch(getAllPhotos())
   },[dispatch])
-
-  // const getRandomPhotos = useCallback (() => {
-  //   let start = 0;
-  //   let end = photos.length-1
-  //   while (randomPhotos.length < 20 ) {
-  //     let randomPicture = Math.floor(Math.random() * (end - start) + start)
-  //     if (!randomPhotos.includes(randomPicture)) {
-  //       randomPhotos.push(randomPicture)
-  //     }
-  //   }
-  // }, [photos.length])
   
-  // if (photos && photos.length > 20) {
-  //   getRandomPhotos()
-  // }
-
+  const getRandomPhotos = useCallback (() => {
+    let end = photos.length-1
+    while (randomPhotos.length < 20 ) {
+      let randomIdx = Math.floor(Math.random() * end)
+      if (!randomPhotoIdx.includes(randomIdx)) {
+        randomPhotoIdx.push(randomIdx)
+        randomPhotos.push(photos[randomIdx])
+        
+      }
+    }
+  }, [photos.length, randomPhotos, randomPhotoIdx, photos])
+  
+  if (photos && photos.length > 20) {
+    getRandomPhotos()
+  }
+  
+  // getRandomPhotos()
+  console.log(randomPhotos)
 
     return (
       <div className="page"> 
         <div className="explore">Explore</div>
         <ul className="photoimage-grid">
-          {photos.map(photo  => {
+          {randomPhotos.map(photo  => {
             return (
               <div key={photo.id}>
                 <Link className="user-photoimage" to={`/photos/${photo.userId}/${photo.id}`}>
