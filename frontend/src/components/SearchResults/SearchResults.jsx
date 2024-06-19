@@ -43,7 +43,7 @@ function SearchResults() {
     
     if (uniqueMatches.length < 1) {
         return (
-            <div className="no-results">Hey there, no photos found for {searchTerm}!</div>
+            <div className="no-results">No photos found for {searchTerm} 😭</div>
         )
     }
 
