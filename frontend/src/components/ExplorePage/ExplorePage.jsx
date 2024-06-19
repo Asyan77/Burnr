@@ -2,38 +2,35 @@ import './ExplorePage.css'
 import { useDispatch, useSelector, } from "react-redux";
 import { allPhotos, getAllPhotos} from "../../store/photo";
 import { Link } from "react-router-dom";
-import { useEffect, useCallback, useState  } from "react";
+import { useEffect, useState } from "react";
 
 const ExplorePage =() => {
   const dispatch = useDispatch();
   const photos = useSelector(allPhotos);
-  const [randomPhotos, setRandomPhotos] = useState([])
-
-  let randomPhotoIdx = []
-  
+  const [randomPhotos, setRandomPhotos] = useState([]);
   
   useEffect(() => {
     dispatch(getAllPhotos())
   },[dispatch])
   
-  const getRandomPhotos = useCallback (() => {
+  const getRandomPhotos = () => {
+    const tempArr = [];
     let end = photos.length-1
-    while (randomPhotos.length < 20 ) {
+    while (tempArr.length < 16 ) {
       let randomIdx = Math.floor(Math.random() * end)
-      if (!randomPhotoIdx.includes(randomIdx)) {
-        randomPhotoIdx.push(randomIdx)
-        randomPhotos.push(photos[randomIdx])
-        
+      if (!tempArr.includes(randomIdx)) {
+        tempArr.push(randomIdx)
       }
     }
-  }, [photos.length, randomPhotos, randomPhotoIdx, photos])
-  
-  if (photos && photos.length > 20) {
-    getRandomPhotos()
+    return tempArr.map(idx => photos[idx])
   }
+
+  useEffect(() => {
+    if (photos && photos.length > 20) {
+      setRandomPhotos(getRandomPhotos())
+    }
+  },[photos])
   
-  // getRandomPhotos()
-  console.log(randomPhotos)
 
     return (
       <div className="page"> 

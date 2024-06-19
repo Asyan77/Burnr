@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { allPhotos, getAllPhotos, getSearchedPhotosByDescription, getSearchedPhotosByTitle } from "../../store/photo";
+import { getAllPhotos, getSearchedPhotosByDescription, getSearchedPhotosByTitle } from "../../store/photo";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -7,8 +7,15 @@ import './SearchResults.css'
 
 function SearchResults() {
     const dispatch = useDispatch();
-    const {searchTerm} = useParams();
-    console.log(searchTerm)
+    let {searchTerm} = useParams();
+
+    useEffect(() => {
+        dispatch(getAllPhotos())
+    }, [dispatch])
+
+    if (!searchTerm) {
+        searchTerm = "ksdhl;HSGLHSLDGH"       
+    }
     //grab all photos with the words matching in the title
     const titleMatches = useSelector(getSearchedPhotosByTitle(searchTerm.toLowerCase()))
     //grab all photos with words matching in the description
@@ -34,10 +41,11 @@ function SearchResults() {
     }
     console.log(window.location.href)
     
-    useEffect(() => {
-        dispatch(getAllPhotos())
-    }, [dispatch])
-
+    if (uniqueMatches.length < 1) {
+        return (
+            <div className="no-results">No photos found</div>
+        )
+    }
 
     return (
         <ul className="results-grid"> 

@@ -20,7 +20,7 @@ function NavBar() {
 
   function handleSearch (e) {
     e.preventDefault();
-    navigate(`photos/search/${searchTerm}`, {replace:true})
+    navigate(`/photos/search/${searchTerm}`, {replace:true})
     setSearchTerm("")
   }
 

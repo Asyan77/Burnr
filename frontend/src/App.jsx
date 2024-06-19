@@ -36,7 +36,8 @@ const router = createBrowserRouter([
       { path: ':userId/:photoId', element: <SinglePhoto/>  },
       { path: ':userId', element: <You/>},
       { path: 'upload', element: <UploadPhotoPage/>},
-      {path: 'search/:searchTerm', element: <SearchResults/> }
+      { path: 'search/:searchTerm', element: <SearchResults/> },
+      { path: 'search', element: <SearchResults/>}
   
       // { path: ':username/albums', element: <Albums /> },
       // { path: 'username/albums/:albumId', element: <AlbumPhotos/> },
