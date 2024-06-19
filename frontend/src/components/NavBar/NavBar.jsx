@@ -41,7 +41,7 @@ function NavBar() {
               <input
                 className='search-bar-input'
                 type="text"
-                placeholder='search for photos by title'
+                placeholder='Search for photos'
                 value={searchTerm}
                 onChange={handleInputChange}
                 /> 
@@ -53,7 +53,6 @@ function NavBar() {
             <Link to='http://www.linkedin.com/in/ashley-yan' target="_blank">
                <img className='linkedIn-logged-in' src={linkedInLogo} alt="" />
             </Link>
-            {/* <input className="search-bar-logged-in" type="text" placeholder="Photos, people, or groups" disabled/> */}
             <Link to='/photos/upload'> 
               <SlCloudUpload className='upload-icon-NB'/>
             </Link>
