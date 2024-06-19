@@ -43,21 +43,24 @@ function SearchResults() {
     
     if (uniqueMatches.length < 1) {
         return (
-            <div className="no-results">No photos found</div>
+            <div className="no-results">Hey there, no photos found for {searchTerm}!</div>
         )
     }
 
     return (
-        <ul className="results-grid"> 
-            {uniqueMatches.map (photo => {
-            return (
-                <div key={photo.id}>
-                    <Link to={`/photos/${photo.userId}/${photo.id}`}>
-                        <img key={photo.id} className="resultPhoto" src={photo.photoUrl} alt="search results" />
-                    </Link>  
-                </div>
-            )
-        })} </ul>
+        <div className="search-page">
+            <div className="search-text">Search results for {searchTerm}:</div>
+            <ul className="results-grid"> 
+                {uniqueMatches.map (photo => {
+                    return (
+                        <div key={photo.id}>
+                        <Link className="result-img" to={`/photos/${photo.userId}/${photo.id}`}>
+                            <img key={photo.id} className="result-photo" src={photo.photoUrl} alt="search results" />
+                        </Link>  
+                    </div>
+                )
+            })} </ul>
+        </div>
     )
 
 }
