@@ -2,34 +2,34 @@ import './ExplorePage.css'
 import { useDispatch, useSelector, } from "react-redux";
 import { allPhotos, getAllPhotos} from "../../store/photo";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const ExplorePage =() => {
   const dispatch = useDispatch();
   const photos = useSelector(allPhotos);
-  const [randomPhotos, setRandomPhotos] = useState([]);
+  // const [randomPhotos, setRandomPhotos] = useState([]);
   
   useEffect(() => {
     dispatch(getAllPhotos())
   },[dispatch])
   
-  const getRandomPhotos = () => {
-    const tempArr = [];
-    let end = photos.length-1
-    while (tempArr.length < 16 ) {
-      let randomIdx = Math.floor(Math.random() * end)
-      if (!tempArr.includes(randomIdx)) {
-        tempArr.push(randomIdx)
-      }
-    }
-    return tempArr.map(idx => photos[idx])
-  }
+  // const getRandomPhotos = () => {
+  //   const tempArr = [];
+  //   let end = photos.length-1
+  //   while (tempArr.length < 16 ) {
+  //     let randomIdx = Math.floor(Math.random() * end)
+  //     if (!tempArr.includes(randomIdx)) {
+  //       tempArr.push(randomIdx)
+  //     }
+  //   }
+  //   return tempArr.map(idx => photos[idx])
+  // }
 
-  useEffect(() => {
-    if (photos && photos.length > 16) {
-      setRandomPhotos(getRandomPhotos())
-    }
-  },[photos])
+  // useEffect(() => {
+  //   if (photos && photos.length > 16) {
+  //     setRandomPhotos(getRandomPhotos())
+  //   }
+  // },[photos])
 
   // const getRandomPhotos = useCallback (() => {
   //   const tempArr = [];
@@ -48,7 +48,7 @@ const ExplorePage =() => {
       <div className="page"> 
         <div className="explore">Explore</div>
         <ul className="photoimage-grid">
-          {randomPhotos.map(photo  => {
+          {photos.map(photo  => {
             return (
               <div key={photo.id}>
                 <Link className="user-photoimage" to={`/photos/${photo.userId}/${photo.id}`}>
