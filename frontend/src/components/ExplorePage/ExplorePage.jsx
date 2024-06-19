@@ -26,10 +26,22 @@ const ExplorePage =() => {
   }
 
   useEffect(() => {
-    if (photos && photos.length > 20) {
+    if (photos && photos.length > 16) {
       setRandomPhotos(getRandomPhotos())
     }
   },[photos])
+
+  // const getRandomPhotos = useCallback (() => {
+  //   const tempArr = [];
+    // let end = photos.length-1
+    // while (tempArr.length < 16 ) {
+    //   let randomIdx = Math.floor(Math.random() * end)
+    //   if (!tempArr.includes(randomIdx)) {
+    //     tempArr.push(randomIdx)
+    //   }
+    // }
+    // return tempArr.map(idx => photos[idx])
+  // }, [photos.length])
   
 
     return (
