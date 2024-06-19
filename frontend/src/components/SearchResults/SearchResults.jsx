@@ -14,7 +14,7 @@ function SearchResults() {
     }, [dispatch])
 
     if (!searchTerm) {
-        searchTerm = "ksdhl;HSGLHSLDGH"       
+        searchTerm = "___"       
     }
     //grab all photos with the words matching in the title
     const titleMatches = useSelector(getSearchedPhotosByTitle(searchTerm.toLowerCase()))
