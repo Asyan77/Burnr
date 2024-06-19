@@ -27,6 +27,13 @@
     margin-right: 5%;
 }
 
+.fav-btn {
+    color: white;
+    height: 1.5em;
+    width: 2em;
+    /* background-color: hotpink; */
+} 
+
 .single-photo-image {
     padding-top: 11vh;
     height: 70vh;
@@ -44,8 +51,7 @@
     /* background-color: pink; */
 }
 
-.delete-photo-SP,
-.fav-btn {
+.delete-photo-SP {
     color: white;
     height: 1.5em;
     width: 2em;

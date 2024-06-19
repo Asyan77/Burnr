@@ -13,6 +13,9 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { GoTrash } from "react-icons/go";
 import { IoStarOutline } from "react-icons/io5";
 import EditPhotoDetails from '../EditPhotoDetails/EditPhotoDetails';
+import { CiStar } from "react-icons/ci";
+
+
 
 
 const SinglePhoto = () => {
@@ -66,6 +69,12 @@ const SinglePhoto = () => {
             navigate(`/photos/${userId}`)
         }
     }
+
+    const handleFav = async (e) => {
+        e.preventDefault();
+        
+    }
+
     
     if(!photo) return null
 
@@ -81,9 +90,11 @@ const SinglePhoto = () => {
                 {userId == currentUserId ?
                 <div className='photo-options-SP'>
                     <IoStarOutline className='fav-btn'/>
-                     <GoTrash className='delete-photo-SP' onClick={handleDeletePhoto}/>
+                    <GoTrash className='delete-photo-SP' onClick={handleDeletePhoto}/>
                 </div>
-                : null}
+            :  <div className='photo-options-SP'>
+                  <IoStarOutline className='fav-btn' onClick={handleFav}/>
+               </div>}
                 <div className='right-box-SP'>
                     <div className='top-right-box-SP'>
                         <img className='user-icon-SP' src={userIcon}/>
