@@ -2,53 +2,78 @@ import './ExplorePage.css'
 import { useDispatch, useSelector, } from "react-redux";
 import { allPhotos, getAllPhotos} from "../../store/photo";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+// import { csrfFetch } from "./../../utils/csrf";
 
 const ExplorePage =() => {
   const dispatch = useDispatch();
   const photos = useSelector(allPhotos);
-  // const [randomPhotos, setRandomPhotos] = useState([]);
+  const [randomPhotos, setRandomPhotos] = useState([]);
   
   useEffect(() => {
-    dispatch(getAllPhotos())
-  },[dispatch])
+      dispatch(getAllPhotos())
+    },[dispatch])
   
-  // const getRandomPhotos = () => {
-  //   const tempArr = [];
-  //   let end = photos.length-1
-  //   while (tempArr.length < 16 ) {
-  //     let randomIdx = Math.floor(Math.random() * end)
-  //     if (!tempArr.includes(randomIdx)) {
-  //       tempArr.push(randomIdx)
-  //     }
-  //   }
-  //   return tempArr.map(idx => photos[idx])
-  // }
-
-  // useEffect(() => {
-  //   if (photos && photos.length > 16) {
-  //     setRandomPhotos(getRandomPhotos())
-  //   }
-  // },[photos])
-
-  // const getRandomPhotos = useCallback (() => {
-  //   const tempArr = [];
-    // let end = photos.length-1
-    // while (tempArr.length < 16 ) {
-    //   let randomIdx = Math.floor(Math.random() * end)
-    //   if (!tempArr.includes(randomIdx)) {
-    //     tempArr.push(randomIdx)
-    //   }
+  // Option 2 - avoiding redux and fetching here:
+  // let photos;
+  // let randomPhotos;
+  // fetching to rails to grab all 61 pictures
+  // const grabAllPhotos = async ()=> {
+  //   const res = await csrfFetch('/api/photos', {
+  //     method: 'GET'
+  //   })
+  //   if (res.ok) {
+      // storing all 61 pictures as photos variable
+      // photos = await res.json();
+      // this function should return 16 random photos 
+      // randomPhotos = getRandomPhotos()
     // }
-    // return tempArr.map(idx => photos[idx])
-  // }, [photos.length])
-  
+  // }
+  // grabAllPhotos()  
+
+
+  console.log(photos)
+
+    
+  const getRandomPhotos = () => {
+    const tempArr = [];
+    let end = photos.length-1
+    while (tempArr.length < 16 ) {
+      let randomIdx = Math.floor(Math.random() * end)
+      if (!tempArr.includes(randomIdx)) {
+        tempArr.push(randomIdx)
+      }
+    }
+    return tempArr.map(idx => photos[idx])
+  }
+    
+    
+    // Option 3:
+    // const getRandomPhotos = useCallback (() => {
+      //   const tempArr = [];
+      // let end = photos.length-1
+      // while (tempArr.length < 16 ) {
+        //   let randomIdx = Math.floor(Math.random() * end)
+        //   if (!tempArr.includes(randomIdx)) {
+          //     tempArr.push(randomIdx)
+          //   }
+          // }
+          // return tempArr.map(idx => photos[idx])
+          // }, [photos.length])
+          
+          
+  useEffect(() => {
+    if (photos && photos.length >= 1) {
+        setRandomPhotos(getRandomPhotos())
+      }
+  },[photos])
+
 
     return (
       <div className="page"> 
         <div className="explore">Explore</div>
         <ul className="photoimage-grid">
-          {photos.map(photo  => {
+          {randomPhotos.map(photo  => {
             return (
               <div key={photo.id}>
                 <Link className="user-photoimage" to={`/photos/${photo.userId}/${photo.id}`}>
@@ -59,7 +84,7 @@ const ExplorePage =() => {
           })}
   
         </ul>
-      </div>
+     </div>
     )
 }
 

@@ -33,11 +33,33 @@ type: DESTROY_PHOTO,
   photoId
 });
 
+
 export const getAllPhotos = () => async dispatch => {
   const res = await grabAllPhotos()
+
   if (res.ok) {
     const photos =  await res.json();
+
+    // const [randomPhotos, setRandomPhotos] = useState([]);
+
+    // const getRandomPhotos = () => {
+    //   const tempArr = [];
+    //   let end = photos.length-1
+    //   while (tempArr.length < 16 ) {
+    //     let randomIdx = Math.floor(Math.random() * end)
+    //     if (!tempArr.includes(randomIdx)) {
+    //       tempArr.push(randomIdx)
+    //     }
+    //   }
+    //   console.log(tempArr.map(idx => photos[idx])
+    // )
+    //   return tempArr.map(idx => photos[idx])
+    // }
+
+    // return getRandomPhotos()
+
     return dispatch(receiveAllPhotos(photos));
+    // return dispatch(receiveAllPhotos(getRandomPhotos()));
   } else {
     const data = await res.json();
     return data.errors

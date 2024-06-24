@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :index, :show]
     resources :photos
     resources :comments
+    resources :favorites, only: [:create, :show, :destroy]
     resource :session, only: [:show, :create, :destroy]
   end
 
